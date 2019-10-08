@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 14:17:57 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/08 13:59:01 by fbougama         ###   ########.fr       */
+/*   Created: 2019/10/08 12:11:24 by fbougama          #+#    #+#             */
+/*   Updated: 2019/10/08 12:24:09 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+size_t ft_strlen(char *str)
 {
-	const char		*s;
-	char			*cpy;
-	int				i;
-	unsigned char	c2;
+	int	i;
 
-	s = src;
-	cpy = dst;
-	i = 0;
-	while (i++ < n && *s++ != c)
-		*cpy++ = *s++;
-	if (i == n)
-		return (NULL);
-	else
-		return (s + i + 1);
+	while (str[i])
+		i++;
+	return (i);
+}
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t dst_size)
+{
+	int	dst_len;
+
+	dst_len = ft_strlen(dst);
 }

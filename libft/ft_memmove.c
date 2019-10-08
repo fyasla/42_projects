@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 14:47:08 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/07 15:31:53 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/08 14:00:52 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	if (d < s)
 	{
 		while (i++ < len)
-			d[i] = s[i];
+			d++ = s++;
 	}
 	else
 	{
