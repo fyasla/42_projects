@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 12:11:24 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/08 14:54:15 by fbougama         ###   ########.fr       */
+/*   Created: 2019/10/08 14:56:10 by fbougama          #+#    #+#             */
+/*   Updated: 2019/10/08 15:18:32 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-size_t ft_strlen(char *str)
+int	ft_atoi(const char *str)
 {
 	int	i;
+	int sg;
+	int	res;
 
-	while (str[i])
-		i++;
-	return (i);
-}
-
-size_t	ft_strlcpy(char *dst, const char *src, size_t dst_size)
-{
-	int	src_len;
-	int i;
-
+	sg = 1;
+	res = 0;
 	i = 0;
-	src_len = ft_strlen(src);
-	if (src_len < dst_size - 1)
+	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\r' ||
+	str[i] == '\v' || str[i] == '\f' || str[i] == ' ')
+		i++;
+	while (str[i] == '-' || str[i] == '+')
 	{
-		while (src_len-- > 1)
-		{
-				
-		}
+		sg = sg * (44 - str[i]);
+		i++;
 	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		res = 10 * res + (str[i] - '0');
+		i++;
+	}
+	return (sg * res);
 }
