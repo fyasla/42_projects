@@ -6,16 +6,18 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 13:39:26 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/08 13:54:21 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/09 11:54:15 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 void	*ft_memset(void *b, int c, size_t len)
 {
 	unsigned char	*ptr;
 
 	ptr = b;
-	while (len--)
+	while (len-- > 0)
 		*ptr++ = c;
 	return (b);
 }

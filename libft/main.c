@@ -1,41 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 12:11:24 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/09 10:55:53 by fbougama         ###   ########.fr       */
+/*   Created: 2019/10/09 11:18:37 by fbougama          #+#    #+#             */
+/*   Updated: 2019/10/09 12:04:01 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-size_t	ft_strlen(char *str)
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+void	*ft_memset(void *b, int c, size_t len);
+
+int	main(int ac, char **av)
 {
-	int i;
+	(void)	ac;
+	void	*ptr1;
+	void	*ptr2;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-size_t	ft_strlcpy(char *dst, char *src, size_t dstsize)
-{
-	size_t	len_src;
-	int		i;
-
-	len_src = ft_strlen(src);
-	i = 0;
-	while (src[i] && i < dstsize - 1)
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	if (dstsize > 0)
-	{
-		dst[i] = 0;
-		return (len_src);
-	}
+	ptr1 = malloc(100);
+	ptr2 = malloc(100);
+	printf("ft_memset\n%s\n", ft_memset(ptr1, av[1][0], atoi(av[2])));
+	printf("memset\n%s\n", memset(ptr2, av[1][0], atoi(av[2])));
 	return (0);
 }
