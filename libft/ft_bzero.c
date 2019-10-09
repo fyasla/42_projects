@@ -6,15 +6,17 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 13:50:56 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/09 10:35:12 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/09 12:31:24 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 void	ft_bzero(void *s, size_t n)
 {
 	char	*str;
 
 	str = s;
-	while (n--)
-		*str++ = 0;
+	while (n-- > 0)
+		*str++ = '\0';
 }
