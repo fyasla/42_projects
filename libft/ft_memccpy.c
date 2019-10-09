@@ -6,24 +6,24 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 14:17:57 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/08 13:59:01 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/09 14:37:35 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	const char		*s;
-	char			*cpy;
-	int				i;
-	unsigned char	c2;
+	const char	*s;
+	char		*cpy;
 
 	s = src;
 	cpy = dst;
-	i = 0;
-	while (i++ < n && *s++ != c)
+	while (n-- > 0)
+	{
 		*cpy++ = *s++;
-	if (i == n)
-		return (NULL);
-	else
-		return (s + i + 1);
+		if (*(s - 1) == (char)c)
+			return (cpy);
+	}
+	return (NULL);
 }
