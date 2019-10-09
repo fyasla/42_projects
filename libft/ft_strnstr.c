@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 12:11:24 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/09 10:46:54 by fbougama         ###   ########.fr       */
+/*   Created: 2019/10/08 15:33:03 by fbougama          #+#    #+#             */
+/*   Updated: 2019/10/08 16:33:29 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-size_t	ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -20,19 +20,19 @@ size_t	ft_strlen(char *str)
 	return (i);
 }
 
-size_t	ft_strlcpy(char *dst, char *src, size_t dstsize)
+char * ft_strnstr(const char *haystack, const char *needle, unsigned int len)
 {
-	size_t	len_src;
-	int		i;
+	int	needle_len;
+	int	i;
+	int	haystack_len;
 
-	len_src = ft_strlen(src);
+	needle_len = ft_strlen(needle);
+	haystack_len = ft_strlen(haystack);
 	i = 0;
-	while (src[i] && i < dstsize - 1)
+	if (needle[0] == 0)
+		return (haystack);
+	while (i + len < haystack_len)
 	{
-		dst[i] = src[i];
-		i++;
+		
 	}
-	if (dstsize > 0)
-		dst[i] = 0;
-	return (len_src);
 }
