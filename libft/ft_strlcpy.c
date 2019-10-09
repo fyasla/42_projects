@@ -6,9 +6,11 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 12:11:24 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/09 10:55:53 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/09 19:12:13 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 size_t	ft_strlen(char *str)
 {
@@ -27,15 +29,11 @@ size_t	ft_strlcpy(char *dst, char *src, size_t dstsize)
 
 	len_src = ft_strlen(src);
 	i = 0;
-	while (src[i] && i < dstsize - 1)
-	{
-		dst[i] = src[i];
-		i++;
-	}
 	if (dstsize > 0)
 	{
-		dst[i] = 0;
-		return (len_src);
+		while (*src && i++ < dstsize - 1)
+			*dst++ = *src++;
+		*dst = '\0';
 	}
-	return (0);
+	return (len_src);
 }
