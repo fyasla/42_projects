@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:35:35 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/09 16:02:38 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/09 16:19:46 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 
 	str = (char*)s;
 	i = 0;
-	while (i < n && str[i] && str[i] != (char)c)
+	while (i < n && str[i] && str[i] != (unsigned char)c)
 		i++;
 	if (i == n || !str[i])
 		return (NULL);
