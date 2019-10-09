@@ -6,21 +6,22 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:35:35 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/07 15:56:20 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/09 16:02:38 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned char	c2;
-	int				i;
-	const char		*str;
+	char	*str;
+	int		i;
 
-	c2 = c;
+	str = (char*)s;
 	i = 0;
-	while (i < n && str[i])
+	while (i < n && str[i] && str[i] != (char)c)
 		i++;
-	if (i == n)
+	if (i == n || !str[i])
 		return (NULL);
 	else
 		return (str + i);
