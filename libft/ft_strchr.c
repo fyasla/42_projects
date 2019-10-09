@@ -6,9 +6,11 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 19:31:31 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/07 19:43:57 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/09 17:10:45 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -17,8 +19,8 @@ char	*ft_strchr(const char *s, int c)
 	i = 0;
 	while (s[i] && s[i] != c)
 		i++;
-	if (s[i] || (!s[i] && !c))
-		return (s + i);
+	if (s[i] || (s[i] == '\0' && c == '\0'))
+		return ((char*)s + i);
 	else
 		return (NULL);
 }

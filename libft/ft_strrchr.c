@@ -6,11 +6,13 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 19:46:04 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/07 19:57:10 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/09 17:32:22 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-size_t	ft_strlen(const char *str)
+#include <stdio.h>
+
+static size_t	ft_strlen(const char *str)
 {
 	int	i;
 
@@ -20,17 +22,17 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-char	*ft_strrchr(const char *s, int c)
+char			*ft_strrchr(const char *s, int c)
 {
 	int	len;
 	int	i;
 
 	len = ft_strlen(s);
 	i = 0;
-	while (i <= len && s[len - i] != c)
-		i++;
-	if (i <= len)
-		return (s + len - i);
+	while (len >= 0 && *(s + len) != c)
+		len--;
+	if (len >= 0)
+		return ((char*)s + len);
 	else
 		return (NULL);
 }
