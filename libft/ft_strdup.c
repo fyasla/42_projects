@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 14:02:04 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/10 14:18:27 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/10 15:15:54 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char			*ft_strdup(const char *s1)
 	char	*ptr;
 
 	len = ft_strlen(s1) + 1;
-	if (!(ptr = malloc(len)))
+	if (!(ptr = malloc(len * sizeof(s1[0]))))
 		return (NULL);
 	ft_memcpy(ptr, s1, len + 1);
 	return (ptr);

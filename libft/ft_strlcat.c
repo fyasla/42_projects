@@ -6,13 +6,13 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 10:56:11 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/10 11:32:07 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/10 15:11:02 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-static size_t	ft_strlen(char *str)
+static size_t	ft_strlen(const char *str)
 {
 	int	i;
 
@@ -41,12 +41,14 @@ size_t			ft_strlcat(char *dst, const char *src, size_t dstsize)
 
 	src_len = ft_strlen(src);
 	dst_len = ft_strlen(dst);
+	if (dstsize < dst_len)
+		dst_len = dstsize;
 	if (src_len + dst_len < dstsize)
 		ft_memcpy(dst + dst_len, src, src_len + 1);
 	else
 	{
-		ft_memcpy(dst + dst_len, src, dstsize - dst_len - 1);
-		dst[dst_len + dstsize] = '\0';
+		ft_memcpy(dst + dst_len, src, dstsize - 1);
+		dst[dst_len + dstsize - 1] = '\0';
 	}
 	return (src_len + dst_len);
 }
