@@ -6,11 +6,13 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 15:33:03 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/08 16:33:29 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/10 13:24:36 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+#include <stdio.h>
+
+static size_t	ft_strlen(char *str)
 {
 	int	i;
 
@@ -20,19 +22,26 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-char * ft_strnstr(const char *haystack, const char *needle, unsigned int len)
+char			*ft_strnstr(const char *haystack, const char *needle, size_t n)
 {
-	int	needle_len;
-	int	i;
-	int	haystack_len;
+	size_t	needle_len;
+	int		i;
+	size_t	haystack_len;
+	int		j;
 
-	needle_len = ft_strlen(needle);
-	haystack_len = ft_strlen(haystack);
+	needle_len = ft_strlen((char*)needle);
+	haystack_len = ft_strlen((char*)haystack);
 	i = 0;
-	if (needle[0] == 0)
-		return (haystack);
-	while (i + len < haystack_len)
+	if (needle[0] == '\0')
+		return ((char*)haystack);
+	while (i + needle_len <= haystack_len && i + needle_len <= n)
 	{
-		
+		j = 0;
+		while (haystack[i + j] == needle[j] && j < n)
+			j++;
+		if (j == n || needle[j] == '\0')
+			return ((char*)haystack + i);
+		i++;
 	}
+	return (NULL);
 }
