@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 14:56:10 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/08 15:18:32 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/10 13:28:00 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int	ft_atoi(const char *str)
 	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\r' ||
 	str[i] == '\v' || str[i] == '\f' || str[i] == ' ')
 		i++;
-	while (str[i] == '-' || str[i] == '+')
+	if (str[i] == '-' || str[i] == '+')
 	{
-		sg = sg * (44 - str[i]);
+		sg = (44 - str[i]);
 		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
