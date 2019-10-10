@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 13:35:41 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/10 13:51:20 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/10 13:58:16 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	ft_bzero(void *s, size_t n)
 		*str++ = '\0';
 }
 
-void		*calloc(size_t count, size_t size)
+void		*ft_calloc(size_t count, size_t size)
 {
 	void	*ptr;
 	size_t	tot;
@@ -30,7 +30,8 @@ void		*calloc(size_t count, size_t size)
 	tot = size * count;
 	if (tot == 0)
 		tot = 1;
-	if (ptr = malloc(tot))
+	ptr = malloc(tot);
+	if (ptr)
 		ft_bzero(ptr, tot);
 	return (ptr);
 }
