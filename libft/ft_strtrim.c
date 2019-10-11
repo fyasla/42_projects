@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 17:09:54 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/10 19:59:40 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/11 11:42:45 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static char		*ft_substr(char const *s, unsigned int start, size_t len)
 	i = 0;
 	if (!(ptr = malloc((len + 1) * sizeof(char))))
 		return (NULL);
-	while (s[start + i] && len-- > 0)
+	while (s[start] && len-- > 0)
 		ptr[i++] = s[start++];
 	ptr[i++] = '\0';
 	return (ptr);
@@ -55,12 +55,15 @@ char			*ft_strtrim(char const *s1, char const *set)
 
 	end = ft_strlen(s1) - 1;
 	start = 0;
-	/*while (ft_is_in(s1[start], set))
+	printf("is in\n%d\n", ft_is_in(s1[start], set));
+	while (ft_is_in(s1[start], set))
 		start++;
 	while (ft_is_in(s1[end], set))
-		end--;*/
+		end--;
 	size = end - start + 1;
+	printf("size\n%d\n", size);
 	if (end < start)
 		size = 0;
+	printf("size\n%d\n%c\n", size, s1[start]);
 	return (ft_substr(s1, start, size));
 }
