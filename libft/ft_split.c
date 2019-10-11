@@ -6,43 +6,46 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 18:58:09 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/11 14:37:09 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/11 18:34:41 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include <stdio.h>
 
-static size_t	ft_strlen(char *str)
+static size_t		ft_strclen(const char *str, char c)
 {
 	int i;
 
 	i = 0;
-	while (str[i])
+	while (str[i] && str[i] != c)
 		i++;
 	return (i);
 }
 
-static void		*ft_memcpy(void *dst, const void *src, size_t n)
+static void			*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	const char	*s;
 	char		*d;
 
 	s = (const char *)src;
-	d = (char *) dst;
+	d = (char *)dst;
 	while (n-- > 0)
 		*d++ = *s++;
 	return (dst);
 }
 
-static void		*ft_strdup(const char *s1)
+static void			*ft_strcdup(const char *s1, char c)
 {
 	size_t	len;
 	char	*cpy;
 
-	len = ft_strlen(s1);
-	if (!(cpy = malloc((len + 1) * sizeof(char))))
+	len = ft_strclen(s1, c);
+	if (!(cpy = malloc(10 * (len + 1) * sizeof(char))))
 		return (NULL);
-	return(ft_memcpy(cpy, s1, len + 1));
+	cpy = ft_memcpy(cpy, s1, len);
+	cpy[len] = '\0';
+	return (cpy);
 }
 
 static unsigned int	ft_cpt_words(char const *s, char c)
@@ -62,26 +65,29 @@ static unsigned int	ft_cpt_words(char const *s, char c)
 	return (n);
 }
 
-char			**ft_split(char const *s, char c)
+char				**ft_split(char const *s, char c)
 {
-	char			*s_cpy;
 	char			**tab;
 	unsigned int	n;
-	size_t			len;
+	int				i;
+	int				j;
 
-	len = ft_strlen(s);
-	s_cpy = (char*)s;
-	n = ft_cpt_words(char const *s, char c);
-	if (!(tab = malloc((n + 1)* sizeof(char*))))
+	j = 0;
+	i = 0;
+	n = ft_cpt_words(s, c);
+	if (!(tab = malloc((n + 1) * sizeof(char*))))
 		return (NULL);
-	while (*s_cpy)
+	while (s[i])
 	{
-		while (*s_cpy)
+		while (s[i] == c)
+			i++;
+		if (s[i] && s[i] != c)
 		{
-			while (*s_cp)
-			s_cpy = ft_memccpy(*tab++, s_cpy, c, (s_cpy - s) + len);
+			n = ft_strclen(s + i, c);
+			tab[j++] = (char*)ft_strcdup(s + i, c);
+			i += n;
 		}
 	}
-
+	tab[j] = NULL;
 	return (tab);
 }
