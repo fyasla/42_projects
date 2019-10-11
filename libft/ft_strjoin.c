@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 15:31:52 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/10 16:52:08 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/11 12:24:38 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	l1 = ft_strlen(s1);
 	l2 = ft_strlen(s2);
 	printf("bjr");
-	if (!(ptr = malloc((l1 + l2) * sizeof(char))))
+	if (!(ptr = malloc((l1 + l2 + 1) * sizeof(char))))
 		return (NULL);
 	printf("bjr");
 	while (l1-- > 0)
