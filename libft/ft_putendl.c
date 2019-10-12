@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/12 18:49:12 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/12 19:05:36 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/12 19:40:21 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static size_t	ft_strlen(char *s)
 	return (i);
 }
 
-void	ft_putendl_fd(char *s, int fd)
+void			ft_putendl_fd(char *s, int fd)
 {
 	size_t	len;
 
