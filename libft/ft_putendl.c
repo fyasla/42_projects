@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putendl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/12 18:19:14 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/12 18:50:48 by fbougama         ###   ########.fr       */
+/*   Created: 2019/10/12 18:49:12 by fbougama          #+#    #+#             */
+/*   Updated: 2019/10/12 19:05:36 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar_fd(char c, int fd)
+static size_t	ft_strlen(char *s)
 {
-	write(fd, &c, sizeof(char));
+	int i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+
+void	ft_putendl_fd(char *s, int fd)
+{
+	size_t	len;
+
+	len = ft_strlen(s);
+	write(fd, s, len * sizeof(char));
+	write(fd, "\n", sizeof(char));
 }
