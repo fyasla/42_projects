@@ -15,6 +15,6 @@ char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int					main(int ac, char **av)
 {
 	(void)ac;
-	printf("fonction : \nft_strmapi\n%s\n", ft_strmapi(av[1], &ft_invcasse));
+	printf("fonction : ft_invcasse\nft_strmapi\n%s\n", ft_strmapi(av[1], &ft_invcasse));
 	return (0);
 }
