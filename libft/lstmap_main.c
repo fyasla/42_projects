@@ -1,13 +1,17 @@
+#include "libft.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "libft.h"
 
 t_list		*ft_lstnew(void *content);
-void		ft_lstdelone(t_list *lst, void (*del)(void*));
+t_list 		*ft_lstmap(t_list *lst, void *(*f)(void *));
 
-static void ft_delete(void *content)
+static void	ft_f(void* ptr)
 {
-	content = NULL;
+	char	*str;
+
+	str = (char*)ptr;
+	while (*str)
+		*str++ = '5';
 }
 
 static void	ft_lstprint(t_list **begin)
@@ -20,12 +24,14 @@ static void	ft_lstprint(t_list **begin)
 		printf("%s ", elem->content);
 		elem = elem->next;
 	}
+	printf("\n");
 }
 
 int			main(int ac, char **av)
 {
 	(void)ac;
 	t_list	**begin;
+	t_list	*new_begin;
 	t_list	*e0;
 	t_list	*e1;
 	t_list	*e2;
@@ -40,18 +46,18 @@ int			main(int ac, char **av)
 	e1->next = e2;
 	e2->next = e3;
 	if(!(begin = malloc (sizeof(e0))))
-		return (1);
+		return (-1);
 	*begin = e0;
 
 	printf("initial list : ");
 	ft_lstprint(begin);
-	printf("\n");
 
-	printf("\nadress before : %p\ncontent before : %s\n", e1->content, e1->content);
-	ft_lstdelone(e1, &ft_delete);
-	printf("\nadress after : %p\ncontent after : %s\n", e1->content, e1->content);
+	new_begin = ft_lstmap(*begin, ft_f);
 
-	printf("list after delone : ");
+	printf("initial list after lstmap : ");
 	ft_lstprint(begin);
+
+	printf("new list after lstmap : ");
+	ft_lstprint(&new_begin);
 	return (0);
 }

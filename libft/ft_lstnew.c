@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 12:11:41 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/13 13:34:52 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/14 15:26:49 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*new;
 
-	if (!(new = malloc(sizeof(t_list))))
+	if (!(new = (t_list*)malloc(sizeof(t_list))))
 		return (NULL);
 	new->content = content;
 	new->next = NULL;
