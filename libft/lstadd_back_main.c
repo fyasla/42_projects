@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 t_list		*ft_lstnew(void *content);
-void		ft_lstadd_front(t_list **alst, t_list *new);
+void		ft_lstadd_back(t_list **alst, t_list *new);
 
 static void	ft_lstprint(t_list **begin)
 {
@@ -41,11 +41,12 @@ int			main(int ac, char **av)
 
 	printf("initial list : ");
 	ft_lstprint(begin);
+	printf("\n");
 
 	new = ft_lstnew(av[5]);
-	ft_lstadd_front(begin, new);
+	ft_lstadd_back(begin, new);
 
-	printf("list after add front : ");
+	printf("list after add back : ");
 	ft_lstprint(begin);
 	return (0);
 }
