@@ -6,9 +6,12 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 12:15:14 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/14 17:57:23 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/15 10:22:35 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef LIBFT_H
+# define LIBFT_H
 
 #include <unistd.h>
 #include <stdio.h>
@@ -65,3 +68,5 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *));
+
+#endif
