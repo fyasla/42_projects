@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 12:11:24 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/09 19:12:13 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/15 13:44:14 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ size_t	ft_strlen(char *str)
 size_t	ft_strlcpy(char *dst, char *src, size_t dstsize)
 {
 	size_t	len_src;
-	int		i;
+	size_t	i;
 
 	len_src = ft_strlen(src);
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:35:35 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/09 16:19:46 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/15 13:43:47 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	char	*str;
-	int		i;
+	size_t	i;
 
 	str = (char*)s;
 	i = 0;
