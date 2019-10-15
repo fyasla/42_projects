@@ -6,11 +6,11 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 17:57:18 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/07 18:00:22 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/15 17:01:16 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprintint(int c)
+int	ft_isprint(int c)
 {
 	return (c >= 32 && c <= 126);
 }
