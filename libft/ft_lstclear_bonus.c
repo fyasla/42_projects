@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/13 12:11:41 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/14 15:26:49 by fbougama         ###   ########.fr       */
+/*   Created: 2019/10/16 12:41:36 by fbougama          #+#    #+#             */
+/*   Updated: 2019/10/16 12:41:41 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdlib.h>
+#include "libft_bonus.h"
 
-t_list	*ft_lstnew(void *content)
+static void	ft_delone(t_list *lst, void (*del)(void*))
 {
-	t_list	*new;
+	del(lst->content);
+	free(lst);
+}
 
-	if (!(new = (t_list*)malloc(sizeof(t_list))))
-		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	return (new);
+void		ft_lstclear(t_list **lst, void (*del)(void*))
+{
+	t_list	*e;
+
+	e = *lst;
+	while (e != NULL)
+	{
+		ft_delone(e, del);
+		e = e->next;
+	}
+	*lst = NULL;
 }

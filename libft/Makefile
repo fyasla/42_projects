@@ -6,7 +6,7 @@
 #    By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/12 15:32:20 by fbougama          #+#    #+#              #
-#    Updated: 2019/10/15 13:45:13 by fbougama         ###   ########.fr        #
+#    Updated: 2019/10/16 13:39:58 by fbougama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,12 +23,16 @@ ft_atoi.c ft_calloc.c ft_strdup.c \
 ft_substr.c ft_strjoin.c ft_strtrim.c \
 ft_split.c ft_itoa.c ft_strmapi.c \
 ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c \
-ft_putnbr_fd.c ft_lstnew.c ft_lstadd_front.c \
+ft_putnbr_fd.c
+
+SRCS_BONUS = ft_lstnew.c ft_lstadd_front.c \
 ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
 ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
 ft_lstmap.c
 
 OBJS = $(SRCS:.c=.o)
+
+OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 CC = gcc
 
@@ -38,6 +42,8 @@ all		: $(NAME)
 
 $(NAME)	: $(OBJS)
 	ar rcs $(NAME) $(OBJS)
+
+bonus : $(NAME) $(OBJS_BONUS)
 
 clean	:
 	rm -f *.o

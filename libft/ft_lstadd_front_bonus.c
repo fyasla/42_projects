@@ -1,33 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/14 11:30:24 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/14 13:47:57 by fbougama         ###   ########.fr       */
+/*   Created: 2019/10/16 12:41:23 by fbougama          #+#    #+#             */
+/*   Updated: 2019/10/16 12:41:30 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft.h"
+#include "libft_bonus.h"
 
-static void	ft_delone(t_list *lst, void (*del)(void*))
+void	ft_lstadd_front(t_list **alst, t_list *new)
 {
-	del(lst->content);
-	free(lst);
-}
-
-void		ft_lstclear(t_list **lst, void (*del)(void*))
-{
-	t_list	*e;
-
-	e = *lst;
-	while (e != NULL)
-	{
-		ft_delone(e, del);
-		e = e->next;
-	}
-	*lst = NULL;
+	new->next = *alst;
+	*alst = new;
 }

@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/14 11:17:37 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/14 17:20:06 by fbougama         ###   ########.fr       */
+/*   Created: 2019/10/16 12:41:06 by fbougama          #+#    #+#             */
+/*   Updated: 2019/10/16 12:41:17 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft.h"
+#include "libft_bonus.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void*))
+void	ft_lstadd_back(t_list **alst, t_list *new)
 {
-	(*del)(lst->content);
-	free(lst);
+	t_list	*penult;
+
+	penult = ft_lstlast(*alst);
+	penult->next = new;
+	new->next = NULL;
 }

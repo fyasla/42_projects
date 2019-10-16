@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/14 13:50:02 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/14 16:41:59 by fbougama         ###   ########.fr       */
+/*   Created: 2019/10/16 12:42:16 by fbougama          #+#    #+#             */
+/*   Updated: 2019/10/16 12:42:22 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "libft.h"
+#include "libft_bonus.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+t_list	*ft_lstlast(t_list *lst)
 {
-	while (lst != NULL)
-	{
-		(*f)(lst->content);
+	while (lst->next != NULL)
 		lst = lst->next;
-	}
+	return (lst);
 }

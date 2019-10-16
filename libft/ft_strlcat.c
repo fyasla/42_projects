@@ -6,49 +6,37 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 10:56:11 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/10 15:11:02 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/16 13:35:22 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-static size_t	ft_strlen(const char *str)
+size_t		ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	int	i;
+	size_t	i;
+	size_t	len;
+	char	*dst2;
+	char	*src2;
 
+	src2 = (char*)src;
+	dst2 = dst;
 	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-static void		*ft_memcpy(void *dst, const void *src, size_t n)
-{
-	char		*d;
-	const char	*s;
-
-	d = dst;
-	s = src;
-	while (n-- > 0)
-		*d++ = *s++;
-	return (dst);
-}
-
-size_t			ft_strlcat(char *dst, const char *src, size_t dstsize)
-{
-	size_t	src_len;
-	size_t	dst_len;
-
-	src_len = ft_strlen(src);
-	dst_len = ft_strlen(dst);
-	if (dstsize < dst_len)
-		dst_len = dstsize;
-	if (src_len + dst_len < dstsize)
-		ft_memcpy(dst + dst_len, src, src_len + 1);
-	else
+	while (i++ < dstsize && *dst2 != '\0')
+		dst2++;
+	len = dst2 - dst;
+	if (dstsize - len == 0)
+		return (len + ft_strlen(src));
+	i = len;
+	while (*src2 != '\0')
 	{
-		ft_memcpy(dst + dst_len, src, dstsize - 1);
-		dst[dst_len + dstsize - 1] = '\0';
+		if (i++ < dstsize - 1)
+		{
+			*dst2 = *src2;
+			dst2++;
+		}
+		src2++;
 	}
-	return (src_len + dst_len);
+	*dst2 = '\0';
+	return (len + src2 - src);
 }

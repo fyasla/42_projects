@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 18:44:11 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/11 19:23:10 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/16 11:51:35 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,25 +35,25 @@ char	*ft_itoa(int n)
 {
 	char			*str;
 	int				dec;
-	unsigned int	abs_n;
 
+	if (n == -2147483648)
+		return ("-2147483648");
 	dec = ft_nb_dec(n);
 	if (!(str = malloc((dec + 1) * sizeof(char))))
 		return (NULL);
-	abs_n = n;
 	if (n < 0)
 	{
 		*str = '-';
-		abs_n = -n;
+		n = -n;
 	}
 	str += dec;
 	*str-- = '\0';
-	if (abs_n == 0)
+	if (n == 0)
 		*str-- = '0';
-	while (abs_n != 0)
+	while (n != 0)
 	{
-		*str-- = '0' + (abs_n % 10);
-		abs_n = abs_n / 10;
+		*str-- = '0' + (n % 10);
+		n = n / 10;
 	}
 	if (*str == '-')
 		return (str);
