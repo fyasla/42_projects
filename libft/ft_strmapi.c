@@ -6,11 +6,11 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/12 17:16:30 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/18 12:11:04 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/18 14:34:40 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libfth"
+#include "libft.h"
 
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

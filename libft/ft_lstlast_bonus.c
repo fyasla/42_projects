@@ -6,11 +6,11 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 12:42:16 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/16 18:55:28 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/18 14:32:19 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_bonus.h"
+#include "libft.h"
 
 t_list	*ft_lstlast(t_list *lst)
 {
