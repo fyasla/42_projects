@@ -6,21 +6,11 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 15:33:03 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/15 13:44:51 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/18 17:26:36 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-static size_t	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
+#include "libft.h"
 
 char			*ft_strnstr(const char *haystack, const char *needle, size_t n)
 {
