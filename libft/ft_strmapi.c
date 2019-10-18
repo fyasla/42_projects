@@ -6,21 +6,11 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/12 17:16:30 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/12 17:32:55 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/18 12:11:04 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-static unsigned int	ft_strlen(char const *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
+#include "libfth"
 
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 17:09:54 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/16 14:03:09 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/18 12:04:41 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ char			*ft_strtrim(char const *s1, char const *set)
 	unsigned int	start;
 	size_t			end;
 	size_t			size;
+	char			*res;
 
 	end = ft_strlen(s1) - 1;
 	start = 0;
@@ -42,5 +43,7 @@ char			*ft_strtrim(char const *s1, char const *set)
 	size = end - start + 1;
 	if (end < start)
 		return ((char*)s1 + start);
-	return (ft_substr(s1, start, size));
+	if (!(res = ft_substr(s1, start, size)))
+		return (NULL);
+	return (res);
 }
