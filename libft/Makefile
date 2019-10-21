@@ -6,7 +6,7 @@
 #    By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/12 15:32:20 by fbougama          #+#    #+#              #
-#    Updated: 2019/10/18 19:11:31 by fbougama         ###   ########.fr        #
+#    Updated: 2019/10/21 15:01:36 by fbougama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,9 +30,9 @@ ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
 ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
 ft_lstmap.c
 
-OBJS = $(SRCS:.c=.o)
+OBJS = $(SRCS:%.c=%.o)
 
-OBJS_BONUS = $(SRCS_BONUS:.c=.o)
+OBJS_BONUS = $(SRCS_BONUS:%.c=%.o)
 
 CC = gcc
 
@@ -44,6 +44,9 @@ all		: $(NAME)
 
 $(NAME)	: $(OBJS)
 	ar rcs $(NAME) $(OBJS) 
+
+%.o:	%.c
+		@$(CC) $(FLAGS) -o $@ -c $<
 
 bonus : $(OBJS) $(OBJS_BONUS)
 	ar rcs $(NAME) $(OBJS) $(OBJS_BONUS)

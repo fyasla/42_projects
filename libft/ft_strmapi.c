@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/12 17:16:30 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/18 14:34:40 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/19 11:46:37 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char				*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	i = 0;
 	len = ft_strlen(s);
-	if (!(res = malloc((len + 1) * sizeof(char))))
+	if (!s || !f || !(res = malloc((len + 1) * sizeof(char))))
 		return (NULL);
 	while (s[i])
 	{

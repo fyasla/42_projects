@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 17:49:49 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/18 19:15:19 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/21 19:21:07 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*e;
 	void	*content;
 
+	if (!(*f) || !del || !lst)
+		return (NULL);
 	if (!(cpy_start = (t_list**)malloc(sizeof(cpy_start))))
 		return (NULL);
 	*cpy_start = ft_lstnew((*f)(lst->content));

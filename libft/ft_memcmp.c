@@ -6,11 +6,11 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 16:08:51 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/15 16:57:32 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/21 19:43:25 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {

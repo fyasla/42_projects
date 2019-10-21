@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 15:31:52 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/15 16:39:26 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/19 11:23:28 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*ptr;
 	int		i;
 
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
 	i = 0;
 	l1 = ft_strlen(s1);
 	l2 = ft_strlen(s2);
