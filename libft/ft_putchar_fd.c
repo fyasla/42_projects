@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/12 18:19:14 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/12 18:50:48 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/22 13:15:50 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	write(fd, &c, sizeof(char));
+	write(fd, &c, 1);
 }

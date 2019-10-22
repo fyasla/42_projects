@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 17:49:49 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/21 19:21:07 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/22 17:51:12 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,3 +34,4 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	}
 	return (*cpy_start);
 }
+

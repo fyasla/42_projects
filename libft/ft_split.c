@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 18:58:09 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/21 13:15:24 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/22 17:29:03 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,17 @@ static unsigned int	ft_cpt_words(char const *s, char c)
 	return (n);
 }
 
+static	void		*freebuffs(char **buff)
+{
+	char **tmp;
+
+	tmp = buff;
+	while (*tmp)
+		free(tmp++);
+	free(buff);
+	return (0);
+}
+
 char				**ft_split(char const *s, char c)
 {
 	char			**tab;
@@ -75,7 +86,7 @@ char				**ft_split(char const *s, char c)
 		{
 			n = ft_strclen(s + i, c);
 			if (!(tab[j++] = (char*)ft_strcdup(s + i, c)))
-				return (NULL);
+				return (freebuffs(tab));
 			i += n;
 		}
 	}
