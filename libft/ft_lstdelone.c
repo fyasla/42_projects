@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 17:49:21 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/22 17:42:36 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/22 19:39:48 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 void		ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	if (lst && del)
-	{
-		if (lst->content)
-			(*del)(lst->content);
-		free(lst);
-	}
+	if (!lst || !del)
+		return ;
+	del(lst->content);
+	free(lst);
 }
