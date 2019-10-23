@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 12:15:14 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/18 18:52:35 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/23 13:43:17 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define LIBFT_H
 
 # include <unistd.h>
-# include <stdio.h>
 # include <stdlib.h>
 
 typedef struct	s_list

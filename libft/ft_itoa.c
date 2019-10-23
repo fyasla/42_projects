@@ -6,11 +6,11 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 18:44:11 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/16 14:55:24 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/23 13:41:40 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 int		ft_nb_dec(int n)
 {

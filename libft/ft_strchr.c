@@ -6,11 +6,11 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 19:31:31 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/21 19:36:35 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/23 13:45:55 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
