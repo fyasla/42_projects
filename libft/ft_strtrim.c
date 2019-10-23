@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 17:09:54 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/19 11:38:50 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/23 12:59:31 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,17 @@ char			*ft_strtrim(char const *s1, char const *set)
 
 	if (!s1 || !set)
 		return (NULL);
-	end = ft_strlen(s1) - 1;
+	end = ft_strlen(s1);
+	if (end > 0)
+		end = end - 1;
 	start = 0;
 	while (ft_is_in(s1[start], set))
 		start++;
 	while (ft_is_in(s1[end], set) && end > 0)
 		end--;
-	size = end - start + 1;
 	if (end < start)
 		return ((char*)s1 + start);
+	size = end - start + 1;
 	if (!(res = ft_substr(s1, start, size)))
 		return (NULL);
 	return (res);

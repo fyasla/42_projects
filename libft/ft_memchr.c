@@ -6,11 +6,11 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:35:35 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/21 19:26:31 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/10/23 12:44:35 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
