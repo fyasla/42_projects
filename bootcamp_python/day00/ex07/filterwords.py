@@ -1,0 +1,2 @@
+def filterword(list, n):
+	
