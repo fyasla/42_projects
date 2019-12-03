@@ -5,42 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/21 13:39:41 by fbougama          #+#    #+#             */
-/*   Updated: 2019/11/26 11:09:07 by fbougama         ###   ########.fr       */
+/*   Created: 2019/12/03 09:56:35 by fbougama          #+#    #+#             */
+/*   Updated: 2019/12/03 15:41:04 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *str)
+int		ft_strlen(char *str)
 {
 	int	i;
 
-	if (!str)
-		return (0);
 	i = 0;
 	while (str[i])
 		i++;
 	return (i);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	ft_bzero(char *ptr, unsigned int n)
 {
-	char	*ptr;
-	size_t	i;
-
-	if (s == NULL)
-		return (NULL);
-	i = 0;
-	if (!(ptr = malloc((len + 1) * sizeof(char))))
-		return (NULL);
-	while (start < ft_strlen(s) && len-- > 0 && s[start])
-		ptr[i++] = s[start++];
-	ptr[i] = '\0';
-	return (ptr);
+	if (!ptr)
+		return ;
+	while (n-- > 0)
+		*ptr++ = '\0';
 }
 
-int		ft_pos(const char c, const char *str)
+int		ft_pos(char c, char *str)
 {
 	int	i;
 
@@ -56,32 +46,42 @@ int		ft_pos(const char c, const char *str)
 	return (-1);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
-	char	*new;
+	char	*joined;
 	int		i;
 
 	i = 0;
+	if (!s1 && !s2)
+		return (NULL);
 	if (!s1)
-		return ((char*)s2);
+		return (s2);
 	if (!s2)
-		return ((char*)s1);
-	if (!(new = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1))))
+		return (s1);
+	if (!(joined = (char*)malloc(ft_strlen(s1) + ft_strlen(s2) + 1)))
 		return (NULL);
 	while (*s1)
-		new[i++] = *s1++;
+		joined[i++] = *s1++;
 	while (*s2)
-		new[i++] = *s2++;
-	new[i] = '\0';
-	return (new);
+		joined[i++] = *s2++;
+	joined[i] = '\0';
+	return (joined);
 }
 
-void	*ft_bzero(void *b, size_t len)
+char	*ft_substr(char *str, int start, int size)
 {
-	unsigned char	*ptr;
+	int		length;
+	char	*sub;
+	int		i;
 
-	ptr = b;
-	while (len-- > 0)
-		*ptr++ = 0;
-	return (b);
+	i = 0;
+	length = size;
+	if (ft_strlen(str) - start < size)
+		length = ft_strlen(str) - start;
+	if (!(sub = (char*)malloc(length + 1)))
+		return (NULL);
+	while (i < length)
+		sub[i++] = str[start++];
+	sub[i] = '\0';
+	return (sub);
 }
