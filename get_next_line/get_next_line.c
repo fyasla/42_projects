@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 12:33:58 by fbougama          #+#    #+#             */
-/*   Updated: 2019/12/03 15:45:45 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/12/03 16:34:12 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int		get_next_line(int fd, char **line)
 	char		*buff;
 	int			rd;
 	int			pos;
+	char		*tmp;
 
 	rd = 1;
 	*line = NULL;
@@ -31,14 +32,17 @@ int		get_next_line(int fd, char **line)
 		ft_bzero(buff, BUFFER_SIZE + 1);
 		if ((rd = read(fd, buff, BUFFER_SIZE)) == -1)
 			return (-1);
+		tmp = save;
 		save = ft_strjoin(save, buff);
-		//free(tmp);
+		free(tmp);
 		//free(buff);
 	}
 	if (pos == -1)
 		pos = ft_strlen(save);
 	*line = ft_substr(save, 0, pos);
+	tmp = save;
 	save = ft_substr(save, pos + 1, ft_strlen(save));
+	free(tmp);
 	if (rd == 0)
 		return (0);
 	else
