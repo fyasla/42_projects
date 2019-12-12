@@ -1,34 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   lengths.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 14:56:10 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/28 10:47:51 by fbougama         ###   ########.fr       */
+/*   Created: 2019/12/12 18:06:19 by fbougama          #+#    #+#             */
+/*   Updated: 2019/12/12 19:27:32 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *str)
-{
-	int sg;
-	int	res;
+#include "ft_printf.h"
 
-	sg = 1;
-	res = 0;
-	while (*str == '\t' || *str == '\n' || *str == '\r' ||
-	*str == '\v' || *str == '\f' || *str == ' ')
-		str++;
-	if (*str == '-' || *str == '+')
+int		ft_is_in(char c, char *str)
+{
+	if (!str)
+		return (0);
+	while (*str)
 	{
-		sg = (44 - *str);
-		str++;
+		if (*str == c)
+			return (1);
 	}
-	while (*str >= '0' && *str <= '9')
+	return (0);
+}
+
+int		ft_fs_len(char *start)
+{
+	int	len;
+
+	len = 0;
+	if (!start)
+		return (-1);
+	while (start[len])
 	{
-		res = 10 * res + (*str - '0');
-		str++;
+		if (ft_is_in(start[len], "cspdiuxX%"))
+			return (len);
+		len++;
 	}
-	return (sg * res);
+	return (-2);
 }

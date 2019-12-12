@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/10 14:02:04 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/23 12:42:49 by fbougama         ###   ########.fr       */
+/*   Created: 2019/12/11 16:00:40 by fbougama          #+#    #+#             */
+/*   Updated: 2019/12/12 19:22:41 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-char			*ft_strdup(const char *s1)
+# include <stdarg.h>
+# include <unistd.h>
+
+typedef struct	s_form_spec
 {
-	size_t	len;
-	char	*ptr;
+	char	flag;
+	int		width;
+	int		prec;
+	int		size;
+	char	type;
+}				t_form_spec;
 
-	len = ft_strlen(s1) + 1;
-	if (!(ptr = malloc(len * sizeof(char))))
-		return (NULL);
-	return ((char *)ft_memcpy(ptr, s1, len));
-}
+int		ft_is_in(char c, char *str);
+int		ft_fs_len(char *start);
+int		ft_atoi(const char *str);
+int		ft_nb_dec(int n)
+char	*ft_itoa(int n)
+int		ft_printf(const char *format, ...);
+
+#endif

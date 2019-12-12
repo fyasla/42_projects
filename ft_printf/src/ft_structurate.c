@@ -1,27 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_structurate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 14:03:40 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/28 10:42:20 by fbougama         ###   ########.fr       */
+/*   Created: 2019/12/12 18:10:26 by fbougama          #+#    #+#             */
+/*   Updated: 2019/12/12 19:23:51 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+int		ft_fs_str_size(char)
+
+char	*ft_starnconv(char *start, int len)
 {
-	char	*cpy;
-	char	*s;
+	int		i;
+	char	*fs_str;
+	char	*to_add;
 
-	if (!dst && !src)
-		return (NULL);
-	s = (char*)src;
-	cpy = (char*)dst;
-	while (n-- > 0)
-		*cpy++ = *s++;
-	return (dst);
+	i = 0;
+	while (i < len)
+	{
+		if (start[i] == '*')
+		{
+			to_add = ft_itoa(ap, int);
+		}
+	}
+}
+
+
+t_form_spec	ft_structurate(char *str)
+{
+	t_form_spec	fs;
+
+	fs = 
 }

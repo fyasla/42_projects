@@ -1,18 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   manage_int.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/11 18:44:11 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/30 13:54:15 by fbougama         ###   ########.fr       */
+/*   Created: 2019/12/12 19:16:11 by fbougama          #+#    #+#             */
+/*   Updated: 2019/12/12 19:26:14 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-static int	ft_nb_dec(int n)
+int	ft_atoi(const char *str)
+{
+	int sg;
+	int	res;
+
+	sg = 1;
+	res = 0;
+	while (*str == '\t' || *str == '\n' || *str == '\r' ||
+	*str == '\v' || *str == '\f' || *str == ' ')
+		str++;
+	if (*str == '-' || *str == '+')
+	{
+		sg = (44 - *str);
+		str++;
+	}
+	while (*str >= '0' && *str <= '9')
+	{
+		res = 10 * res + (*str - '0');
+		str++;
+	}
+	return (sg * res);
+}
+
+int		ft_nb_dec(int n)
 {
 	int		dec;
 
@@ -29,7 +52,7 @@ static int	ft_nb_dec(int n)
 	return (dec);
 }
 
-char		*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char			*str;
 	int				dec;

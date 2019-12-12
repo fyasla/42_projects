@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 15:35:35 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/28 10:40:12 by fbougama         ###   ########.fr       */
+/*   Created: 2019/12/11 15:58:16 by fbougama          #+#    #+#             */
+/*   Updated: 2019/12/12 17:59:04 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../inc/ft_printf.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+int		ft_printf(const char *format, ...)
 {
-	unsigned char	*str;
+	va_list	ap;
+	int		count;
+	int		i;
 
-	str = (unsigned char*)s;
-	while (n-- > 0)
+	i = 0;
+	count = 0;
+	va_start(ap, format);
+	while (format[i])
 	{
-		if (*str == (unsigned char)c)
-			return (str);
-		str++;
+		if (format[i] == '%')
+			i++;
+			//ft_manage_conv(format, ap, &i, &count);
+		else
+		{
+			write(1, format + i, 1);
+			count++;
+			i++;
+		}
 	}
-	return (NULL);
+	va_end(ap);
+	return (count);
 }

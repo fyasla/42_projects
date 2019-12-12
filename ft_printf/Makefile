@@ -6,15 +6,15 @@
 #    By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/11 14:25:15 by fbougama          #+#    #+#              #
-#    Updated: 2019/12/11 14:27:46 by fbougama         ###   ########.fr        #
+#    Updated: 2019/12/12 19:24:53 by fbougama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = #
+NAME = libftprintf.a
 
-SRCS = #
+SRCS = src/length.c src/manage_int.c src/ft_printf.c
 
-SRCS_BONUS = #
+SRCS_BONUS = 
 
 OBJS = $(SRCS:%.c=%.o)
 
