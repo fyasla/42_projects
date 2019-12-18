@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 16:00:40 by fbougama          #+#    #+#             */
-/*   Updated: 2019/12/12 19:22:41 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/12/18 21:44:12 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,50 @@
 
 # include <stdarg.h>
 # include <unistd.h>
+# include <stdlib.h>
 
-typedef struct	s_form_spec
+#include <stdio.h>
+
+typedef struct	s_conv_spec
 {
 	char	flag;
 	int		width;
 	int		prec;
-	int		size;
 	char	type;
-}				t_form_spec;
+}				t_conv_spec;
 
 int		ft_is_in(char c, char *str);
 int		ft_fs_len(char *start);
 int		ft_atoi(const char *str);
-int		ft_nb_dec(int n)
-char	*ft_itoa(int n)
+int		ft_nb_dec(int n);
+char	*ft_itoa(int n);
+
+void	manage_conv(const char *format, va_list ap, int *i, int *count);
+
+int		is_in(char c, char *str);
+int		cs_len(const char *format, char *conv_types);
+char	*extract_cs(const char *format, int *i, char* conv_types);
+
+int		ft_isdigit(char c);
+void	cs_flag(t_conv_spec *cs, char *cs_str, int *i);
+void	cs_width(t_conv_spec *cs, char *cs_str, int *i);
+void	cs_prec(t_conv_spec *cs, char *cs_str, int *i);
+void	cs_parse(t_conv_spec *cs, char *cs_str);
+
+int		conv_write(t_conv_spec *cs, va_list ap);
+
+int		ft_dispatche(t_conv_spec *cs, va_list ap);
+
+int		ft_write_c(t_conv_spec	*cs, va_list ap);
+// int		ft_write_s(t_conv_spec	*cs, va_list ap);
+// int		ft_write_p(t_conv_spec	*cs, va_list ap);
+// int		ft_write_d(t_conv_spec	*cs, va_list ap);
+// int		ft_write_i(t_conv_spec	*cs, va_list ap);
+// int		ft_write_u(t_conv_spec	*cs, va_list ap);
+// int		ft_write_x(t_conv_spec	*cs, va_list ap);
+// int		ft_write_X(t_conv_spec	*cs, va_list ap);
+// int		ft_write_pc(t_conv_spec	*cs, va_list ap);
+
 int		ft_printf(const char *format, ...);
 
 #endif

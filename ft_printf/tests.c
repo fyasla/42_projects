@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 11:15:27 by fbougama          #+#    #+#             */
-/*   Updated: 2019/12/12 19:02:57 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/12/18 21:48:23 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,22 +26,25 @@
 int	main(int ac, char **av)
 {
 	(void)ac;
-	int ret;
+	(void)av;
+	//int ret;
 
+	//char str[15] = "abcdefghijklmn";
+	char c = 'P';
 	// -- without % --
-	if (atoi(av[1]) == 100 || atoi(av[1]) == 0 )
-	{
-		printf("-- 0 : BAASIC STRINGS WITHOUT %% --\n\n");
-		TEST_TEMPLATE("");
-		TEST_TEMPLATE("\n");
-		TEST_TEMPLATE("\t");
-		TEST_TEMPLATE("	");
-		TEST_TEMPLATE("test");
-		TEST_TEMPLATE("TEST");
-		TEST_TEMPLATE("321654/*..//\\\'\'\'\"ggllsgGYYGK &!@#$^&*(");
-		printf("###############################################################################################\n\n");
-	}
+	// if (atoi(av[1]) == 100 || atoi(av[1]) == 0 )
+	// {
+	// 	printf("-- 0 : BASIC STRINGS WITHOUT %% --\n\n");
+	// 	TEST_TEMPLATE("");
+	// 	TEST_TEMPLATE("\n");
+	// 	TEST_TEMPLATE("\t");
+	// 	TEST_TEMPLATE("	");
+	// 	TEST_TEMPLATE("test");
+	// 	TEST_TEMPLATE("TEST");
+	// 	TEST_TEMPLATE("321654/*..//\\\'\'\'\"ggllsgGYYGK &!^@#$^&*(");
+	// 	printf("###############################################################################################\n\n");
+	// }
 	// -- with % and simple conversion specifier --
-	printf("blabla : %*d\n", 010, 50);
+	ft_printf("blabla : %c123456789\n", c);
 	return (0);
 }

@@ -1,41 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lengths.c                                          :+:      :+:    :+:   */
+/*   manage_conv.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/12 18:06:19 by fbougama          #+#    #+#             */
-/*   Updated: 2019/12/12 19:27:32 by fbougama         ###   ########.fr       */
+/*   Created: 2019/12/16 22:03:48 by fbougama          #+#    #+#             */
+/*   Updated: 2019/12/18 22:34:54 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../inc/ft_printf.h"
 
-int		ft_is_in(char c, char *str)
+void	manage_conv(const char *format, va_list ap, int *i, int *count)
 {
-	if (!str)
-		return (0);
-	while (*str)
-	{
-		if (*str == c)
-			return (1);
-	}
-	return (0);
-}
+	char		*cs_str;
+	t_conv_spec	*cs;
 
-int		ft_fs_len(char *start)
-{
-	int	len;
-
-	len = 0;
-	if (!start)
-		return (-1);
-	while (start[len])
-	{
-		if (ft_is_in(start[len], "cspdiuxX%"))
-			return (len);
-		len++;
-	}
-	return (-2);
+	if (!(cs = malloc (sizeof(t_conv_spec))))
+		return;
+	cs->flag = 'D';
+	cs->width = -1;
+	cs->prec = -1;
+	cs->type = 'D';
+	cs_str = extract_cs(format, i, "cspdiuxX%");
+	cs_parse(cs, cs_str);
+	*count += ft_dispatche(cs, ap);
 }
