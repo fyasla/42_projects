@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/16 22:03:48 by fbougama          #+#    #+#             */
-/*   Updated: 2019/12/18 22:34:54 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/12/18 23:47:36 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	manage_conv(const char *format, va_list ap, int *i, int *count)
 	if (!(cs = malloc (sizeof(t_conv_spec))))
 		return;
 	cs->flag = 'D';
-	cs->width = -1;
+	cs->width = 0;
 	cs->prec = -1;
 	cs->type = 'D';
 	cs_str = extract_cs(format, i, "cspdiuxX%");

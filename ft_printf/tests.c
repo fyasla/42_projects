@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 11:15:27 by fbougama          #+#    #+#             */
-/*   Updated: 2019/12/18 21:48:23 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/12/18 23:52:01 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,6 @@ int	main(int ac, char **av)
 	// 	printf("###############################################################################################\n\n");
 	// }
 	// -- with % and simple conversion specifier --
-	ft_printf("blabla : %c123456789\n", c);
+	ft_printf("blabla : %12c12345\n", c);
 	return (0);
 }

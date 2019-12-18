@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 19:23:50 by fbougama          #+#    #+#             */
-/*   Updated: 2019/12/18 22:33:36 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/12/18 23:51:50 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,11 @@ int		ft_write_c(t_conv_spec *cs, va_list ap)
 {
 	int	i;
 	int	pos;
+	
+	char c;
+	c = va_arg(ap, int);
 
-	pos = 0;
+	pos = cs->width - 1;
 	i = 0;
 	if (cs->flag == '0')
 	{
@@ -25,15 +28,17 @@ int		ft_write_c(t_conv_spec *cs, va_list ap)
 		return (-1);
 	}
 	if (cs->flag == '-')
-		pos = cs->width - 1;
+		pos = 0;
 	if (cs->width > 1)
 	{
 		while (i < cs->width)
 		{
 			if (i == pos)
-				write(1, va_arg(ap, int), 1);
+				//printf("%c\n", va_arg(ap, int));
+				write(1, &c, 1);
 			else
-				write(1, ' ', 1);
+				write(1, " ", 1);
+			i++;
 		}
 		return (cs->width);
 	}

@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/16 22:59:42 by fbougama          #+#    #+#             */
-/*   Updated: 2019/12/18 22:31:30 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/12/18 23:46:50 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	cs_width(t_conv_spec *cs, char *cs_str, int *i)
 {
 	while(ft_isdigit(cs_str[*i]))
 	{
-		cs->width = cs->width * 10 + cs_str[*i];
+		cs->width = cs->width * 10 + (cs_str[*i] - '0');
 		*i += 1;
 	}
 }
