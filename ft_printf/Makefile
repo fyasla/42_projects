@@ -6,14 +6,15 @@
 #    By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/11 14:25:15 by fbougama          #+#    #+#              #
-#    Updated: 2019/12/18 20:10:02 by fbougama         ###   ########.fr        #
+#    Updated: 2019/12/19 13:15:32 by fbougama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
 SRCS =	src/manage_conv.c src/cs_parse.c src/ft_printf.c \
-		src/extract_cs.c src/ft_dispatche.c src/ft_write_c.c	
+		src/extract_cs.c src/ft_dispatche.c src/ft_write_c.c \
+		src/ft_write_s.c	
 
 SRCS_BONUS = 
 
@@ -39,7 +40,7 @@ bonus : $(OBJS) $(OBJS_BONUS)
 	ar rcs $(NAME) $(OBJS) $(OBJS_BONUS)
 
 clean	:
-	$(RM) *.o
+	$(RM) *.o src/*.o
 
 fclean	: clean
 	$(RM) $(NAME)

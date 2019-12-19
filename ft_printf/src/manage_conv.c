@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/16 22:03:48 by fbougama          #+#    #+#             */
-/*   Updated: 2019/12/18 23:47:36 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/12/19 06:45:35 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ void	manage_conv(const char *format, va_list ap, int *i, int *count)
 	cs->prec = -1;
 	cs->type = 'D';
 	cs_str = extract_cs(format, i, "cspdiuxX%");
-	cs_parse(cs, cs_str);
+	cs_parse(cs, cs_str, ap);
 	*count += ft_dispatche(cs, ap);
 }

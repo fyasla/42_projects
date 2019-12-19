@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/16 22:59:42 by fbougama          #+#    #+#             */
-/*   Updated: 2019/12/18 23:46:50 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/12/19 06:49:36 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,16 @@ int		ft_isdigit(char c)
 
 void	cs_flag(t_conv_spec *cs, char *cs_str, int *i)
 {
-	if(is_in(cs_str[*i], "-0"))
+	while (cs_str[*i] == '+' || cs_str[*i] == '-')
 	{
-		cs->flag = cs_str[*i];
+		if (cs_str[*i] == '-')
+			cs->flag = '-';
+		*i += 1;
+	}
+	while (cs_str[*i] == '0')
+	{
+		if (cs->flag != '-')
+			cs->flag = '0';
 		*i += 1;
 	}
 }
@@ -35,16 +42,19 @@ void	cs_width(t_conv_spec *cs, char *cs_str, int *i)
 	}
 }
 
-void	cs_prec(t_conv_spec *cs, char *cs_str, int *i)
+void	cs_prec(t_conv_spec *cs, char *cs_str, int *i, va_list ap)
 {
 	if(cs_str[*i] == '.')
 	{
 		cs->prec = 0;
 		*i += 1;
-		while(ft_isdigit(cs_str[*i]))
+		if (!star_prec_handler(cs, cs_str, i, ap))
 		{
-			cs->prec = cs->prec * 10 + cs_str[*i];
-			*i += 1;
+			while(ft_isdigit(cs_str[*i]))
+			{
+				cs->prec = cs->prec * 10 + cs_str[*i];
+				*i += 1;
+			}
 		}
 	}
 }
@@ -55,13 +65,17 @@ void	cs_type(t_conv_spec *cs, char *cs_str, int *i)
 		cs->type = cs_str[*i];
 }
 
-void	cs_parse(t_conv_spec *cs, char *cs_str)
+void	cs_parse(t_conv_spec *cs, char *cs_str, va_list ap)
 {
 	int	i;
 
 	i = 0;
 	cs_flag(cs, cs_str, &i);
-	cs_width(cs, cs_str, &i);
-	cs_prec(cs, cs_str, &i);
+	if (!star_width_handler(cs, cs_str, &i, ap))
+	{
+		cs_flag(cs, cs_str, &i);
+		cs_width(cs, cs_str, &i);
+	}
+	cs_prec(cs, cs_str, &i, ap);
 	cs_type(cs, cs_str, &i);
 }

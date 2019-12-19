@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 16:00:40 by fbougama          #+#    #+#             */
-/*   Updated: 2019/12/18 21:44:12 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/12/19 13:16:04 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,19 +38,24 @@ void	manage_conv(const char *format, va_list ap, int *i, int *count);
 int		is_in(char c, char *str);
 int		cs_len(const char *format, char *conv_types);
 char	*extract_cs(const char *format, int *i, char* conv_types);
+int		star_prec_handler(t_conv_spec *cs, char *cs_str, int *i, va_list ap);
+int		star_width_handler(t_conv_spec *cs, char *cs_str, int *i, va_list ap);
 
 int		ft_isdigit(char c);
 void	cs_flag(t_conv_spec *cs, char *cs_str, int *i);
 void	cs_width(t_conv_spec *cs, char *cs_str, int *i);
-void	cs_prec(t_conv_spec *cs, char *cs_str, int *i);
-void	cs_parse(t_conv_spec *cs, char *cs_str);
+void	cs_prec(t_conv_spec *cs, char *cs_str, int *i,va_list ap);
+void	cs_parse(t_conv_spec *cs, char *cs_str, va_list ap);
 
 int		conv_write(t_conv_spec *cs, va_list ap);
 
 int		ft_dispatche(t_conv_spec *cs, va_list ap);
 
 int		ft_write_c(t_conv_spec	*cs, va_list ap);
-// int		ft_write_s(t_conv_spec	*cs, va_list ap);
+int		ft_write_s(t_conv_spec	*cs, va_list ap);
+int		write_s_prec(t_conv_spec *cs, char *str);
+int		write_s_width(t_conv_spec *cs, char *str);
+int		ft_strlen(char *str);
 // int		ft_write_p(t_conv_spec	*cs, va_list ap);
 // int		ft_write_d(t_conv_spec	*cs, va_list ap);
 // int		ft_write_i(t_conv_spec	*cs, va_list ap);
