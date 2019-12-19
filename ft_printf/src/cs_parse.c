@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/16 22:59:42 by fbougama          #+#    #+#             */
-/*   Updated: 2019/12/19 06:49:36 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/12/19 13:37:34 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	cs_prec(t_conv_spec *cs, char *cs_str, int *i, va_list ap)
 		{
 			while(ft_isdigit(cs_str[*i]))
 			{
-				cs->prec = cs->prec * 10 + cs_str[*i];
+				cs->prec = cs->prec * 10 + (cs_str[*i] - '0');
 				*i += 1;
 			}
 		}

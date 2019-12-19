@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 11:15:27 by fbougama          #+#    #+#             */
-/*   Updated: 2019/12/19 13:21:07 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/12/19 13:41:34 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,19 @@ int	main(int ac, char **av)
 	{
 		printf("\t\t\t--  1 : STRINGS WITH %%s --\n\n"); fflush(NULL);
 		TEST_TEMPLATE("blabla : %-1.*s", 5, str);
-		TEST_TEMPLATE("blabla : %s", str);
-		TEST_TEMPLATE("blabla : %-1.*s", 5, str);
-		TEST_TEMPLATE("blabla : %-1.*s", 5, str);
-		TEST_TEMPLATE("blabla : %-1.*s", 5, str);
-		TEST_TEMPLATE("blabla : %-1.*s", 5, str);
+		TEST_TEMPLATE("blabla : %.10s", str);
+		TEST_TEMPLATE("blabla : %-*.*s", 50,50, str);
+		TEST_TEMPLATE("blabla : %-*.2s", 10, str);
+		TEST_TEMPLATE("blabla : %35.37s", str);
+		TEST_TEMPLATE("blabla : %-101.*s", 0, str);
+		TEST_TEMPLATE("blabla : %-*.*s", 0, 0, str);
+		TEST_TEMPLATE("blabla : %-*.*s", 0, 10, str);
+		TEST_TEMPLATE("blabla : %*.*s", 0, 10, str);
+		TEST_TEMPLATE("blabla : %-*.*s", -30, 1, str);
+
+
+
+
 	}
 	return (0);
 }
