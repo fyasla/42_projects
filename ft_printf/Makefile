@@ -6,17 +6,17 @@
 #    By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/11 14:25:15 by fbougama          #+#    #+#              #
-#    Updated: 2019/12/21 23:15:07 by fbougama         ###   ########.fr        #
+#    Updated: 2019/12/21 23:39:42 by fbougama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-SRCS =	src/manage_conv.c src/cs_parse.c src/ft_printf.c \
+SRCS =	src/cs_parse.c src/ft_printf.c \
 		src/extract_cs.c src/ft_dispatche.c src/ft_write_c.c \
 		src/ft_write_s.c src/ft_write_p.c src/ft_write_u.c\
 		src/ft_write_id.c src/ft_utils.c src/ft_write_x.c \
-		src/ft_write_xmaj.c
+		src/ft_write_xmaj.c src/ft_write_pc.c
 
 SRCS_BONUS = 
 

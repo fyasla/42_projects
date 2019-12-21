@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 11:15:27 by fbougama          #+#    #+#             */
-/*   Updated: 2019/12/21 23:07:21 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/12/21 23:29:57 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -281,6 +281,29 @@ int	main(int ac, char **av)
 		TEST_TEMPLATE("010.3 : %010.3x", -1);
 		TEST_TEMPLATE("10.3 : %10.3x", -1);
 		TEST_TEMPLATE("toto et %02x coco %-5x mimi", 19, (unsigned int)-20);
+		printf("###############################################################################################\n\n"); fflush(NULL);
+	}
+		// -- with %% --
+	if (atoi(av[1]) == 100 || atoi(av[1]) == 7 )
+	{
+		printf("\t\t\t--  1 : STRINGS WITH %% --\n\n"); fflush(NULL);
+		TEST_TEMPLATE("rien : %%");
+		TEST_TEMPLATE("0: %0%");
+		TEST_TEMPLATE("01 :%01%");
+		TEST_TEMPLATE("010 : %010%");
+		TEST_TEMPLATE("0-1 : %0-1%");
+		TEST_TEMPLATE("1 : %1%");
+		TEST_TEMPLATE("2 : %2%");
+		TEST_TEMPLATE("10 : %10%");
+		TEST_TEMPLATE("-1 : %-1%");
+		TEST_TEMPLATE("-2 : %-2%");
+		TEST_TEMPLATE("-10 : %-10%");
+		TEST_TEMPLATE("10.2 : %10.2%");
+		TEST_TEMPLATE("010.2 : %010.2%");
+		TEST_TEMPLATE("02.10 : %02.10%");
+		TEST_TEMPLATE("2.10 : %2.10%");
+		TEST_TEMPLATE("-2.10 : %-2.10%");
+		TEST_TEMPLATE("-010 : %-010%");
 		printf("###############################################################################################\n\n"); fflush(NULL);
 	}
 	return (0);
