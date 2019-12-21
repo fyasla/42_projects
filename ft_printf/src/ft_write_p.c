@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/19 15:18:15 by fbougama          #+#    #+#             */
-/*   Updated: 2019/12/21 17:17:40 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/12/21 22:57:05 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		ft_write_p(t_conv_spec *cs, va_list ap)
 
 	i = 0;
 	addr = va_arg(ap, long unsigned int);
-	len_addr = unsigned_len(addr, 16);
+	len_addr = addr_len(addr, 16);
 	if (cs->width > len_addr && cs->flag != '-')
 		ft_write_spaces(cs->width - len_addr);
 	ft_write_addr(addr);
