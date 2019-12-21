@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/16 22:46:54 by fbougama          #+#    #+#             */
-/*   Updated: 2019/12/21 21:20:31 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/12/21 23:48:36 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char	*extract_cs(const char *format, int *i, char *conv_types)
 	return (cs_str);
 }
 
-int		star_width_handler(t_conv_spec *cs, char *cs_str, int *i, va_list ap)
+int		s_wdth_hndlr(t_conv_spec *cs, char *cs_str, int *i, va_list ap)
 {
 	int	star;
 
@@ -79,7 +79,7 @@ int		star_width_handler(t_conv_spec *cs, char *cs_str, int *i, va_list ap)
 	return (0);
 }
 
-int		star_prec_handler(t_conv_spec *cs, char *cs_str, int *i, va_list ap)
+int		s_prc_hndlr(t_conv_spec *cs, char *cs_str, int *i, va_list ap)
 {
 	if (cs_str[*i] == '*')
 	{

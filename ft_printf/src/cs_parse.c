@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/16 22:59:42 by fbougama          #+#    #+#             */
-/*   Updated: 2019/12/21 21:24:44 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/12/21 23:47:30 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	cs_prec(t_conv_spec *cs, char *cs_str, int *i, va_list ap)
 	{
 		cs->prec = 0;
 		*i += 1;
-		if (!star_prec_handler(cs, cs_str, i, ap))
+		if (!s_prc_hndlr(cs, cs_str, i, ap))
 		{
 			while (ft_isdigit(cs_str[*i]))
 			{
@@ -66,7 +66,7 @@ void	cs_parse(t_conv_spec *cs, char *cs_str, va_list ap)
 
 	i = 0;
 	cs_flag(cs, cs_str, &i);
-	if (!star_width_handler(cs, cs_str, &i, ap))
+	if (!s_wdth_hndlr(cs, cs_str, &i, ap))
 	{
 		cs_flag(cs, cs_str, &i);
 		cs_width(cs, cs_str, &i);

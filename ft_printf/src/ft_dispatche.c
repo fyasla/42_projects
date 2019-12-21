@@ -6,12 +6,11 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 08:45:07 by fbougama          #+#    #+#             */
-/*   Updated: 2019/12/21 23:38:57 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/12/21 23:46:58 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
-
 
 void	manage_conv(const char *format, va_list ap, int *i, int *count)
 {
