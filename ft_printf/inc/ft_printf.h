@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 16:00:40 by fbougama          #+#    #+#             */
-/*   Updated: 2019/12/21 20:14:10 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/12/21 23:15:45 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int		ft_strlen(char *str);
 int		nb_len(int n, int len_base);
 
 void	ft_write_spaces(int n);
-int		unsigned_len(long unsigned int addr, int len_base);
+int		addr_len(long unsigned int addr, int len_base);
 int		ft_write_addr(long unsigned int addr);
 int		ft_write_p(t_conv_spec	*cs, va_list ap);
 
@@ -71,10 +71,19 @@ int		ft_write_id_zeros(t_conv_spec *cs, int n);
 int		ft_write_id_minus(t_conv_spec *cs, int n);
 int		ft_write_id_abs(t_conv_spec *cs, int n);
 int		ft_write_id(t_conv_spec	*cs, va_list ap);
-// int		ft_write_i(t_conv_spec	*cs, va_list ap);
-// int		ft_write_u(t_conv_spec	*cs, va_list ap);
-// int		ft_write_x(t_conv_spec	*cs, va_list ap);
-// int		ft_write_X(t_conv_spec	*cs, va_list ap);
+
+int		ft_write_u_spaces(t_conv_spec *cs, unsigned int n);
+int		ft_write_u_zeros(t_conv_spec *cs, unsigned int n);
+int		ft_write_u_abs(t_conv_spec *cs, unsigned int n);
+int		uns_len(unsigned int n, int len_base);
+int		ft_write_u(t_conv_spec	*cs, va_list ap);
+
+int		ft_write_x_spaces(t_conv_spec *cs, unsigned int n);
+int		ft_write_x_zeros(t_conv_spec *cs, unsigned int n);
+int		ft_write_x_abs(t_conv_spec *cs, unsigned int n);
+int		ft_write_x(t_conv_spec	*cs, va_list ap);
+int		ft_write_xmaj_abs(t_conv_spec *cs, unsigned int n);
+int		ft_write_xmaj(t_conv_spec	*cs, va_list ap);
 // int		ft_write_pc(t_conv_spec	*cs, va_list ap);
 
 int		ft_printf(const char *format, ...);

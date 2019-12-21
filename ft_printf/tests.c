@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 11:15:27 by fbougama          #+#    #+#             */
-/*   Updated: 2019/12/21 19:46:41 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/12/21 23:07:21 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ int	main(int ac, char **av)
 		TEST_TEMPLATE("blabla : %------*p", 30, NULL);
 		printf("###############################################################################################\n\n"); fflush(NULL);
 	}
-	// -- with %d --
+	// -- with %d i --
 	if (atoi(av[1]) == 100 || atoi(av[1]) == 4 )
 	{
 		printf("\t\t\t--  1 : STRINGS WITH %%d --\n\n"); fflush(NULL);
@@ -161,6 +161,126 @@ int	main(int ac, char **av)
 		TEST_TEMPLATE("03.3 : %03.3d", -1);
 		TEST_TEMPLATE("010.3 : %010.3d", -1);
 		TEST_TEMPLATE("10.3 : %10.3d", -1);
+		printf("###############################################################################################\n\n"); fflush(NULL);
+	}
+	// -- with %u --
+	if (atoi(av[1]) == 100 || atoi(av[1]) == 5 )
+	{
+		printf("\t\t\t--  1 : STRINGS WITH %%u --\n\n"); fflush(NULL);
+		TEST_TEMPLATE("%u", 0);
+		TEST_TEMPLATE("%u", -1);
+		TEST_TEMPLATE("%u", 1);
+		TEST_TEMPLATE("int min : %u", -2147483647);
+		//TEST_TEMPLATE("int min : %u", -2147483648);// do not compile
+		//TEST_TEMPLATE("int min -1: %u", -2147483649);
+		//TEST_TEMPLATE("int min *10: %u", -21474836480);
+		TEST_TEMPLATE("int max : %u", 2147483647);
+		//TEST_TEMPLATE("int max +1: %u", 2147483648);
+		//TEST_TEMPLATE("int max *10: %u", 21474836470);
+		TEST_TEMPLATE("int min : %020u", -2147483647);
+		//TEST_TEMPLATE("int min : %-0u", -2147483647);
+		TEST_TEMPLATE("int min : %*u", 030, -2147483647);
+		TEST_TEMPLATE("int min : %*u", -030, -2147483647);
+		TEST_TEMPLATE("int min : %.20u", -2147483647);
+		TEST_TEMPLATE("int min : %-.*u", 00, -2147483647);
+		TEST_TEMPLATE("int min : %-.*u", 20, -2147483647);
+		TEST_TEMPLATE("int min : %-.*u", -20, -2147483647);
+		TEST_TEMPLATE("01.2: %01.*u", 2, 1);
+		TEST_TEMPLATE("03.2 : %03.*u", 2, 1);
+		TEST_TEMPLATE("-3.2 : %-3.*u", 2, 1);
+		TEST_TEMPLATE("03.1 : %03.1u", -1);
+		TEST_TEMPLATE("3 : %3u", 1);
+		TEST_TEMPLATE("03.2 : %03.2u", 1);
+		TEST_TEMPLATE("3.0 : %3.0u", 12);
+		TEST_TEMPLATE("3.0 : %3.0u", 0);
+		TEST_TEMPLATE(".0 : %.0u", 0);
+		TEST_TEMPLATE(".1 : %.1u", 0);
+		TEST_TEMPLATE(".3 : %.3u", 0);
+		TEST_TEMPLATE(".0 : %.0u", -16);
+		TEST_TEMPLATE(".0 : %.0u", 10);
+		TEST_TEMPLATE(".1 : %.1u", 0);
+		TEST_TEMPLATE(". : %.u", 0);
+		TEST_TEMPLATE("62.1 : %.1u", 57);
+		TEST_TEMPLATE("20.0 : %20.0u", 00);
+		TEST_TEMPLATE("020.0 : %020.0u", 00);
+		TEST_TEMPLATE(".1 : %.1u", -1);
+		TEST_TEMPLATE(".2 : %.2u", -1);
+		TEST_TEMPLATE(".3 : %.3u", -1);
+		TEST_TEMPLATE("1 : %1u", -1);
+		TEST_TEMPLATE("2 : %2u", -1);
+		TEST_TEMPLATE("3 : %3u", -1);
+		TEST_TEMPLATE("01 : %01u", -1);
+		TEST_TEMPLATE("02 : %02u", -1);
+		TEST_TEMPLATE("03 : %03u", -1);
+		TEST_TEMPLATE("01.1 : %01.1u", -1);
+		TEST_TEMPLATE("02.1 : %02.1u", -1);
+		TEST_TEMPLATE("03.1 : %03.1u", -1);
+		TEST_TEMPLATE("01.3 : %01.3u", -1);
+		TEST_TEMPLATE("02.3 : %02.3u", -1);
+		TEST_TEMPLATE("03.3 : %03.3u", -1);
+		TEST_TEMPLATE("010.3 : %010.3u", -1);
+		TEST_TEMPLATE("10.3 : %10.3u", -1);
+		TEST_TEMPLATE("toto et %02u coco %-5u mimi", 19, (unsigned int)-20);
+		printf("###############################################################################################\n\n"); fflush(NULL);
+	}
+		// -- with %x --
+	if (atoi(av[1]) == 100 || atoi(av[1]) == 6 )
+	{
+		printf("\t\t\t--  1 : STRINGS WITH %%x --\n\n"); fflush(NULL);
+		TEST_TEMPLATE("%x", 0);
+		TEST_TEMPLATE("%x", -1);
+		TEST_TEMPLATE("%x", 1);
+		TEST_TEMPLATE("int min : %x", -2147483647);
+		//TEST_TEMPLATE("int min : %x", -2147483648);// do not compile
+		//TEST_TEMPLATE("int min -1: %x", -2147483649);
+		//TEST_TEMPLATE("int min *10: %x", -21474836480);
+		TEST_TEMPLATE("int max : %x", 2147483647);
+		//TEST_TEMPLATE("int max +1: %x", 2147483648);
+		//TEST_TEMPLATE("int max *10: %x", 21474836470);
+		TEST_TEMPLATE("int min : %020x", -2147483647);
+		//TEST_TEMPLATE("int min : %-0x", -2147483647);
+		TEST_TEMPLATE("int min : %*x", 030, -2147483647);
+		TEST_TEMPLATE("int min : %*x", -030, -2147483647);
+		TEST_TEMPLATE("int min : %.20x", -2147483647);
+		TEST_TEMPLATE("int min : %-.*x", 00, -2147483647);
+		TEST_TEMPLATE("int min : %-.*x", 20, -2147483647);
+		TEST_TEMPLATE("int min : %-.*x", -20, -2147483647);
+		TEST_TEMPLATE("01.2: %01.*x", 2, 1);
+		TEST_TEMPLATE("03.2 : %03.*x", 2, 1);
+		TEST_TEMPLATE("-3.2 : %-3.*x", 2, 1);
+		TEST_TEMPLATE("03.1 : %03.1x", -1);
+		TEST_TEMPLATE("3 : %3x", 1);
+		TEST_TEMPLATE("03.2 : %03.2x", 1);
+		TEST_TEMPLATE("3.0 : %3.0x", 12);
+		TEST_TEMPLATE("3.0 : %3.0x", 0);
+		TEST_TEMPLATE(".0 : %.0x", 0);
+		TEST_TEMPLATE(".1 : %.1x", 0);
+		TEST_TEMPLATE(".3 : %.3x", 0);
+		TEST_TEMPLATE(".0 : %.0x", -16);
+		TEST_TEMPLATE(".0 : %.0x", 10);
+		TEST_TEMPLATE(".1 : %.1x", 0);
+		TEST_TEMPLATE(". : %.x", 0);
+		TEST_TEMPLATE("62.1 : %.1x", 57);
+		TEST_TEMPLATE("20.0 : %20.0x", 00);
+		TEST_TEMPLATE("020.0 : %020.0x", 00);
+		TEST_TEMPLATE(".1 : %.1x", -1);
+		TEST_TEMPLATE(".2 : %.2x", -1);
+		TEST_TEMPLATE(".3 : %.3x", -1);
+		TEST_TEMPLATE("1 : %1x", -1);
+		TEST_TEMPLATE("2 : %2x", -1);
+		TEST_TEMPLATE("3 : %3x", -1);
+		TEST_TEMPLATE("01 : %01x", -1);
+		TEST_TEMPLATE("02 : %02x", -1);
+		TEST_TEMPLATE("03 : %03x", -1);
+		TEST_TEMPLATE("01.1 : %01.1x", -1);
+		TEST_TEMPLATE("02.1 : %02.1x", -1);
+		TEST_TEMPLATE("03.1 : %03.1x", -1);
+		TEST_TEMPLATE("01.3 : %01.3x", -1);
+		TEST_TEMPLATE("02.3 : %02.3x", -1);
+		TEST_TEMPLATE("03.3 : %03.3x", -1);
+		TEST_TEMPLATE("010.3 : %010.3x", -1);
+		TEST_TEMPLATE("10.3 : %10.3x", -1);
+		TEST_TEMPLATE("toto et %02x coco %-5x mimi", 19, (unsigned int)-20);
 		printf("###############################################################################################\n\n"); fflush(NULL);
 	}
 	return (0);
