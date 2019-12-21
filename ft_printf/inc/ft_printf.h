@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 16:00:40 by fbougama          #+#    #+#             */
-/*   Updated: 2019/12/19 13:16:04 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/12/21 18:34:59 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,22 @@ int		conv_write(t_conv_spec *cs, va_list ap);
 
 int		ft_dispatche(t_conv_spec *cs, va_list ap);
 
+void	ft_putnbr_base(long unsigned int n, char *base, int *ret);
+int		unsigned_len(long unsigned int addr, int len_base);
+
 int		ft_write_c(t_conv_spec	*cs, va_list ap);
 int		ft_write_s(t_conv_spec	*cs, va_list ap);
 int		write_s_prec(t_conv_spec *cs, char *str);
 int		write_s_width(t_conv_spec *cs, char *str);
 int		ft_strlen(char *str);
-// int		ft_write_p(t_conv_spec	*cs, va_list ap);
-// int		ft_write_d(t_conv_spec	*cs, va_list ap);
+
+void	ft_write_spaces(int n);
+int		unsigned_len(long unsigned int addr, int len_base);
+int		ft_write_addr(long unsigned int addr);
+int		ft_write_p(t_conv_spec	*cs, va_list ap);
+int		ft_write_id_width(t_conv_spec *cs, unsigned int n);
+int		ft_write_id(t_conv_spec	*cs, va_list ap);
+int		ft_write_id_prec(t_conv_spec *cs, unsigned int n);
 // int		ft_write_i(t_conv_spec	*cs, va_list ap);
 // int		ft_write_u(t_conv_spec	*cs, va_list ap);
 // int		ft_write_x(t_conv_spec	*cs, va_list ap);

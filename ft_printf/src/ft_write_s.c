@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/19 01:16:29 by fbougama          #+#    #+#             */
-/*   Updated: 2019/12/19 13:38:10 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/12/21 18:53:25 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ int		ft_write_s(t_conv_spec *cs, va_list ap)
 	char	*str;
 
 	ret = 0;
-	str = va_arg(ap, char*);
+	if (!(str = va_arg(ap, char*)))
+		str = "(null)";
 	if (cs->flag == '-')
 	{
 		ret += write_s_prec(cs, str);
@@ -37,7 +38,7 @@ int		write_s_prec(t_conv_spec *cs, char *str)
 	int	i;
 
 	i = 0;
-	while (str[i] && i < cs->prec)
+	while (str[i] && (i < cs->prec || cs->prec < 0))
 	{
 		write(1, str + i, 1);
 		i++;
