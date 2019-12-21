@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 17:02:59 by fbougama          #+#    #+#             */
-/*   Updated: 2019/12/21 21:13:33 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/12/21 21:15:35 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		ft_write_id_spaces(t_conv_spec *cs, int n)
 	int				prec;
 	int				i;
 
-	prec = (n < 0) ? cs->prec +1 : cs->prec;
+	prec = (n < 0) ? cs->prec + 1 : cs->prec;
 	already_w = (prec < nb_len(n, 10)) ? nb_len(n, 10) : prec;
 	if (n == 0 && cs->prec == 0)
 		already_w = 0;

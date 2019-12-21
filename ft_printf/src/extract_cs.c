@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/16 22:46:54 by fbougama          #+#    #+#             */
-/*   Updated: 2019/12/19 12:06:34 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/12/21 21:20:31 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		is_in(char c, char *str)
 	i = 0;
 	while (str[i])
 	{
-		if(str[i] == c)
+		if (str[i] == c)
 			return (1);
 		i++;
 	}
@@ -37,7 +37,7 @@ int		cs_len(const char *str, char *conv_types)
 	return (i);
 }
 
-char	*extract_cs(const char *format, int *i, char* conv_types)
+char	*extract_cs(const char *format, int *i, char *conv_types)
 {
 	char	*cs_str;
 	int		j;
@@ -45,7 +45,7 @@ char	*extract_cs(const char *format, int *i, char* conv_types)
 
 	j = 0;
 	len = cs_len(format + *i + 1, conv_types);
-	if(!(cs_str = malloc(len + 1)))
+	if (!(cs_str = malloc(len + 1)))
 		return (NULL);
 	while (j < len)
 	{
@@ -72,8 +72,8 @@ int		star_width_handler(t_conv_spec *cs, char *cs_str, int *i, va_list ap)
 		else if (star == 0)
 			cs->width = 0;
 		else
-		 	cs->width = star;
-		 *i += 1;
+			cs->width = star;
+		*i += 1;
 		return (1);
 	}
 	return (0);
@@ -81,7 +81,7 @@ int		star_width_handler(t_conv_spec *cs, char *cs_str, int *i, va_list ap)
 
 int		star_prec_handler(t_conv_spec *cs, char *cs_str, int *i, va_list ap)
 {
-	if(cs_str[*i] == '*')
+	if (cs_str[*i] == '*')
 	{
 		cs->prec = va_arg(ap, int);
 		*i += 1;

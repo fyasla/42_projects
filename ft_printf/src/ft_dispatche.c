@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 08:45:07 by fbougama          #+#    #+#             */
-/*   Updated: 2019/12/21 18:41:40 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/12/21 21:16:24 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ int		ft_dispatche(t_conv_spec *cs, va_list ap)
 		return (ft_write_p(cs, ap));
 	if (cs_type == 'd' || cs_type == 'i')
 	 	return (ft_write_id(cs, ap));
-	// if (cs_type == 'i')
-	// 	return (ft_write_i(cs, ap));
 	// if (cs_type == 'u')
 	// 	return (ft_write_u(cs, ap));
 	// if (cs_type == 'x')

@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/19 01:16:29 by fbougama          #+#    #+#             */
-/*   Updated: 2019/12/21 18:53:25 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/12/21 21:19:16 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,12 @@ int		write_s_prec(t_conv_spec *cs, char *str)
 int		write_s_width(t_conv_spec *cs, char *str)
 {
 	int	i;
+	int	ls;
 	int	len_s;
 
 	i = 0;
-	len_s = (ft_strlen(str) > cs->prec && cs->prec >= 0) ? cs->prec : ft_strlen(str);
+	ls = ft_strlen(str);
+	len_s = (ls > cs->prec && cs->prec >= 0) ? cs->prec : ls;
 	while (len_s + i < cs->width)
 	{
 		write(1, " ", 1);
