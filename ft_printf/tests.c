@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 11:15:27 by fbougama          #+#    #+#             */
-/*   Updated: 2019/12/21 23:29:57 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/12/22 00:22:19 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -304,6 +304,20 @@ int	main(int ac, char **av)
 		TEST_TEMPLATE("2.10 : %2.10%");
 		TEST_TEMPLATE("-2.10 : %-2.10%");
 		TEST_TEMPLATE("-010 : %-010%");
+		printf("###############################################################################################\n\n"); fflush(NULL);
+	}
+
+	// -- with hard tests --
+	if (atoi(av[1]) == 100 || atoi(av[1]) == 10 )
+	{
+		printf("\t\t\t--  10 : HARD TESTS --\n\n"); fflush(NULL);
+		 TEST_TEMPLATE("%.p", NULL);
+		 TEST_TEMPLATE("%5.p", NULL);
+		TEST_TEMPLATE("%2.p", NULL);
+		TEST_TEMPLATE("%p", NULL);
+		 //TEST_TEMPLATE("%2.9p", 1234);
+		// TEST_TEMPLATE("%.5p", 0);
+		//TEST_TEMPLATE("%.0p",0);
 		printf("###############################################################################################\n\n"); fflush(NULL);
 	}
 	return (0);

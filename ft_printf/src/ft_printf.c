@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 15:58:16 by fbougama          #+#    #+#             */
-/*   Updated: 2019/12/18 23:52:18 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/12/21 23:59:45 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int		ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			manage_conv(format, ap, &i, &count);
+			if (manage_conv(format, ap, &i, &count) == -1)
+				return (-1);
 		}
 		else
 		{

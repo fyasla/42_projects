@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 16:00:40 by fbougama          #+#    #+#             */
-/*   Updated: 2019/12/21 23:46:24 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/12/22 00:29:22 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int				ft_fs_len(char *start);
 int				ft_atoi(const char *str);
 int				ft_nb_dec(int n);
 char			*ft_itoa(int n);
-void			manage_conv(const char *format, va_list ap, int *i, int *count);
+int				manage_conv(const char *format, va_list ap, int *i, int *count);
 int				is_in(char c, char *str);
 int				cs_len(const char *format, char *conv_types);
 char			*extract_cs(const char *format, int *i, char *conv_types);
@@ -52,9 +52,9 @@ int				write_s_prec(t_conv_spec *cs, char *str);
 int				write_s_width(t_conv_spec *cs, char *str);
 int				ft_strlen(char *str);
 int				nb_len(int n, int len_base);
-void			ft_write_spaces(int n);
-int				addr_len(long unsigned int addr, int len_base);
-int				ft_write_addr(long unsigned int addr);
+int				ft_write_spaces_p(int n);
+int				addr_len(long unsigned int addr, int len_base, t_conv_spec *cs);
+int				ft_write_addr(long unsigned int addr, t_conv_spec *cs);
 int				ft_write_p(t_conv_spec	*cs, va_list ap);
 int				ft_write_id_spaces(t_conv_spec *cs, int n);
 int				ft_write_id_zeros(t_conv_spec *cs, int n);

@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/16 22:46:54 by fbougama          #+#    #+#             */
-/*   Updated: 2019/12/21 23:48:36 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/12/21 23:57:17 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int		cs_len(const char *str, char *conv_types)
 	i = 0;
 	while (str[i] && !is_in(str[i], conv_types))
 		i++;
+	if (!str[i])
+		return (-1);
 	i++;
 	return (i);
 }
@@ -44,7 +46,8 @@ char	*extract_cs(const char *format, int *i, char *conv_types)
 	int		len;
 
 	j = 0;
-	len = cs_len(format + *i + 1, conv_types);
+	if ((len = cs_len(format + *i + 1, conv_types)) == -1)
+		return (NULL);
 	if (!(cs_str = malloc(len + 1)))
 		return (NULL);
 	while (j < len)
