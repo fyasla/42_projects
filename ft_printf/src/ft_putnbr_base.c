@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/19 16:11:05 by fbougama          #+#    #+#             */
-/*   Updated: 2019/12/21 17:43:39 by fbougama         ###   ########.fr       */
+/*   Updated: 2019/12/21 20:14:25 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_putnbr_base(long unsigned int n, char *base, int *ret)
 	}
 }
 
-int		unsigned_len(long unsigned int addr, int len_base)
+int		unsigned_len(long unsigned addr , int len_base)
 {
 	int len;
 
