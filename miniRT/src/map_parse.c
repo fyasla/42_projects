@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 13:47:53 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/07 13:52:46 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/07 19:56:27 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,23 @@ int		main(int argc, char **argv)
 	free(line);
 	close(fd);
 	//while(1);
+}
+
+
+
+t_scene		map_parse(int map_fd)
+{
+	char	*line;
+	int		cpt[3];
+	t_scene	scene;
+
+	cpt = {0, 0, 0};
+	while (get_next_line(map_fd, &line) > 0)
+	{
+		// printf("%d:%d %s\n", retour, i, line);
+		line_parse(line, &cpt);
+		free(line);
+	}
+	line_parse(line, &cpt);
+	free(line);
 }

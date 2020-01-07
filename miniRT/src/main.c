@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:15:03 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/07 10:47:10 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/07 18:37:19 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		deal_key(int key, t_win *t_win_ptr)
 {
-	mlx_pixel_put(t_win_ptr->mlx_ptr, t_win_ptr->win_ptr, key, key, 0xFFFFFF);
+	mlx_pixel_put(t_win_ptr->mlx_ptr, t_win_ptr->win_ptr, key, key, 255);
 	return (0);
 }
 
@@ -28,3 +28,9 @@ int		main()
 	mlx_loop(win.mlx_ptr);
 	return (0);
 }
+
+// int		main(int ac, char **av)
+// {
+// 	(void)ac;
+// 	int	
+// }
