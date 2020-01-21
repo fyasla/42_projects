@@ -6,7 +6,7 @@
 #    By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/07 10:49:58 by fbougama          #+#    #+#              #
-#    Updated: 2020/01/07 13:25:28 by fbougama         ###   ########.fr        #
+#    Updated: 2020/01/21 15:10:25 by fbougama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@
 
 NAME =	miniRT
 
-SRCS =	src/get_next_line_utils.c src/get_next_line.c \
+SRCS =	src/parsing/get_next_line_utils.c src/parsing/get_next_line.c \
 		src/main.c
 
 SRCS_BONUS = 

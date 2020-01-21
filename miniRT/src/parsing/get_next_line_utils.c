@@ -6,11 +6,11 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 11:30:24 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/07 13:24:53 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/21 14:49:53 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/get_next_line.h"
+#include "../../inc/get_next_line.h"
 
 size_t	ft_sl(char const *str)
 {

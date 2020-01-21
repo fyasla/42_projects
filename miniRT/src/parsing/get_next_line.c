@@ -6,11 +6,11 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 11:26:55 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/07 13:24:46 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/21 14:50:18 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/get_next_line.h"
+#include "../../inc/get_next_line.h"
 
 int	ft_free(char **line, char **buffer)
 {
