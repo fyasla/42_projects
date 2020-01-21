@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:37:08 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/21 15:09:45 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/21 16:51:47 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@
 # include <fcntl.h>
 # include "mlx.h"
 # include "structures.h"
+# include "../libs/ft_printf/inc/ft_printf.h"
+
+//parsing.utils.c
+
+int		ft_atof(char *str);
+int		ft_atov(char *str);
 
 //map_parse.c
 

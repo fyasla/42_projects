@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:15:03 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/07 18:37:19 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/21 16:46:23 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		main()
 	t_win	win;
 
 	win.mlx_ptr = mlx_init();
-	win.win_ptr = mlx_new_window(win.mlx_ptr, 800, 500, "window title");
+	win.win_ptr = mlx_new_window(win.mlx_ptr, 1000, 500, "window title");
 	mlx_key_hook(win.win_ptr, deal_key, &win);
 	mlx_loop(win.mlx_ptr);
 	return (0);

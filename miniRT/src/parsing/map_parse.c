@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 13:47:53 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/21 15:08:50 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/21 16:09:28 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	map_parse(int map_fd)
 	free(line);
 }
 
-/*int			line_parse(char *line)
+int			line_parse(char *line)
 {
 	if (line[0] == 'R')
 		parse_R(line);
@@ -67,6 +67,17 @@ void	map_parse(int map_fd)
 		parse_l(line);
 	else if (line[0] == 'l')
 		parse_l(line);
-	
+	else if (line[0] == 's' && line[1] == 'p')
+		parse_sp(line);
+	else if (line[0] == 's' && line[1] == 'q')
+		parse_sq(line);
+	else if (line[0] == 'c' && line[1] == 'y')
+		parse_cy(line);
+	else if (line[0] == 't' && line[1] == 'r')
+		parse_tr(line);
+	else
+	{
+		write(1, "ERROR\nA line must be empty or start with a valid identifier")
+	}
 }
-*/
+

@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 15:12:33 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/21 15:42:49 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/21 15:45:41 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ double	ft_atof(char *str)
 	i = 0;
 	signe = 1;
 	int_part = (double)ft_atoi(str);
-
 	while (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
@@ -62,7 +61,7 @@ double	ft_atof(char *str)
 		dec_part = dec_part / 10;
 		i++;
 	}
-	return (int_part + signe * dec_part);	
+	return (int_part + signe * dec_part);
 }
 
 t_vec3	ft_atov(char *str)
@@ -81,15 +80,4 @@ t_vec3	ft_atov(char *str)
 	i++;
 	vector.z = ft_atof(str + i);
 	return (vector);
-}
-
-# include <stdio.h>
-int		main(int ac, char **av)
-{
-	(void)ac;
-	t_vec3 v;
-
-	v = ft_atov(av[1]);
-	printf("vector.x : %f\nvector.y : %f\nvector.z : %f\n", v.x, v.y, v.z);
-	return (0);
 }

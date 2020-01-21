@@ -6,7 +6,7 @@
 #    By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/07 10:49:58 by fbougama          #+#    #+#              #
-#    Updated: 2020/01/21 15:10:25 by fbougama         ###   ########.fr        #
+#    Updated: 2020/01/21 16:53:45 by fbougama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,8 @@
 
 NAME =	miniRT
 
+LIBS = libftprintf.a
+
 SRCS =	src/parsing/get_next_line_utils.c src/parsing/get_next_line.c \
 		src/main.c
 
@@ -41,10 +43,13 @@ CFLAGS = -Wall -Werror -Wextra
 
 RM = rm -f
 
+$(LIBS) :
+	cd libs/ft_printf && make && make clean && mv $(LIBS) ../..
+
 all		: $(NAME)
 
-$(NAME)	: $(OBJS)
-		$(CC) $(OBJS) -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit \
+$(NAME)	: $(OBJS) $(LIBS)
+		$(CC) $(OBJS) $(LIBS) -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit \
 		&& mv a.out $(NAME)
 %.o:	%.c
 		$(CC) $(FLAGS) -o $@ -c $<
@@ -54,7 +59,7 @@ bonus : $(OBJS) $(OBJS_BONUS)
 			&& && mv a.out $(NAME)
 
 clean	:
-	$(RM) $(OBJS) $(OBJS_BONUS)
+	$(RM) $(OBJS) $(OBJS_BONUS) $(LIBS)
 
 fclean	: clean
 	$(RM) $(NAME)
