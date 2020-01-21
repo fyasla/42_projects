@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:37:08 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/21 17:55:58 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/21 19:09:11 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,18 @@
 
 //parsing.utils.c
 
+int		ft_isspace(char c);
 int		ft_atof(char *str);
 int		ft_atov(char *str);
+t_color	vec3tocol(t_vec3 v);
 
 //map_parse.c
-void	map_parse(int map_fd);
+t_scene	map_parse(int map_fd);
 int		line_parse(char *line, int **cpt_ptr, t_scene *scene_ptr);
+
+//parse_1.c
+int	parse_r(char *line, t_scene *scene_ptr);
+int	parse_a(char *line, t_scene *scene_ptr);
 
 //vectors.c
 double	scal_prod(t_vec3 u, t_vec3 v);

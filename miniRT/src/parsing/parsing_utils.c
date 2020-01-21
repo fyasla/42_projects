@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 15:12:33 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/21 18:10:27 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/21 18:44:07 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,14 @@ t_vec3	ft_atov(char *str)
 	i++;
 	vector.z = ft_atof(str + i);
 	return (vector);
+}
+
+t_color	vec3tocol(t_vec3 v)
+{
+	t_color	c;
+
+	c.r = (int)v.x;
+	c.g = (int)v.y;
+	c.b = (int)v.z;
+	return (c);
 }
