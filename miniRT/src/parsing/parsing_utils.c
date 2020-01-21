@@ -6,33 +6,16 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 15:12:33 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/21 15:45:41 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/21 18:10:27 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/minirt.h"
 
-int		ft_atoi(char *str)
+int		ft_isspace(char c)
 {
-	int i;
-	int n;
-	int signe;
-
-	i = 0;
-	n = 0;
-	signe = 1;
-	while (str[i] == '+' || str[i] == '-')
-	{
-		if (str[i] == '-')
-			signe = -signe;
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		n = n * 10 + (str[i] - '0');
-		i++;
-	}
-	return (signe * n);
+	return (c == '\t' || c == '\n' || c == '\r' ||
+	c == '\v' || c == '\f' || c == ' ')
 }
 
 double	ft_atof(char *str)

@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:37:08 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/21 16:51:47 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/21 17:55:58 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int		ft_atof(char *str);
 int		ft_atov(char *str);
 
 //map_parse.c
+void	map_parse(int map_fd);
+int		line_parse(char *line, int **cpt_ptr, t_scene *scene_ptr);
 
 //vectors.c
 double	scal_prod(t_vec3 u, t_vec3 v);
