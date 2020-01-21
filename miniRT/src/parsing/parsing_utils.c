@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 15:12:33 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/21 15:33:00 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/21 15:42:49 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,15 @@ double	ft_atof(char *str)
 	int		signe;
 
 	i = 0;
-	signe = (str[i] == '-') ? -1 : 1;
+	signe = 1;
 	int_part = (double)ft_atoi(str);
 
-	if (str[i] == '+' || str[i] == '-')
+	while (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			signe = -signe;
 		i++;
+	}
 	while (str[i] && str[i] <= '9' && str[i] >= '0')
 		i++;
 	if (str[i] == '.')
@@ -61,11 +65,31 @@ double	ft_atof(char *str)
 	return (int_part + signe * dec_part);	
 }
 
+t_vec3	ft_atov(char *str)
+{
+	int		i;
+	t_vec3	vector;
+
+	i = 0;
+	vector.x = ft_atof(str);
+	while (str[i] != ',')
+		i++;
+	i++;
+	vector.y = ft_atof(str + i);
+	while (str[i] != ',')
+		i++;
+	i++;
+	vector.z = ft_atof(str + i);
+	return (vector);
+}
+
 # include <stdio.h>
 int		main(int ac, char **av)
 {
 	(void)ac;
+	t_vec3 v;
 
-	printf("Resultat : %f\n", ft_atof(av[1]));
+	v = ft_atov(av[1]);
+	printf("vector.x : %f\nvector.y : %f\nvector.z : %f\n", v.x, v.y, v.z);
 	return (0);
 }
