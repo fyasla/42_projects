@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 16:00:40 by fbougama          #+#    #+#             */
-/*   Updated: 2019/12/22 00:29:22 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/22 16:08:55 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ typedef struct	s_conv_spec
 
 int				ft_is_in(char c, char *str);
 int				ft_fs_len(char *start);
-int				ft_atoi(const char *str);
 int				ft_nb_dec(int n);
 char			*ft_itoa(int n);
 int				manage_conv(const char *format, va_list ap, int *i, int *count);

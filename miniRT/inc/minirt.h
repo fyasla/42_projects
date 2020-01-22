@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:37:08 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/22 15:09:27 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/22 16:15:59 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,35 +21,40 @@
 # define POSSIBLE_IDS ""
 
 //includes
-# include "get_next_line.h"
 # include <math.h>
 # include <fcntl.h>
 # include "mlx.h"
+# include "get_next_line.h"
 # include "structures.h"
 # include "../libs/ft_printf/inc/ft_printf.h"
 
 //parsing.utils.c
 
 int		ft_isspace(char c);
-int		ft_atof(char *str);
-int		ft_atov(char *str);
+double	ft_atof(char *str);
+t_vec3	ft_atov(char *str);
 t_color	vec3tocol(t_vec3 v);
-void	skip_whitspaces(char *str, int *i);
+int		skip_whitespaces(char *str, int *i);
 
 //parsing_utils2.c
-void	skip_numbers(char *str, int *i);
-void	skip_signs(char *str, int *i);
-void	skip_int(char *str, int *i);
-void	skip_float(char *str, int *i);
-void	skip_vector(char *str, int *i);
+int		skip_numbers(char *str, int *i);
+int		skip_signs(char *str, int *i);
+int		skip_int(char *str, int *i);
+int		skip_float(char *str, int *i);
+int		skip_vector(char *str, int *i);
+
+//parsing_utils3.c
+
+int	ft_atoi(char *str);
 
 //map_parse.c
 t_scene	*map_parse(int map_fd);
 int		line_parse(char *line, int *cpt_ptr, t_scene *scene_ptr);
 
 //parse_1.c
-int	parse_r(char *line, t_scene *scene_ptr);
-int	parse_a(char *line, t_scene *scene_ptr);
+int		parse_r(char *line, t_scene *scene_ptr);
+int		parse_a(char *line, t_scene *scene_ptr);
+int		parse_c(char *line, int *cpt, t_scene *scene_ptr);
 
 //vectors.c
 double	scal_prod(t_vec3 u, t_vec3 v);

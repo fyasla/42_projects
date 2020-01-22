@@ -6,13 +6,14 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 13:47:53 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/22 13:46:37 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/22 16:44:05 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/minirt.h"
 #include <stdio.h>
 
+/*
 int		main(int argc, char **argv)
 {
 	int		fd;
@@ -33,7 +34,7 @@ int		main(int argc, char **argv)
 	free(line);
 	close(fd);
 	//while(1);
-}
+}*/
 
 void	scene_initiate(t_scene *scene_ptr)
 {

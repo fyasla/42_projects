@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 15:12:33 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/22 15:01:20 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/22 16:16:22 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int		ft_isspace(char c)
 {
 	return (c == '\t' || c == '\n' || c == '\r' ||
-	c == '\v' || c == '\f' || c == ' ')
+	c == '\v' || c == '\f' || c == ' ');
 }
 
 double	ft_atof(char *str)
@@ -28,7 +28,7 @@ double	ft_atof(char *str)
 	i = 0;
 	signe = 1;
 	int_part = (double)ft_atoi(str);
-	skip_whitspaces(str, &i);
+	skip_whitespaces(str, &i);
 	while (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
@@ -75,8 +75,13 @@ t_color	vec3tocol(t_vec3 v)
 	return (c);
 }
 
-void	skip_whitspaces(char *str, int *i)
+int		skip_whitespaces(char *str, int *i)
 {
+	if (!ft_isspace(str[*i]) && (str[*i] > '9' || str[*i] < '0') && str[*i] != '-' && str[*i] != '+')
+		return (-1);
 	while (ft_isspace(str[*i]))
-		*i++;
+		*i += 1;
+	if (!ft_isspace(str[*i]) && (str[*i] > '9' || str[*i] < '0') && str[*i] != '-' && str[*i] != '+')
+		return (-1);
+	return (0);
 }

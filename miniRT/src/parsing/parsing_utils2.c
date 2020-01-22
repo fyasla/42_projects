@@ -6,46 +6,74 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/22 13:43:29 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/22 15:08:42 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/22 16:01:52 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/minirt.h"
 
-void	skip_numbers(char *str, int *i)
+int	skip_numbers(char *str, int *i)
 {
-	while (line[*i] <= '9' && line[*i] >= '0')
-		*i++;
+	if (!ft_isspace(str[*i]) && (str[*i] > '9' || str[*i] < '0') && str[*i] != '-' && str[*i] != '+')
+		return (-1);
+	while (str[*i] <= '9' && str[*i] >= '0')
+		*i += 1;
+	if (!ft_isspace(str[*i]) && (str[*i] > '9' || str[*i] < '0') && str[*i] != '-' && str[*i] != '+')
+		return (-1);
+	return (0);
 }
 
-void	skip_signs(char *str, int *i)
+int	skip_signs(char *str, int *i)
 {
-	while (line[*i] == '-' && line[*i] == '+')
-		*i++;
+	if (!ft_isspace(str[*i]) && (str[*i] > '9' || str[*i] < '0') && str[*i] != '-' && str[*i] != '+')
+		return (-1);
+	while (str[*i] == '-' && str[*i] == '+')
+		*i += 1;
+	if (!ft_isspace(str[*i]) && (str[*i] > '9' || str[*i] < '0') && str[*i] != '-' && str[*i] != '+')
+		return (-1);
+	return (0);
 }
 
-void	skip_int(char *str, int *i)
+int	skip_int(char *str, int *i)
 {
-	skip_whitespaces(str, i);
-	skip_signs(str, i);
-	skip_numbers(str, i);
+	int	ret;
+
+	ret = 0;
+	ret += skip_whitespaces(str, i);
+	ret += skip_signs(str, i);
+	ret += skip_numbers(str, i);
+	return (ret);
 }
 
-void	skip_float(char *str, int *i)
+int	skip_float(char *str, int *i)
 {
-	skip_int(str, i);
+	int	ret;
+
+	ret = 0;
+	ret += skip_int(str, i);
 	if (str[*i] == '.')
-		*i++;
-	skip_numbers(str,i);
+		*i += 1;
+	else
+		return (-1);
+	ret += skip_numbers(str,i);
+	return (ret);
 }
 
-void	skip_vector(char *str, int *i)
+int	skip_vector(char *str, int *i)
 {
-	skip_float(str, i);
+	int ret;
+
+	ret = 0;
+	ret += skip_float(str, i);
 	if (str[*i] == ',')
-		*i++;
-	skip_float(str, i);
+		*i += 1;
+	else
+		return (-1);
+	ret += skip_float(str, i);
 	if (str[*i] == ',')
-		*i++;
-	skip_float(str, i);
+		*i += 1;
+	else
+		return (-1);
+	ret += skip_float(str, i);
+	return (ret);
 }
