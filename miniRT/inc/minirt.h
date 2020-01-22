@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:37:08 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/21 19:09:11 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/22 13:42:49 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,11 @@ int		ft_isspace(char c);
 int		ft_atof(char *str);
 int		ft_atov(char *str);
 t_color	vec3tocol(t_vec3 v);
+void	skip_whitspaces(char *str, int *i);
 
 //map_parse.c
-t_scene	map_parse(int map_fd);
-int		line_parse(char *line, int **cpt_ptr, t_scene *scene_ptr);
+t_scene	*map_parse(int map_fd);
+int		line_parse(char *line, int *cpt_ptr, t_scene *scene_ptr);
 
 //parse_1.c
 int	parse_r(char *line, t_scene *scene_ptr);

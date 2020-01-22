@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 15:12:33 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/21 18:44:07 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/22 13:32:43 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,10 @@ t_color	vec3tocol(t_vec3 v)
 	c.g = (int)v.y;
 	c.b = (int)v.z;
 	return (c);
+}
+
+void	skip_whitspaces(char *str, int *i)
+{
+	while (ft_isspace(str[*i]))
+		*i++;
 }
