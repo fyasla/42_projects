@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:37:08 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/22 13:42:49 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/22 15:09:27 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,13 @@ int		ft_atof(char *str);
 int		ft_atov(char *str);
 t_color	vec3tocol(t_vec3 v);
 void	skip_whitspaces(char *str, int *i);
+
+//parsing_utils2.c
+void	skip_numbers(char *str, int *i);
+void	skip_signs(char *str, int *i);
+void	skip_int(char *str, int *i);
+void	skip_float(char *str, int *i);
+void	skip_vector(char *str, int *i);
 
 //map_parse.c
 t_scene	*map_parse(int map_fd);

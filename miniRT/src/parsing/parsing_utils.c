@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 15:12:33 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/22 13:32:43 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/22 15:01:20 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ double	ft_atof(char *str)
 	i = 0;
 	signe = 1;
 	int_part = (double)ft_atoi(str);
+	skip_whitspaces(str, &i);
 	while (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
 			signe = -signe;
 		i++;
 	}
-	while (str[i] && str[i] <= '9' && str[i] >= '0')
-		i++;
+	skip_numbers(str, &i);
 	if (str[i] == '.')
 		i++;
 	dec_part = (double)ft_atoi(str + i);
