@@ -6,21 +6,28 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 19:11:38 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/23 15:15:11 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/23 16:06:30 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/minirt.h"
-#include "inc/parsing_test.h"
+#include "../../inc/minirt.h"
+#include "../inc/parsing_test.h"
 
 int		main(int ac, char **av)
 {
+	(void)ac;
 	t_scene	scene;
 	int		map_fd;
+	int		i;
 
-	(void)ac;
+	i = 0;
 	map_fd = open(av[1], O_RDONLY);
 	scene = *map_parse(map_fd);
-	ft_printfloat(4.2);
+	ft_printf("OBJECTS LIST :\n\n");
+	while (scene.objets[i].type)
+		display_obj(scene.objets[i++]);
+	ft_printf("CAMERAS LIST :\n\n");
+	while (i < MAX_CAMS)
+		display_cam(scene.cameras[i++]);
 	close(map_fd);
 }
