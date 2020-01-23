@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_test.c                                     :+:      :+:    :+:   */
+/*   parsing_test.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/21 19:11:38 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/23 15:15:11 by fbougama         ###   ########.fr       */
+/*   Created: 2020/01/23 15:11:02 by fbougama          #+#    #+#             */
+/*   Updated: 2020/01/23 15:12:57 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/minirt.h"
-#include "inc/parsing_test.h"
+# include "../../inc/minirt.h"
 
-int		main(int ac, char **av)
-{
-	t_scene	scene;
-	int		map_fd;
+//parsing_display.c
 
-	(void)ac;
-	map_fd = open(av[1], O_RDONLY);
-	scene = *map_parse(map_fd);
-	ft_printfloat(4.2);
-	close(map_fd);
-}
+void	ft_printfloat(double x);
+void	display_obj(t_obj object);
