@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/22 17:02:33 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/23 16:07:04 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/23 16:34:21 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,8 @@ void	display_cam(t_cam camera)
 	ft_printf("\n");
 	ft_printf("Orientation: ");
 	display_vec3(camera.ori);
+	ft_printf("\n");
+	ft_printf("FOV: ");
+	ft_printfloat(camera.fov);
 	ft_printf("\n");
 }
