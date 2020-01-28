@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/22 17:02:33 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/23 16:34:21 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/23 17:28:19 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,13 @@ void	ft_printfloat(double x)
 
 void	display_vec3(t_vec3 v)
 {
+	ft_printf("(");
 	ft_printfloat(v.x);
-	ft_printf(",");
+	ft_printf(", ");
 	ft_printfloat(v.y);
-	ft_printf(",");
+	ft_printf(", ");
 	ft_printfloat(v.z);
+	ft_printf(")");
 }
 
 void	display_obj(t_obj object)
