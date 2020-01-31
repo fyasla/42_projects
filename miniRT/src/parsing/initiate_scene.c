@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 19:43:19 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/31 16:52:27 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/31 17:01:47 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ void	initiate_obj(t_obj *object)
 	object->vec1.x = 0.0;
 	object->vec1.y = 0.0;
 	object->vec1.z = 0.0;
+	object->vec2.x = 0.0;
+	object->vec2.y = 0.0;
+	object->vec2.z = 0.0;
 	object->color.r = 0;
 	object->color.g = 0;
 	object->color.b = 0;

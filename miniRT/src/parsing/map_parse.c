@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 13:47:53 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/31 16:59:34 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/31 17:10:11 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,13 @@ t_scene	*map_parse(int map_fd)
 		}
 		free(line);
 	}
-	//line_parse(line, &cpt);
+	if (line_parse(line, cpt, scene_ptr) == -1)
+	{
+		free(line);
+		free(cpt);
+		ft_printf("\n\n\n\n\n\nERROR\n\n\n\n\n\n\n\n\n\n\n");
+		return (scene_ptr);
+	}
 	free(cpt);
 	free(line);
 	return(scene_ptr);
@@ -101,8 +107,8 @@ int		line_parse(char *line, int *cpt, t_scene *scene_ptr)
 		ret = parse_sq(line, cpt, scene_ptr);
 	else if (line[0] == 'c' && line[1] == 'y')
 		ret = parse_cy(line, cpt, scene_ptr);
-	// else if (line[0] == 't' && line[1] == 'r')
-	// 	ret = parse_tr(line, cpt_ptr, scene_ptr);
+	else if (line[0] == 't' && line[1] == 'r')
+		ret = parse_tr(line, cpt, scene_ptr);
 	else
 	{
 		//write(1, "ERROR\nA line must be empty or s 
