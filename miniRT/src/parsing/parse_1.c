@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 17:39:16 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/31 16:33:32 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/31 18:24:30 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,9 @@ int		parse_c(char *line, int cpt[3], t_scene *scene_ptr)
 	ret += skip_vector(line, &i);
 	scene_ptr->cameras[cpt[1]].ori = ft_atov(line + i);
 	ret += skip_vector(line, &i);
-	scene_ptr->cameras[cpt[1]].fov = ft_atof (line + i);
+	scene_ptr->cameras[cpt[1]].fov = ft_atof(line + i);
 	cpt[1] += 1;
-	return(ret);
+	return (ret);
 }
 
 int		parse_l(char *line, int cpt[3], t_scene *scene_ptr)
@@ -85,7 +85,7 @@ int		parse_l(char *line, int cpt[3], t_scene *scene_ptr)
 	ret += skip_float(line, &i);
 	scene_ptr->lights[cpt[2]].color = vec3tocol(ft_atov(line + i));
 	cpt[2] += 1;
-	return(ret);
+	return (ret);
 }
 
 int		parse_sp(char *line, int cpt[3], t_scene *scene_ptr)
@@ -106,5 +106,5 @@ int		parse_sp(char *line, int cpt[3], t_scene *scene_ptr)
 	ret += skip_float(line, &i);
 	scene_ptr->objects[cpt[0]].color = vec3tocol(ft_atov(line + i));
 	cpt[0] += 1;
-	return(ret);
+	return (ret);
 }

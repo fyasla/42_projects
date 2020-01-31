@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/22 16:09:18 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/22 16:11:00 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/31 18:27:25 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_atoi(char *str)
 
 	sg = 1;
 	res = 0;
-	while (ft_isspace (*str))
+	while (ft_isspace(*str))
 		str++;
 	if (*str == '-' || *str == '+')
 	{

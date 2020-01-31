@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 16:35:38 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/31 17:03:06 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/31 18:27:14 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		parse_pl(char *line, int cpt[3], t_scene *scene_ptr)
 	ret += skip_vector(line, &i);
 	scene_ptr->objects[cpt[0]].color = vec3tocol(ft_atov(line + i));
 	cpt[0] += 1;
-	return(ret);
+	return (ret);
 }
 
 int		parse_sq(char *line, int cpt[3], t_scene *scene_ptr)
@@ -53,7 +53,7 @@ int		parse_sq(char *line, int cpt[3], t_scene *scene_ptr)
 	ret += skip_float(line, &i);
 	scene_ptr->objects[cpt[0]].color = vec3tocol(ft_atov(line + i));
 	cpt[0] += 1;
-	return(ret);
+	return (ret);
 }
 
 int		parse_cy(char *line, int cpt[3], t_scene *scene_ptr)
@@ -78,7 +78,7 @@ int		parse_cy(char *line, int cpt[3], t_scene *scene_ptr)
 	ret += skip_float(line, &i);
 	scene_ptr->objects[cpt[0]].color = vec3tocol(ft_atov(line + i));
 	cpt[0] += 1;
-	return(ret);
+	return (ret);
 }
 
 int		parse_tr(char *line, int cpt[3], t_scene *scene_ptr)
@@ -102,5 +102,5 @@ int		parse_tr(char *line, int cpt[3], t_scene *scene_ptr)
 	ret += skip_float(line, &i);
 	scene_ptr->objects[cpt[0]].color = vec3tocol(ft_atov(line + i));
 	cpt[0] += 1;
-	return(ret);
+	return (ret);
 }
