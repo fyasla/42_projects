@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 17:39:16 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/31 18:24:30 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/31 18:29:29 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@ int		parse_r(char *line, t_scene *scene_ptr)
 
 	ret = 0;
 	i = 1;
-	if (scene_ptr->resX > -1)
+	if (scene_ptr->resx > -1)
 		return (-1);
-	scene_ptr->resX = ft_atoi(line + i);
+	scene_ptr->resx = ft_atoi(line + i);
 	ret += skip_int(line, &i);
 	ret += skip_whitespaces(line, &i);
 	ret += skip_signs(line, &i);
 	if (line[i] > '9' || line[i] < '0')
 		write(1, "ERROR\nResolution arguments must be 2 integers\n", 59);
 	else
-		scene_ptr->resY = ft_atoi(line + i);
+		scene_ptr->resy = ft_atoi(line + i);
 	return (ret);
 }
 

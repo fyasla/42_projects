@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 19:11:38 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/31 17:07:36 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/31 18:30:23 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		main(int ac, char **av)
 	scene_ptr = map_parse(map_fd);
 	close(map_fd);
 	scene = *scene_ptr;
-	ft_printf("Resolution : X : %d, Y : %d\n\n", scene.resX, scene.resY);
+	ft_printf("Resolution : X : %d, Y : %d\n\n", scene.resx, scene.resy);
 	ft_printf("Ambiant light:\n");
 	display_light(scene.amb_light);
 	i = 0;

@@ -6,25 +6,33 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:15:03 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/31 18:22:14 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/31 19:30:06 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minirt.h"
 
-int		deal_key(int key, t_win *t_win_ptr)
+int		deal_key(int key, t_win *t_win)
 {
-	mlx_pixel_put(t_win_ptr->mlx_ptr, t_win_ptr->win_ptr, key, key, 255);
+	mlx_pixel_put(t_win->mlx_p, t_win->win_p, key, key, 255);
 	return (0);
 }
 
-int		main()
+int		main(int ac, char **av)
 {
 	t_win	win;
+	t_scene *scene_ptr;
+	int		map_fd;
+	int		cam;
 
-	win.mlx_ptr = mlx_init();
-	win.win_ptr = mlx_new_window(win.mlx_ptr, 1000, 500, "window title");
-	mlx_key_hook(win.win_ptr, deal_key, &win);
-	mlx_loop(win.mlx_ptr);
+	map_fd = open(av[1], O_RDONLY);
+	scene_ptr = map_parse(map_fd);
+	close(map_fd);
+
+	win.mlx_p = mlx_init();
+	win.win_p = mlx_new_window(win.mlx_p, scene_ptr->resx, scene_ptr->resy, av[1]);
+	//mlx_key_hook(win.win_ptr, deal_key, &win);
+	draw(&win, scene_ptr, cam);
+	mlx_loop(win.mlx_p);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 19:43:19 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/31 18:24:47 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/31 18:29:12 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ void	scene_initiate(t_scene *scene_ptr)
 	int		i;
 
 	i = 0;
-	scene_ptr->resX = -1;
-	scene_ptr->resY = -1;
+	scene_ptr->resx = -1;
+	scene_ptr->resy = -1;
 	scene_ptr->amb_light.lum_rat = -1;
 	while (i < MAX_OBJS)
 		initiate_obj(&scene_ptr->objects[i++]);

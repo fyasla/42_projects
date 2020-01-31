@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:37:43 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/31 17:01:29 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/31 19:29:01 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 typedef struct	s_win
 {
-	void		*mlx_ptr;
-	void		*win_ptr;
+	void		*mlx_p;
+	void		*win_p;
 }				t_win;
 
 typedef struct	s_vec3
@@ -69,8 +69,8 @@ typedef	struct	s_scene
 	t_obj	objects[MAX_OBJS];
 	t_cam	cameras[MAX_CAMS];
 	t_light	lights[MAX_LIGHTS];
-	int		resX;
-	int		resY;
+	int		resx;
+	int		resy;
 	t_light	amb_light;
 }				t_scene;
 

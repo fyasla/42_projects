@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:37:08 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/31 18:21:32 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/31 19:17:11 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 # define MAX_OBJS 10
 # define MAX_CAMS 5
 # define MAX_LIGHTS 5
-
-# define POSSIBLE_IDS ""
 
 # include <math.h>
 # include <fcntl.h>
@@ -32,4 +30,7 @@ t_vec3	vec_sum(t_vec3 u, t_vec3 v);
 t_vec3	mul_vec(double k, t_vec3 u);
 double	vec_norme(t_vec3 u);
 t_vec3	normalize_vec(t_vec3 u);
+
+int		draw(t_win *win, t_scene *scene_ptr, int cam);
+
 #endif
