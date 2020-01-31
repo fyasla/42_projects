@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 13:47:53 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/31 16:35:15 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/31 16:39:53 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,8 @@ int		line_parse(char *line, int *cpt, t_scene *scene_ptr)
 	 	ret = parse_pl(line, cpt, scene_ptr);
 	else if (line[0] == 's' && line[1] == 'p')
 	 	ret = parse_sp(line, cpt, scene_ptr);
-	// else if (line[0] == 's' && line[1] == 'q')
-	// 	ret = parse_sq(line, cpt_ptr, scene_ptr);
+	else if (line[0] == 's' && line[1] == 'q')
+		ret = parse_sq(line, cpt, scene_ptr);
 	// else if (line[0] == 'c' && line[1] == 'y')
 	// 	ret = parse_cy(line, cpt_ptr, scene_ptr);
 	// else if (line[0] == 't' && line[1] == 'r')

@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 19:43:19 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/31 16:29:30 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/31 16:52:27 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	initiate_obj(t_obj *object)
 	int		i;
 
 	i = 0;
-	object->type[0] = 'a';
-	object->type[1] = 'a';
+	object->type[0] = '_';
+	object->type[1] = '_';
 	object->type[2] = '\0';
 	object->vec0.x = 0.0;
 	object->vec0.y = 0.0;

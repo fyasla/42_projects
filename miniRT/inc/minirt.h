@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:37:08 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/31 16:38:16 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/31 16:40:23 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int		parse_sp(char *line, int cpt[3], t_scene *scene_ptr);
 
 //parse_2.c
 int		parse_pl(char *line, int cpt[3], t_scene *scene_ptr);
+int		parse_sq(char *line, int cpt[3], t_scene *scene_ptr);
 
 //vectors.c
 double	scal_prod(t_vec3 u, t_vec3 v);
