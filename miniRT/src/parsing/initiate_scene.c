@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 19:43:19 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/31 15:28:42 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/31 15:53:26 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,9 @@ void	initiate_obj(t_obj *object)
 	int		i;
 
 	i = 0;
-
-	if(!(object->type = malloc(5 * sizeof(char))))
-		return ;
-	while (i < 4)
-		object->type[i++] = 'a';
+	object->type[0] = 'a';
+	object->type[1] = 'a';
+	object->type[2] = '\0';
 	object->vec0.x = 0.0;
 	object->vec0.y = 0.0;
 	object->vec0.z = 0.0;
@@ -70,7 +68,7 @@ void	scene_initiate(t_scene *scene_ptr)
 	i = 0;
 	while (i < MAX_CAMS)
 		initiate_cam(&scene_ptr->cameras[i++]);
-		i = 0;
+	i = 0;
 	while (i < MAX_LIGHTS)
 		initiate_light(&scene_ptr->lights[i++]);
 }

@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:37:43 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/29 13:12:50 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/31 15:44:58 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct	s_ray
 
 typedef struct	s_obj
 {
-	char	*type;
+	char	type[3];
 	t_vec3	vec0;
 	t_vec3	vec1;
 	t_vec3	vec2;
