@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:37:08 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/22 16:15:59 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/31 15:27:47 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 # define MINIRT_H
 
 //global variables
-# define MAX_OBJS 100
-# define MAX_CAMS 10
-# define MAX_LIGHTS 20
+# define MAX_OBJS 10
+# define MAX_CAMS 5
+# define MAX_LIGHTS 5
 
 # define POSSIBLE_IDS ""
 
@@ -27,6 +27,9 @@
 # include "get_next_line.h"
 # include "structures.h"
 # include "../libs/ft_printf/inc/ft_printf.h"
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
 //parsing.utils.c
 
@@ -49,12 +52,13 @@ int	ft_atoi(char *str);
 
 //map_parse.c
 t_scene	*map_parse(int map_fd);
-int		line_parse(char *line, int *cpt_ptr, t_scene *scene_ptr);
+int		line_parse(char *line, int *cpt, t_scene *scene_ptr);
 
 //parse_1.c
 int		parse_r(char *line, t_scene *scene_ptr);
 int		parse_a(char *line, t_scene *scene_ptr);
 int		parse_c(char *line, int *cpt, t_scene *scene_ptr);
+int		parse_l(char *line, int *cpt, t_scene *scene_ptr);
 
 //vectors.c
 double	scal_prod(t_vec3 u, t_vec3 v);
@@ -62,4 +66,11 @@ t_vec3	vec_sum(t_vec3 u, t_vec3 v);
 t_vec3	mul_vec(double k, t_vec3 u);
 double	vec_norme(t_vec3 u);
 t_vec3	normalized_vec(t_vec3 u);
+
+//initate_scene.c
+
+void	initiate_obj(t_obj *object);
+void	initiate_cam(t_cam *camera);
+void	initiate_light(t_light *light);
+void	scene_initiate(t_scene *scene_ptr);
 #endif

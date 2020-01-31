@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 11:26:55 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/21 14:50:18 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/28 17:38:57 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ int	ft_eol(char **line, char **save)
 		return (ft_free(line, NULL));
 	tmp = *save;
 	*save = ft_substr(*save, ft_p(*save) + 1, ft_sl(*save) - ft_p(*save) - 1);
+	free(tmp);
 	if (!(*save))
 		return (ft_free(line, NULL));
-	free(tmp);
 	return (1);
 }
 
@@ -85,7 +85,7 @@ int	get_next_line(int fd, char **line)
 	*line = NULL;
 	if (fd < 0 || BUFFER_SIZE < 1 || !line)
 		return (-1);
-	if (ft_p(save) >= 0)
+	else if (ft_p(save) >= 0)
 		return (ft_eol(line, &save));
 	else
 	{

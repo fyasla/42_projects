@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 08:45:07 by fbougama          #+#    #+#             */
-/*   Updated: 2019/12/22 00:00:07 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/28 16:44:17 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 int		manage_conv(const char *format, va_list ap, int *i, int *count)
 {
 	char		*cs_str;
+	t_conv_spec	conv_spec;
 	t_conv_spec	*cs;
 
-	if (!(cs = malloc(sizeof(t_conv_spec))))
-		return (-1);
+	cs = &conv_spec;
 	cs->flag = 'D';
 	cs->width = 0;
 	cs->prec = -2;
@@ -27,6 +27,7 @@ int		manage_conv(const char *format, va_list ap, int *i, int *count)
 		return (-1);
 	cs_parse(cs, cs_str, ap);
 	*count += ft_dispatche(cs, ap);
+	free(cs_str);
 	return (0);
 }
 

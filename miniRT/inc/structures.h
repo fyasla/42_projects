@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:37:43 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/21 14:54:34 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/29 13:12:50 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,18 +53,19 @@ typedef struct	s_cam
 {
 	t_vec3	pos;
 	t_vec3	ori;
+	double	fov;
 }				t_cam;
 
 typedef struct	s_light
 {
 	t_vec3	pos;
-	float	lum_rat;
+	double	lum_rat;
 	t_color	color;
 }				t_light;
 
 typedef	struct	s_scene
 {
-	t_obj	objets[MAX_OBJS];
+	t_obj	objects[MAX_OBJS];
 	t_cam	cameras[MAX_CAMS];
 	t_light	lights[MAX_LIGHTS];
 	int		resX;

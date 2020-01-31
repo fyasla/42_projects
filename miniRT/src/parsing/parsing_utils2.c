@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/22 13:43:29 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/22 16:01:52 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/23 17:25:18 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,15 @@
 
 int	skip_numbers(char *str, int *i)
 {
-	if (!ft_isspace(str[*i]) && (str[*i] > '9' || str[*i] < '0') && str[*i] != '-' && str[*i] != '+')
-		return (-1);
 	while (str[*i] <= '9' && str[*i] >= '0')
 		*i += 1;
-	if (!ft_isspace(str[*i]) && (str[*i] > '9' || str[*i] < '0') && str[*i] != '-' && str[*i] != '+')
-		return (-1);
 	return (0);
 }
 
 int	skip_signs(char *str, int *i)
 {
-	if (!ft_isspace(str[*i]) && (str[*i] > '9' || str[*i] < '0') && str[*i] != '-' && str[*i] != '+')
-		return (-1);
-	while (str[*i] == '-' && str[*i] == '+')
+	while (str[*i] == '-' || str[*i] == '+')
 		*i += 1;
-	if (!ft_isspace(str[*i]) && (str[*i] > '9' || str[*i] < '0') && str[*i] != '-' && str[*i] != '+')
-		return (-1);
 	return (0);
 }
 
@@ -53,6 +45,8 @@ int	skip_float(char *str, int *i)
 	ret += skip_int(str, i);
 	if (str[*i] == '.')
 		*i += 1;
+	else if (ft_isspace(str[*i]))
+		return (0);
 	else
 		return (-1);
 	ret += skip_numbers(str,i);

@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 15:12:33 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/22 16:16:22 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/29 13:20:00 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,26 +23,28 @@ double	ft_atof(char *str)
 	int		i;
 	double	int_part;
 	double	dec_part;
-	int		signe;
+	double	signe;
 
 	i = 0;
-	signe = 1;
+	signe = 1.0;
 	int_part = (double)ft_atoi(str);
 	skip_whitespaces(str, &i);
-	while (str[i] == '+' || str[i] == '-')
+	if (str[i] == '-')
 	{
-		if (str[i] == '-')
-			signe = -signe;
+		signe = -signe;
 		i++;
 	}
 	skip_numbers(str, &i);
+	dec_part = 0.0;
 	if (str[i] == '.')
-		i++;
-	dec_part = (double)ft_atoi(str + i);
-	while (str[i] && str[i] <= '9' && str[i] >= '0')
 	{
-		dec_part = dec_part / 10;
 		i++;
+		dec_part = (double)ft_atoi(str + i);
+		while (str[i] && str[i] <= '9' && str[i] >= '0')
+		{
+			dec_part = dec_part / 10;
+			i++;
+		}
 	}
 	return (int_part + signe * dec_part);
 }
@@ -54,13 +56,12 @@ t_vec3	ft_atov(char *str)
 
 	i = 0;
 	vector.x = ft_atof(str);
-	while (str[i] != ',')
-		i++;
+	skip_float(str, &i);
 	i++;
 	vector.y = ft_atof(str + i);
-	while (str[i] != ',')
+	skip_float(str, &i);
+	if (str[i] == ',')
 		i++;
-	i++;
 	vector.z = ft_atof(str + i);
 	return (vector);
 }
@@ -77,11 +78,7 @@ t_color	vec3tocol(t_vec3 v)
 
 int		skip_whitespaces(char *str, int *i)
 {
-	if (!ft_isspace(str[*i]) && (str[*i] > '9' || str[*i] < '0') && str[*i] != '-' && str[*i] != '+')
-		return (-1);
 	while (ft_isspace(str[*i]))
 		*i += 1;
-	if (!ft_isspace(str[*i]) && (str[*i] > '9' || str[*i] < '0') && str[*i] != '-' && str[*i] != '+')
-		return (-1);
 	return (0);
 }

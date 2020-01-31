@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 11:28:48 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/21 13:48:33 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/28 17:12:33 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 
 # ifndef BUFFER_SIZE
-# define BUFFER_SIZE	42
+# define BUFFER_SIZE	20
 # endif
 
 size_t	ft_sl(char const *str);
