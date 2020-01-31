@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 19:11:38 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/31 15:59:47 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/31 16:14:57 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ int		main(int ac, char **av)
 		ft_printf("\n");
 		i++;
 	}
+	ft_printf("sizeof t_scene : %d\n", sizeof(t_scene));
+	ft_printf("sizeof t_scene* : %d\n", sizeof(t_scene*));
 	free(scene_ptr);
-	while(1);
+	//while(1);
 }

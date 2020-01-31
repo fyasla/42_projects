@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 13:47:53 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/31 16:01:44 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/31 16:17:14 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ t_scene	*map_parse(int map_fd)
 
 	if(!(cpt = malloc(3 * sizeof(int))))
 		return (NULL);
-	if(!(scene_ptr = malloc(sizeof(t_scene*))))
+	if(!(scene_ptr = malloc(sizeof(t_scene))))
 		return (NULL);
 	cpt[0] = 0;
 	cpt[1] = 0;
