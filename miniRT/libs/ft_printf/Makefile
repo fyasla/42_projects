@@ -6,7 +6,7 @@
 #    By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/11 14:25:15 by fbougama          #+#    #+#              #
-#    Updated: 2019/12/21 23:39:42 by fbougama         ###   ########.fr        #
+#    Updated: 2020/01/31 17:47:55 by fbougama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,7 @@ SRCS =	src/cs_parse.c src/ft_printf.c \
 		src/ft_write_id.c src/ft_utils.c src/ft_write_x.c \
 		src/ft_write_xmaj.c src/ft_write_pc.c
 
-SRCS_BONUS = 
-
 OBJS = $(SRCS:%.c=%.o)
-
-OBJS_BONUS = $(SRCS_BONUS:%.c=%.o)
 
 CC = gcc
 
@@ -38,9 +34,6 @@ $(NAME)	: $(OBJS)
 %.o:	%.c
 		@$(CC) $(FLAGS) -o $@ -c $<
 
-bonus : $(OBJS) $(OBJS_BONUS)
-	ar rcs $(NAME) $(OBJS) $(OBJS_BONUS)
-
 clean	:
 	$(RM) *.o src/*.o
 
@@ -49,4 +42,4 @@ fclean	: clean
 
 re : fclean all
 
-.PHONY	: all clean fclean re bonus
+.PHONY	: all clean fclean re

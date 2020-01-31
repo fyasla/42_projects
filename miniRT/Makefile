@@ -6,7 +6,7 @@
 #    By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/07 10:49:58 by fbougama          #+#    #+#              #
-#    Updated: 2020/01/28 16:39:07 by fbougama         ###   ########.fr        #
+#    Updated: 2020/01/31 17:58:41 by fbougama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,46 +22,58 @@
 #                                                                              #
 # **************************************************************************** #
 
-.PHONY	: all clean fclean re bonus
+NAME				=	miniRT
 
-NAME =	miniRT
+LIBS				=	libftprintf.a
 
-LIBS = libftprintf.a
+SRCS_PARSING		=	src/parsing/get_next_line_utils.c src/parsing/get_next_line.c libftprintf.a \
+						src/parsing/initiate_scene.c src/parsing/map_parse.c \
+						src/parsing/parse_1.c src/parsing/parse_2.c \
+						src/parsing/parsing_utils.c src/parsing/parsing_utils2.c src/parsing/parsing_utils3.c
 
-SRCS =	src/parsing/get_next_line_utils.c src/parsing/get_next_line.c \
-		src/main.c
+SRCS				=	src/vectors.c src/main.c #$(SRCS_PARSING) \
+						src/vectors.c src/main.c
 
-SRCS_BONUS = 
 
-OBJS =	$(SRCS:%.c=%.o)
+SRCS_BONUS 			= 
 
-OBJS_BONUS = $(SRCS_BONUS:%.c=%.o)
+OBJS				=	$(SRCS:%.c=%.o)
 
-CC = cc -I /usr/local/include
+OBJS_BONUS			=	$(SRCS_BONUS:%.c=%.o)
 
-CFLAGS = -Wall -Werror -Wextra
 
-RM = rm -f
+CC					=	cc -I /usr/local/include
 
-$(LIBS) :
-	cd libs/ft_printf && make && make clean && mv $(LIBS) ../..
+CFLAGS				=	-Wall -Werror -Wextra
 
-all		: $(NAME)
+RM					=	rm -f
+				
+all				:	$(NAME)
 
-$(NAME)	: $(OBJS) $(LIBS)
-		$(CC) $(OBJS) $(LIBS) -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit \
-		&& mv a.out $(NAME)
-%.o:	%.c
-		$(CC) $(FLAGS) -o $@ -c $<
+$(NAME)			:	$(OBJS) $(LIBS)
+					$(CC) $(OBJS) $(LIBS) -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit \
+			&& mv a.out $(NAME)
 
-bonus : $(OBJS) $(OBJS_BONUS)
-			$(CC) $(OBJS) $(OBJS_BONUS) -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit \
-			&& && mv a.out $(NAME)
+$(LIBS)			:
+	cd libs/ft_printf && make && make clean && mv $(LIBS) ../..	
 
-clean	:
-	$(RM) $(OBJS) $(OBJS_BONUS) $(LIBS)
+%.o				:	%.c
+					$(CC) $(FLAGS) -o $@ -c $<
 
-fclean	: clean
-	$(RM) $(NAME)
+parsing_test	:
+					cd tests && make && mv parsing_test ..
 
-re : fclean all
+bonus 			:	$(OBJS) $(OBJS_BONUS)
+					$(CC) $(OBJS) $(OBJS_BONUS) -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit \
+					&& && mv a.out $(NAME)
+
+clean			:
+					$(RM) $(OBJS) $(OBJS_BONUS) $(LIBS) \
+					&& cd tests && make clean
+
+fclean			:	clean
+					$(RM) $(NAME) parsing_test
+
+re				:	fclean all
+
+.PHONY			:	all clean fclean re bonus libftprintf.a parsing_test
