@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 19:11:38 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/31 14:34:39 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/31 14:58:51 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,14 @@ int		main(int ac, char **av)
 	scene = *map_parse(map_fd);
 	
 	close(map_fd);
-	// while (i < 100)
-	// {
-	// 	printf("%f\n", scene->lights[0].pos.x);
-	// 	i++;
-	// }
-	// display_light(scene->lights[0]);
+	i = 0;
+	ft_printf("\n##############################################################\n\nOBJECTS LIST :\n\n");
+	while (i < MAX_OBJS)
+	{
+		display_obj(scene.objects[i]);
+		i++;
+		ft_printf("\n");
+	}
 	ft_printf("\n##############################################################\n\nCAMERAS LIST :\n\n");
 	i = 0;
 	while (i < MAX_CAMS)
