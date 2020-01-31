@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 14:46:52 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/21 14:51:36 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/31 17:13:06 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ double	vec_norme(t_vec3 u)
 	return (sqrt(u.x * u.x + u.y * u.y + u.z * u.z));
 }
 
-t_vec3	normalized_vec(t_vec3 u)
+t_vec3	normalize_vec(t_vec3 u)
 {
 	if (vec_norme(u) == 0)
 		return (u);

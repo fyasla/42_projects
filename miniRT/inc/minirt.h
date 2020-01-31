@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:37:08 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/31 17:03:33 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/31 17:13:16 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ double	scal_prod(t_vec3 u, t_vec3 v);
 t_vec3	vec_sum(t_vec3 u, t_vec3 v);
 t_vec3	mul_vec(double k, t_vec3 u);
 double	vec_norme(t_vec3 u);
-t_vec3	normalized_vec(t_vec3 u);
+t_vec3	normalize_vec(t_vec3 u);
 
 //initate_scene.c
 
