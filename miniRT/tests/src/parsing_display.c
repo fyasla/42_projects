@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/22 17:02:33 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/23 17:28:19 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/29 13:13:11 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,25 @@ void	display_obj(t_obj object)
 
 void	display_cam(t_cam camera)
 {
-	ft_printf("Position: ");
+	write(1, "Position: ", 10);
 	display_vec3(camera.pos);
-	ft_printf("\n");
-	ft_printf("Orientation: ");
+	write(1, "\n", 1);
+	write(1, "Orientation: ", 13);
 	display_vec3(camera.ori);
-	ft_printf("\n");
-	ft_printf("FOV: ");
+	write(1, "\n", 1);
+	write(1, "FOV: ", 5);
 	ft_printfloat(camera.fov);
+	write(1, "\n", 1);
+}
+
+void	display_light(t_light light)
+{
+	ft_printf("Position: ");
+	display_vec3(light.pos);
+	ft_printf("\n");
+	ft_printf("Lum ratio: ");
+	ft_printfloat(light.lum_rat);
+	ft_printf("\n");
+	ft_printf("Color: r: %d, g: %d, b: %d", light.color.r, light.color.g, light.color.b);
 	ft_printf("\n");
 }
