@@ -6,11 +6,11 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 14:46:52 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/31 17:41:21 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/31 19:54:07 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/minirt.h"
+#include "../../inc/minirt.h"
 
 double	scal_prod(t_vec3 u, t_vec3 v)
 {
