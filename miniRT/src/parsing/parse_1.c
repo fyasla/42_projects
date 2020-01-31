@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 17:39:16 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/31 15:53:06 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/31 16:33:32 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,26 @@ int		parse_l(char *line, int cpt[3], t_scene *scene_ptr)
 	ret += skip_float(line, &i);
 	scene_ptr->lights[cpt[2]].color = vec3tocol(ft_atov(line + i));
 	cpt[2] += 1;
+	return(ret);
+}
+
+int		parse_sp(char *line, int cpt[3], t_scene *scene_ptr)
+{
+	int	i;
+	int	ret;
+
+	ret = 0;
+	i = 2;
+	if (cpt[0] >= MAX_OBJS)
+		return (-1);
+	scene_ptr->objects[cpt[0]].type[0] = 's';
+	scene_ptr->objects[cpt[0]].type[1] = 'p';
+	scene_ptr->objects[cpt[0]].type[2] = '\0';
+	scene_ptr->objects[cpt[0]].vec0 = ft_atov(line + i);
+	ret += skip_vector(line, &i);
+	scene_ptr->objects[cpt[0]].float0 = ft_atof(line + i);
+	ret += skip_float(line, &i);
+	scene_ptr->objects[cpt[0]].color = vec3tocol(ft_atov(line + i));
+	cpt[0] += 1;
 	return(ret);
 }

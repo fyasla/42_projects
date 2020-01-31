@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 19:11:38 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/31 16:14:57 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/31 16:32:09 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,15 @@ int		main(int ac, char **av)
 	scene = *scene_ptr;
 	
 	close(map_fd);
-	// i = 0;
-	// ft_printf("\n##############################################################\n\nOBJECTS LIST :\n\n");
-	// while (i < MAX_OBJS)
-	// {
-	// 	display_obj(scene.objects[i]);
-	// 	i++;
-	// 	ft_printf("\n");
-	// }
-	// ft_printf("\n##############################################################\n\nCAMERAS LIST :\n\n");
+	i = 0;
+	ft_printf("\n##############################################################\n\nOBJECTS LIST :\n\n");
+	while (i < MAX_OBJS)
+	{
+		display_obj(scene.objects[i]);
+		i++;
+		ft_printf("\n");
+	}
+	ft_printf("\n##############################################################\n\nCAMERAS LIST :\n\n");
 	i = 0;
 	while (i < MAX_CAMS)
 	{
@@ -50,8 +50,6 @@ int		main(int ac, char **av)
 		ft_printf("\n");
 		i++;
 	}
-	ft_printf("sizeof t_scene : %d\n", sizeof(t_scene));
-	ft_printf("sizeof t_scene* : %d\n", sizeof(t_scene*));
 	free(scene_ptr);
 	//while(1);
 }

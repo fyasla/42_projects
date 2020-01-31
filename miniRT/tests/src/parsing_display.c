@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/22 17:02:33 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/29 13:13:11 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/01/31 16:31:23 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,7 @@ void	display_obj(t_obj object)
 	ft_printf("vec0: ");
 	display_vec3(object.vec1);
 	ft_printf("\n");
-	ft_printf("vec0: ");
-	display_vec3(object.vec2);
+	ft_printf("Color: r: %d, g: %d, b: %d", object.color.r, object.color.g, object.color.b);
 	ft_printf("\n");
 	ft_printf("float0: ");
 	ft_printfloat(object.float0);
