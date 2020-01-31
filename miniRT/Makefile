@@ -6,7 +6,7 @@
 #    By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/07 10:49:58 by fbougama          #+#    #+#              #
-#    Updated: 2020/01/31 17:58:41 by fbougama         ###   ########.fr        #
+#    Updated: 2020/01/31 18:10:04 by fbougama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,8 +64,7 @@ parsing_test	:
 					cd tests && make && mv parsing_test ..
 
 bonus 			:	$(OBJS) $(OBJS_BONUS)
-					$(CC) $(OBJS) $(OBJS_BONUS) -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit \
-					&& && mv a.out $(NAME)
+					$(CC) -o $(NAME) $(OBJS) $(OBJS_BONUS) -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit
 
 clean			:
 					$(RM) $(OBJS) $(OBJS_BONUS) $(LIBS) \

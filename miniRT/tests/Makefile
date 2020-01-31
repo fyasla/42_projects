@@ -6,7 +6,7 @@
 #    By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/31 17:43:33 by fbougama          #+#    #+#              #
-#    Updated: 2020/01/31 17:59:43 by fbougama         ###   ########.fr        #
+#    Updated: 2020/01/31 18:09:10 by fbougama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,8 @@ SRCS 		=	../src/parsing/parse_1.c ../src/parsing/parse_2.c \
 				../tests/src/parsing_display.c \
 				../src/parsing/get_next_line.c ../tests/src/parsing_test.c
 
+OBJS		=	$(SRCS:%.c=%.o)
+
 CC			=	gcc
 
 CFLAGS		=	-Wall -Werror -Wextra
@@ -41,14 +43,17 @@ RM			=	rm -f
 
 all		:	$(NAME)
 
-$(NAME)	:	$(LIBS)
-			@$(CC) $(FLAGS) -o $(NAME) $(SRCS) $(LIBS)
+$(NAME)	:	$(OBJS) $(LIBS)
+			@$(CC) -o $(NAME) $(OBJS) $(LIBS)
 
 $(LIBS)	:
 	cd ../libs/ft_printf && make && make clean && mv $(LIBS) ../../tests
 
+%.o				:	%.c
+					$(CC) $(FLAGS) -o $@ -c $<
+
 clean	:
-			$(RM) *.o src/*.o $(LIBS)
+			$(RM) $(OBJS) $(LIBS)
 
 fclean	: 	clean
 			$(RM) $(NAME)
