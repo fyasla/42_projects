@@ -1,4 +1,5 @@
 gcc -o parsing_test -Wall -Werror -Wextra ../src/parsing/parse_1.c \
+../src/parsing/parse_2.c \
 ../src/parsing/parsing_utils.c ../src/parsing/parsing_utils2.c \
 ../src/parsing/parsing_utils3.c ../src/parsing/initiate_scene.c \
 ../src/parsing/map_parse.c ../src/parsing/get_next_line_utils.c \
