@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:37:43 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/31 19:29:01 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/05 14:14:05 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,25 @@ typedef struct	s_win
 	void		*win_p;
 }				t_win;
 
+typedef struct	s_pix
+{
+	int		x;
+	int		y;
+}				t_pix;
+
 typedef struct	s_vec3
 {
 	double	x;
 	double	y;
 	double	z;
 }				t_vec3;
+
+typedef struct	s_mat33
+{
+	t_vec3	v0;
+	t_vec3	v1;
+	t_vec3	v2;
+}				t_mat33;
 
 typedef	struct	s_color
 {

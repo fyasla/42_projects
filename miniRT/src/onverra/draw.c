@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 19:13:06 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/31 19:39:50 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/05 14:17:14 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,18 @@
 
 int		draw(t_win *w, t_scene *scene, int cam)
 {
-	int	x;
-	int	y;
+	t_pix	pix;
 
-	x= 0;
-	while (x < scene->resx)
+	pix.x = 0;
+	while (pix.x < scene->resx)
 	{
-		y = 0;
-		while (y < scene->resy)
+		pix.y = 0;
+		while (pix.y < scene->resy)
 		{
-			mlx_pixel_put(w->mlx_p, w->win_p, x, y, pix_col(x, y, scene, cam));
-			y++;
+			mlx_pixel_put(w->mlx_p, w->win_p, pix.x, pix.y, pix_col(pix, scene, cam));
+			pix.y++;
 		}
-		x++;
+		pix.x++;
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/07 10:49:58 by fbougama          #+#    #+#              #
-#    Updated: 2020/01/31 19:19:04 by fbougama         ###   ########.fr        #
+#    Updated: 2020/02/05 12:56:57 by fbougama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,8 +32,9 @@ SRCS_PARSING		=	src/parsing/get_next_line_utils.c src/parsing/get_next_line.c li
 						src/parsing/parsing_utils.c src/parsing/parsing_utils2.c src/parsing/parsing_utils3.c
 
 SRCS				=	$(SRCS_PARSING) \
-						src/onverra/draw.c \
-						src/vectors.c src/main.c
+						src/onverra/draw.c src/onverra/pixel.c\
+						src/math_utils/vectors.c src/math_utils/converts.c \
+						src/main.c
 
 
 SRCS_BONUS 			= 
