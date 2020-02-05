@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 19:54:23 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/05 15:25:48 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/05 16:41:27 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ int		color_to_int(t_color color)
 {
 	int	c;
 
-	c = color.r * 255 * 255;
-	c += color.g * 255;
+	c = color.r * 256 * 256;
+	c += color.g * 256;
 	c += color.b;
 	return (c); 
 }
