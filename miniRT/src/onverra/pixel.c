@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 19:32:17 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/05 14:45:18 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/05 15:06:09 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,15 @@ t_vec3	cam_to_world(t_vec3 cam_crd, t_cam cam)
 	return (world_crd);
 }
 
-t_vec3	ray(t_pix pix, t_scene *scene, int cam)
+t_ray	pix_ray(t_pix pix, t_scene *scene, int cam)
 {
 	t_vec3	cam_crd;
+	t_vec3	wrld_crd;
+	t_ray	ray;
 
-	cam_crd = cam_to_world(rstr_to_cam(pix, scene, cam), scene->cameras[cam]);
-
+	cam_crd = rstr_to_cam(pix, scene, cam);
+	wrld_crd = cam_to_world(cam_crd, scene->cameras[cam]);
+	ray.start = scene->cameras[cam].pos;
+	ray.dir = vec_sum(wrld_crd, mul_vec(-1, ray.start));
+	return (ray);
 }

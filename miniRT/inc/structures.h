@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:37:43 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/05 14:14:05 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/05 15:07:27 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ typedef	struct	s_color
 
 typedef struct	s_ray
 {
-	t_vec3	origin;
+	t_vec3	start;
 	t_vec3	dir;
 }				t_ray;
 

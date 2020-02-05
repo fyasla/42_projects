@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 19:54:23 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/05 14:45:49 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/05 15:07:50 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ t_mat33	prod_mat(t_mat33 a, t_mat33 b)
 	prod.v0 = mat_vec(a, b.v0);
 	prod.v1 = mat_vec(a, b.v1);
 	prod.v2 = mat_vec(a, b.v2);
+	return (prod);
 }
 
 double	to_rad(double deg)
