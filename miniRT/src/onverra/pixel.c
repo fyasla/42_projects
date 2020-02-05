@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 19:32:17 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/05 14:15:13 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/05 14:45:18 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,10 @@ t_vec3	rstr_to_cam(t_pix pix, t_scene *scene, int cam)
 t_vec3	cam_to_world(t_vec3 cam_crd, t_cam cam)
 {
 	t_vec3	world_crd;
+	t_vec3	axe;
 
-	world_crd.z = mul_vec(-1, cam.ori);
-	world_crd.x = cam.ori.x;
-	world_crd.y = cam.ori.y;
-
+	axe = cam.ori;
+	world_crd = mat_vec(mat_rot(axe), cam_crd);
 	return (world_crd);
 }
 
@@ -43,6 +42,6 @@ t_vec3	ray(t_pix pix, t_scene *scene, int cam)
 {
 	t_vec3	cam_crd;
 
-	cam_crd = cam_to_world(rstr_to_cam(pix.x, pix.y, scene, cam), scene->cameras[cam]);
+	cam_crd = cam_to_world(rstr_to_cam(pix, scene, cam), scene->cameras[cam]);
 
 }
