@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 19:54:23 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/05 15:07:50 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/05 15:25:48 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,26 @@ t_mat33	prod_mat(t_mat33 a, t_mat33 b)
 double	to_rad(double deg)
 {
 	return (deg * M_PI / 180);
+}
+
+
+int		color_to_int(t_color color)
+{
+	int	c;
+
+	c = color.r * 255 * 255;
+	c += color.g * 255;
+	c += color.b;
+	return (c); 
+}
+
+
+t_vec3	vec_sous(t_vec3 u, t_vec3 v)
+{
+	t_vec3	sous;
+
+	sous.x = u.x - v.x;
+	sous.y = u.y - v.y;
+	sous.z = u.z - v.z;
+	return (sous);
 }
