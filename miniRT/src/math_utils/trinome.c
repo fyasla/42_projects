@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 15:27:57 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/05 15:43:07 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/07 16:02:29 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		nb_pos_sol(t_vec3 tri)
 		return (0);
 	sol = (-tri.y - sqrt(delta)) / (2 * tri.x);
 	if (sol >= 0)
-		nb += 1;;
+		nb += 1;
 	sol = (-tri.y + sqrt(delta)) / (2 * tri.x);
 	if (sol >= 0)
 		nb += 1;

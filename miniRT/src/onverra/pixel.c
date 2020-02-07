@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 19:32:17 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/07 15:42:21 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/07 16:05:12 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ int		pix_col(t_pix pix, t_scene *scene, int cam)
 
 	i = 0;
 	ray = pix_ray(pix, scene, cam);
-	//printf("ray start : %f, %f, %f\nray_dir : %f, %f, %f\n\n", ray.start.x, ray.start.y, ray.start.z, ray.dir.x, ray.dir.y, ray.dir.z);
 	while (i < MAX_OBJS && scene->objects[i].type[0] != '_')
 	{
 		if(scene->objects[i].type[0] == 's')
 			return (color_to_int(collision(ray, scene->objects[i])));
+		i++;
 	}
 	return (0);
 }
@@ -54,7 +54,6 @@ t_vec3	cam_to_world(t_vec3 cam_crd, t_cam cam)
 	axe = cam.ori;
 	mat = mat_rot(axe);
 	world_crd = mat_vec(mat, cam_crd);
-	// printf("%f %f %f\n%f %f %f\n%f %f %f\n\n", mat.v0.x, mat.v1.x, mat.v2.x, mat.v0.y, mat.v1.y, mat.v2.y, mat.v0.z, mat.v1.z, mat.v2.z);
 	return (world_crd);
 }
 
