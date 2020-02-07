@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 19:54:23 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/05 16:41:27 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/07 15:47:26 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_vec3	mat_vec(t_mat33 mat, t_vec3 vec)
 
 	res.x = mat.v0.x * vec.x + mat.v1.x * vec.y + mat.v2.x * vec.z;
 	res.y = mat.v0.y * vec.x + mat.v1.y * vec.y + mat.v2.y * vec.z;
-	res.y = mat.v0.z * vec.x + mat.v1.z * vec.y + mat.v2.z * vec.z;
+	res.z = mat.v0.z * vec.x + mat.v1.z * vec.y + mat.v2.z * vec.z;
 	return (res);
 }
 

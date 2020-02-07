@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:32:20 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/05 14:51:20 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/07 15:47:53 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ t_mat33	mat_rot_x(t_vec3 axe)
 	mat_x.v0 = vec(1, 0, 0);
 	mat_x.v1 = vec(0, cos(M_PI * axe.x), sin(M_PI * axe.x));
 	mat_x.v2 = vec(0, -sin(M_PI * axe.x), cos(M_PI * axe.x));
-
 	return (mat_x);
 }
 
@@ -40,7 +39,6 @@ t_mat33	mat_rot_y(t_vec3 axe)
 	mat_y.v0 = vec(cos(M_PI * axe.y), 0, -sin(M_PI * axe.y));
 	mat_y.v1 = vec(0, 1, 0);
 	mat_y.v2 = vec(sin(M_PI * axe.y), 0, cos(M_PI * axe.y));
-
 	return (mat_y);
 }
 
@@ -51,7 +49,6 @@ t_mat33	mat_rot_z(t_vec3 axe)
 	mat_z.v0 = vec(cos(M_PI * axe.z), sin(M_PI * axe.z), 0);
 	mat_z.v1 = vec(-sin(M_PI * axe.z), cos(M_PI * axe.z), 0);
 	mat_z.v2 = vec(0, 0, 1);
-
 	return (mat_z);
 }
 
