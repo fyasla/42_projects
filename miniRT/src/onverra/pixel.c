@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 19:32:17 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/05 16:35:43 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/07 15:28:21 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int		pix_col(t_pix pix, t_scene *scene, int cam)
 
 	i = 0;
 	ray = pix_ray(pix, scene, cam);
+	//printf("ray start : %f, %f, %f\nray_dir : %f, %f, %f\n\n", ray.start.x, ray.start.y, ray.start.z, ray.dir.x, ray.dir.y, ray.dir.z);
 	while (i < MAX_OBJS && scene->objects[i].type[0] != '_')
 	{
 		if(scene->objects[i].type[0] == 's')
@@ -31,9 +32,15 @@ t_vec3	rstr_to_cam(t_pix pix, t_scene *scene, int cam)
 {
 	t_vec3	cam_crd;
 	double	img_rat;
+	double 	scrn_x;
+	double 	scrn_y;
+
 
 	img_rat = (double)scene->resx / scene->resy;
-	cam_crd.x = (2 * pix.x - 1) * img_rat * tan(to_rad(scene->cameras[cam].fov / 2));
+	scrn_x = 2 * (((double)pix.x + 0.5) / scene->resx) - 1;
+	scrn_y = 1 - 2 *(((double)pix.y + 0.5) / scene->resy);
+	cam_crd.x = scrn_x * img_rat * tan(to_rad(scene->cameras[cam].fov / 2));
+	cam_crd.y = scrn_y * tan(to_rad(scene->cameras[cam].fov / 2));
 	cam_crd.z = -1;
 	return (cam_crd);
 }
@@ -58,5 +65,6 @@ t_ray	pix_ray(t_pix pix, t_scene *scene, int cam)
 	wrld_crd = cam_to_world(cam_crd, scene->cameras[cam]);
 	ray.start = scene->cameras[cam].pos;
 	ray.dir = vec_sous(wrld_crd, ray.start);
+
 	return (ray);
 }
