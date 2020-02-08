@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/08 18:23:29 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/08 19:05:48 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/08 19:24:52 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,17 @@ double	collision_cy(t_ray ray, t_obj cyl)
 {
 	double	t;
 	t_vec3	dir;
-	t_vec3 tri;
+	t_vec3	tri;
+	t_vec3	pt;
 
 	dir = normalize_vec(cyl.vec1);
 	tri.x = cyl_tri_2(ray, cyl);
 	tri.y = cyl_tri_1(ray, cyl);
 	tri.z = cyl_tri_0(ray, cyl);
 	t = smallest_sol(tri);
+	pt = vec_sum(ray.start, mul_vec(t, ray.dir));
+	if (scal_prod(vec_sous(pt, cyl.vec0), vec_sous(pt, cyl.vec0)) > (cyl.float1 * cyl.float1 + cyl.float0 * cyl.float0) / 4)
+		return (-1);
 	return (t);
 }
 
