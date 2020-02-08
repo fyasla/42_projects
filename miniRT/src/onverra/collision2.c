@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/08 18:23:29 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/08 19:24:52 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/08 20:12:51 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ double	collision_cy(t_ray ray, t_obj cyl)
 	tri.z = cyl_tri_0(ray, cyl);
 	t = smallest_sol(tri);
 	pt = vec_sum(ray.start, mul_vec(t, ray.dir));
-	if (scal_prod(vec_sous(pt, cyl.vec0), vec_sous(pt, cyl.vec0)) > (cyl.float1 * cyl.float1 + cyl.float0 * cyl.float0) / 4)
-		return (-1);
+	// if (scal_prod(vec_sous(pt, cyl.vec0), vec_sous(pt, cyl.vec0)) > (cyl.float1 * cyl.float1 + cyl.float0 * cyl.float0) / 4)
+	// 	return (-1);
 	return (t);
 }
 
@@ -50,7 +50,7 @@ double	cyl_tri_1(t_ray ray, t_obj cyl)
 	c = cyl.vec0;
 	dir = normalize_vec(cyl.vec1);
 	coef = 2 * (scal_prod(ray.dir, vec_sous(ray.start, c)));
-	coef += 2 * (scal_prod(ray.dir, dir) * scal_prod(vec_sous(ray.start, c), dir));
+	coef -= 2 * (scal_prod(ray.dir, dir) * scal_prod(vec_sous(ray.start, c), dir));
 	return (coef);
 }
 
@@ -62,8 +62,9 @@ double cyl_tri_0(t_ray ray, t_obj cyl)
 
 	c = cyl.vec0;
 	dir = normalize_vec(cyl.vec1);
-	coef = scal_prod(vec_sous(ray.start, c), vec_sous(ray.start, c));
-	coef += scal_prod(vec_sous(ray.start, c), dir) * scal_prod(vec_sous(ray.start, c), dir);
+	coef = scal_prod(vec_sous(ray.start, c), dir);
+	coef *= scal_prod(vec_sous(ray.start, c), dir);
+	coef += scal_prod(vec_sous(ray.start, c), vec_sous(ray.start, c));
 	coef -= cyl.float0 * cyl.float0 / 4;
 	return (coef);
 }
