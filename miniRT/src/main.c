@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:15:03 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/08 15:21:44 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/08 15:22:51 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		main(int ac, char **av)
 
 	if (ac < 2)
 	{
-		ft_printf("You should pass a map as argument");
+		ft_printf("You should pass a map as argument\n");
 		return (0);
 	}
 	cam = 0;

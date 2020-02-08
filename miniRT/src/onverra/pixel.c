@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 19:32:17 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/07 16:24:48 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/08 15:42:41 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,13 @@ t_vec3	rstr_to_cam(t_pix pix, t_scene *scene, int cam)
 t_vec3	cam_to_world(t_vec3 cam_crd, t_cam cam)
 {
 	t_vec3	world_crd;
-	t_vec3	axe;
-	t_mat33	mat;
+	t_vec3	rot_vec;
+	t_mat33	rot_mat;
 
-	axe = cam.ori;
-	mat = mat_rot(axe);
-	world_crd = mat_vec(mat, cam_crd);
+	rot_vec = cam.ori;
+	rot_mat = mat_rot(rot_vec);
+	world_crd = mat_vec(rot_mat, cam_crd);
+	world_crd = vec_sous(world_crd, cam.pos);
 	return (world_crd);
 }
 
@@ -68,7 +69,7 @@ t_ray	pix_ray(t_pix pix, t_scene *scene, int cam)
 	cam_crd = rstr_to_cam(pix, scene, cam);
 	wrld_crd = cam_to_world(cam_crd, scene->cameras[cam]);
 	ray.start = scene->cameras[cam].pos;
-	ray.dir = vec_sous(wrld_crd, ray.start);
+	ray.dir = vec_sum(wrld_crd, ray.start);
 	// printf("cam_crd : %f, %f, %f\n", cam_crd.x, cam_crd.y, cam_crd.z);
 	// printf("wrld_crd : %f, %f, %f\n", wrld_crd.x, wrld_crd.y, wrld_crd.z);
 	// printf("ray.start : %f, %f, %f\n", ray.start.x, ray.start.y, ray.start.z);
