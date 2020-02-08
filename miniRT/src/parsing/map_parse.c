@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 13:47:53 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/31 18:23:53 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/07 16:27:30 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ int		line_parse(char *line, int *cpt, t_scene *scene_ptr)
 		ret = parse_cy(line, cpt, scene_ptr);
 	else if (line[0] == 't' && line[1] == 'r')
 		ret = parse_tr(line, cpt, scene_ptr);
+	else if (line[0] == '#')
+		return (0);
 	else
 	{
 		//write(1, "ERROR\nA line must be empty or s 

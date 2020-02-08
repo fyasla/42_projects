@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:15:03 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/05 16:33:56 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/08 15:21:44 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@ int		main(int ac, char **av)
 	int		map_fd;
 	int		cam;
 
+	if (ac < 2)
+	{
+		ft_printf("You should pass a map as argument");
+		return (0);
+	}
 	cam = 0;
 	map_fd = open(av[1], O_RDONLY);
 	scene_ptr = map_parse(map_fd);
