@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 15:08:57 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/08 17:21:22 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/08 18:09:40 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ double	collision(t_ray ray, t_obj object)
 		return (collision_sp(ray, object));
 	if(object.type[0] == 'p' && object.type[1] == 'l')
 		return (collision_pl(ray, object));
+	if(object.type[0] == 's' && object.type[1] == 'q')
+		return (collision_sq(ray, object));
 	else
 		return (-1);
 }
@@ -60,14 +62,42 @@ double	collision_sp(t_ray ray, t_obj sphere)
 double	collision_pl(t_ray ray, t_obj plane)
 {
 	double	t;
-	t_vec3	tri;
 
-	if (scal_prod(ray.start, plane.vec1) == 0)
+	if (scal_prod(ray.dir, plane.vec1) == 0)
 		return (-1);
 	t = scal_prod(plane.vec0, plane.vec1);
 	t -= scal_prod(ray.start, plane.vec1);
 	t = t / (scal_prod(ray.dir, plane.vec1));
 	if (t > 0)
 		return (t);
+	return (-1);
+}
+
+double	collision_sq(t_ray ray, t_obj square)
+{
+	double	t;
+	t_vec3	norm;
+	t_vec3	pt;
+	
+	norm = vec(0, 0, 1);
+	norm = mat_vec(mat_rot(square.vec1), norm);
+	if (scal_prod(ray.dir, norm) == 0)
+		return (-1);
+	t = scal_prod(square.vec0, norm);
+	t -= scal_prod(ray.start, norm);
+	t = t / (scal_prod(ray.dir, norm));
+	if (t <= 0)
+		return (-1);
+	pt = vec_sum(ray.start, mul_vec(t, ray.dir));
+	pt = vec_sous(pt, square.vec0);
+	norm = vec(0, 1, 0);
+	norm = mat_vec(mat_rot(square.vec1), norm);
+	if (scal_prod(pt, norm) * scal_prod(pt, norm) > square.float0 * square.float0 / 4)
+		return (-1);
+	norm = vec(1, 0, 0);
+	norm = mat_vec(mat_rot(square.vec1), norm);
+	if (scal_prod(pt, norm) * scal_prod(pt, norm) > square.float0 * square.float0 / 4)
+		return (-1);
+	return (t);
 	return (-1);
 }
