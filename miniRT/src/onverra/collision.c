@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 15:08:57 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/08 18:09:40 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/08 19:04:38 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ double	collision(t_ray ray, t_obj object)
 		return (collision_pl(ray, object));
 	if(object.type[0] == 's' && object.type[1] == 'q')
 		return (collision_sq(ray, object));
+	if(object.type[0] == 'c' && object.type[1] == 'y')
+		return (collision_cy(ray, object));
 	else
 		return (-1);
 }

@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:37:08 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/08 18:08:24 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/08 19:04:10 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,10 @@ double	collision_sp(t_ray ray, t_obj sphere);
 double	collision_pl(t_ray ray, t_obj plane);
 double	collision_sq(t_ray ray, t_obj square);
 t_obj	closest(t_ray ray, t_scene *scene);
+
+double	collision_cy(t_ray ray, t_obj cyl);
+double	cyl_tri_2(t_ray ray, t_obj cyl);
+double	cyl_tri_1(t_ray ray, t_obj cyl);
+double	cyl_tri_0(t_ray ray, t_obj cyl);
 
 #endif
