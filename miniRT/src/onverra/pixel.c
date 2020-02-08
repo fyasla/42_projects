@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 19:32:17 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/08 15:42:41 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/08 16:26:13 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,13 @@
 
 int		pix_col(t_pix pix, t_scene *scene, int cam)
 {
-	int		i;
 	t_ray	ray;
 	int		color;
+	t_obj	clst;
 
-	i = 0;
-	color = 0;
 	ray = pix_ray(pix, scene, cam);
-	while (i < MAX_OBJS && scene->objects[i].type[0] != '_')
-	{
-		if(scene->objects[i].type[0] == 's')
-			color += color_to_int(collision(ray, scene->objects[i]));
-		i++;
-	}
+	clst = closest(ray, scene);
+	color = (clst.type[0] == '_') ? 0 : color_to_int(clst.color);
 	return (color);
 }
 

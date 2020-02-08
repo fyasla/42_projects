@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:37:08 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/05 16:34:21 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/08 16:27:48 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ double	discriminant(t_vec3 tri);
 int		nb_pos_sol(t_vec3 tri);
 double	smallest_sol(t_vec3 tri);
 
-t_color	collision(t_ray ray, t_obj object);
+double	collision(t_ray ray, t_obj object);
+t_obj	closest(t_ray ray, t_scene *scene);
 
 #endif
