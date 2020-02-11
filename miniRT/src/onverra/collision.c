@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 15:08:57 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/08 19:04:38 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/11 14:12:45 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@ double	collision(t_ray ray, t_obj object)
 {
 	if(object.type[0] == 's' && object.type[1] == 'p')
 		return (collision_sp(ray, object));
-	if(object.type[0] == 'p' && object.type[1] == 'l')
+	else if(object.type[0] == 'p' && object.type[1] == 'l')
 		return (collision_pl(ray, object));
-	if(object.type[0] == 's' && object.type[1] == 'q')
+	else if(object.type[0] == 's' && object.type[1] == 'q')
 		return (collision_sq(ray, object));
-	if(object.type[0] == 'c' && object.type[1] == 'y')
+	else if(object.type[0] == 'c' && object.type[1] == 'y')
 		return (collision_cy(ray, object));
+	else if(object.type[0] == 't' && object.type[1] == 'r')
+		return (collision_tr(ray, object));
 	else
 		return (-1);
 }
@@ -70,7 +72,7 @@ double	collision_pl(t_ray ray, t_obj plane)
 	t = scal_prod(plane.vec0, plane.vec1);
 	t -= scal_prod(ray.start, plane.vec1);
 	t = t / (scal_prod(ray.dir, plane.vec1));
-	if (t > 0)
+	if (t >= 0)
 		return (t);
 	return (-1);
 }
