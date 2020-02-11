@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:37:08 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/08 19:04:10 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/11 13:46:45 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int		draw(t_win *win, t_scene *scene_ptr, int cam);
 double	discriminant(t_vec3 tri);
 int		nb_pos_sol(t_vec3 tri);
 double	smallest_sol(t_vec3 tri);
+double	biggest_sol(t_vec3 tri);
 
 double	collision(t_ray ray, t_obj object);
 double	collision_sp(t_ray ray, t_obj sphere);

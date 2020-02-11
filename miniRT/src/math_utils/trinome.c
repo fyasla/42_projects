@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 15:27:57 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/07 16:02:29 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/11 13:46:36 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,21 @@ double	smallest_sol(t_vec3 tri)
 	sol = (-tri.y - sqrt(delta)) / (2 * tri.x);
 	if (sol >= 0)
 		return (sol);
+	sol = (-tri.y + sqrt(delta)) / (2 * tri.x);
+	if (sol >= 0)
+		return (sol);
+	else
+		return (-1);
+}
+
+double	biggest_sol(t_vec3 tri)
+{
+	double	sol;
+	double delta;
+
+	delta = discriminant(tri);
+	if (delta < 0)
+		return (-1);
 	sol = (-tri.y + sqrt(delta)) / (2 * tri.x);
 	if (sol >= 0)
 		return (sol);
