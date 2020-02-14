@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:37:08 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/11 13:59:51 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/14 16:51:39 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,6 @@ double	cyl_tri_1(t_ray ray, t_obj cyl);
 double	cyl_tri_0(t_ray ray, t_obj cyl);
 
 double	collision_tr(t_ray ray, t_obj tr);
+int		check_tr_som(t_vec3 pt, t_obj tr, int s);
 
 #endif
