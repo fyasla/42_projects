@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 19:32:17 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/08 16:26:13 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/18 19:09:46 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,17 @@
 int		pix_col(t_pix pix, t_scene *scene, int cam)
 {
 	t_ray	ray;
-	int		color;
+	t_color	color;
 	t_obj	clst;
+	int		c;
 
 	ray = pix_ray(pix, scene, cam);
 	clst = closest(ray, scene);
-	color = (clst.type[0] == '_') ? 0 : color_to_int(clst.color);
-	return (color);
+	color.r = (int)((double)clst.color.r * scene->amb_light.lum_rat * (double)scene->amb_light.color.r / 255);
+	color.g = (int)((double)clst.color.g * scene->amb_light.lum_rat * (double)scene->amb_light.color.g / 255);
+	color.b = (int)((double)clst.color.b * scene->amb_light.lum_rat * (double)scene->amb_light.color.b / 255);
+	c = (clst.type[0] == '_') ? 0 : color_to_int(color);
+	return (c);
 }
 
 t_vec3	rstr_to_cam(t_pix pix, t_scene *scene, int cam)
