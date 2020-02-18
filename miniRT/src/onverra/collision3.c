@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 13:53:36 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/14 16:51:23 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/18 17:36:36 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ int		check_tr_som(t_vec3 pt, t_obj tr, int s)
 	if (s == 2)
 	{
 		a = tr.vec2;
-		b = tr.vec0;
+		b = tr.vec1;
 	}
 	pt = vec_sous(pt, a);
-	if (scal_prod(pt, vec_sous(b, a)) < 0 || scal_prod(pt, vec_sous(c, a)) < 0)
+	if (scal_prod(vec_prod(vec_sous(b, a), pt), vec_prod(pt, vec_sous(c, a))) < 0)
 		return (0);
 	else
 		return (1);

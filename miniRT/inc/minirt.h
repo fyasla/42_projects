@@ -6,14 +6,14 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:37:08 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/14 16:51:39 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/18 17:41:15 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_H
 # define MINIRT_H
 
-# define MAX_OBJS 10
+# define MAX_OBJS 30
 # define MAX_CAMS 5
 # define MAX_LIGHTS 5
 
