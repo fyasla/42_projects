@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:37:08 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/18 19:50:02 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/19 16:13:08 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ t_vec3	normalize_vec(t_vec3 u);
 
 t_vec3	vec_prod(t_vec3 u, t_vec3 v);
 
-int		pix_col(t_pix pix, t_scene *scene, int cam);
+t_color	pix_col(t_pix pix, t_scene *scene, int cam);
 t_vec3	rstr_to_cam(t_pix pix, t_scene *scene, int cam);
 t_vec3	cam_to_world(t_vec3 cam_crd, t_cam cam);
 t_ray	pix_ray(t_pix pix, t_scene *scene, int cam);
@@ -78,5 +78,8 @@ double	cyl_tri_0(t_ray ray, t_obj cyl);
 
 double	collision_tr(t_ray ray, t_obj tr);
 int		check_tr_som(t_vec3 pt, t_obj tr, int s);
+
+t_color	obj_illum(t_color col, t_light light);
+
 
 #endif

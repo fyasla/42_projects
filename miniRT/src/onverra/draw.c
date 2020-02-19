@@ -6,29 +6,29 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 19:13:06 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/19 15:50:05 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/19 16:17:20 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/minirt.h"
 
-int		draw(t_win *w, t_scene *scene, int cam)
-{
-	t_pix	pix;
+// int		draw(t_win *w, t_scene *scene, int cam)
+// {
+// 	t_pix	pix;
 
-	pix.x = 0;
-	while (pix.x < scene->resx)
-	{
-		pix.y = 0;
-		while (pix.y < scene->resy)
-		{
-			mlx_pixel_put(w->mlx_p, w->win_p, pix.x, pix.y, pix_col(pix, scene, cam));
-			pix.y++;
-		}
-		pix.x++;
-	}
-	return (0);
-}
+// 	pix.x = 0;
+// 	while (pix.x < scene->resx)
+// 	{
+// 		pix.y = 0;
+// 		while (pix.y < scene->resy)
+// 		{
+// 			mlx_pixel_put(w->mlx_p, w->win_p, pix.x, pix.y, pix_col(pix, scene, cam));
+// 			pix.y++;
+// 		}
+// 		pix.x++;
+// 	}
+// 	return (0);
+// }
 
 int		draw2(t_win *w, t_scene *scene, int cam)
 {
@@ -58,9 +58,9 @@ int		draw2(t_win *w, t_scene *scene, int cam)
 		pix.y = 0;
 		while (pix.y < scene->resy)
 		{
-			img[pix.y * size_line + pix.x * sizeof(unsigned int)] = (unsigned int)pix_col(pix, scene, cam) % 256;
-			img[pix.y * size_line + pix.x * sizeof(unsigned int) + 1] = ((unsigned int)pix_col(pix, scene, cam) / 256) % 256;
-			img[pix.y * size_line + pix.x * sizeof(unsigned int) + 2] = (unsigned int)pix_col(pix, scene, cam) / 65536;
+			img[pix.y * size_line + pix.x * sizeof(unsigned int)] = (pix_col(pix, scene, cam).b);
+			img[pix.y * size_line + pix.x * sizeof(unsigned int) + 1] = (pix_col(pix, scene, cam).g);
+			img[pix.y * size_line + pix.x * sizeof(unsigned int) + 2] = (pix_col(pix, scene, cam).r);
 			pix.y++;
 		}
 		pix.x++;

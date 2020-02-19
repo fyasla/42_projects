@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 15:08:57 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/11 14:12:45 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/19 16:13:26 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ t_obj	closest(t_ray ray, t_scene *scene)
 		i ++;
 	}
 	if (dist == -1)
-		closest.type[0] = '_';
+		initiate_obj(&closest);
 	return (closest);
 }
 

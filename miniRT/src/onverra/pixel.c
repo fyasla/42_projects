@@ -6,13 +6,13 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 19:32:17 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/18 19:09:46 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/19 16:12:54 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/minirt.h"
 
-int		pix_col(t_pix pix, t_scene *scene, int cam)
+t_color	pix_col(t_pix pix, t_scene *scene, int cam)
 {
 	t_ray	ray;
 	t_color	color;
@@ -21,11 +21,9 @@ int		pix_col(t_pix pix, t_scene *scene, int cam)
 
 	ray = pix_ray(pix, scene, cam);
 	clst = closest(ray, scene);
-	color.r = (int)((double)clst.color.r * scene->amb_light.lum_rat * (double)scene->amb_light.color.r / 255);
-	color.g = (int)((double)clst.color.g * scene->amb_light.lum_rat * (double)scene->amb_light.color.g / 255);
-	color.b = (int)((double)clst.color.b * scene->amb_light.lum_rat * (double)scene->amb_light.color.b / 255);
+	color = obj_illum(clst.color, scene->amb_light);
 	c = (clst.type[0] == '_') ? 0 : color_to_int(color);
-	return (c);
+	return (color);
 }
 
 t_vec3	rstr_to_cam(t_pix pix, t_scene *scene, int cam)
