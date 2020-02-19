@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:15:03 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/08 15:22:51 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/18 19:52:53 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		main(int ac, char **av)
 	win.mlx_p = mlx_init();
 	win.win_p = mlx_new_window(win.mlx_p, scene_ptr->resx, scene_ptr->resy, av[1]);
 	//mlx_key_hook(win.win_ptr, deal_key, &win);
-	draw(&win, scene_ptr, cam);
+	draw2(&win, scene_ptr, cam);
 	mlx_loop(win.mlx_p);
 	return (0);
 }
