@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 19:32:17 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/19 16:12:54 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/19 16:55:09 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,16 @@ t_color	pix_col(t_pix pix, t_scene *scene, int cam)
 	t_ray	ray;
 	t_color	color;
 	t_obj	clst;
-	int		c;
+	t_light	total;
+	double	t;
+	t_vec3	inter;
 
 	ray = pix_ray(pix, scene, cam);
 	clst = closest(ray, scene);
-	color = obj_illum(clst.color, scene->amb_light);
-	c = (clst.type[0] == '_') ? 0 : color_to_int(color);
+	t = collision(ray, clst);
+	inter = vec_sum(ray.start, mul_vec(t, ray.dir));
+	total = total_light(inter, scene);
+	color = obj_illum(clst.color, total);
 	return (color);
 }
 

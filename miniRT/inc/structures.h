@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:37:43 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/05 15:07:27 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/19 16:32:24 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ typedef struct	s_light
 
 typedef	struct	s_scene
 {
+	int		cpt[3];
 	t_obj	objects[MAX_OBJS];
 	t_cam	cameras[MAX_CAMS];
 	t_light	lights[MAX_LIGHTS];

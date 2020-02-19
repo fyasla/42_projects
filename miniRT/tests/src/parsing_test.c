@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 19:11:38 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/31 18:30:23 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/19 16:36:16 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int		main(int ac, char **av)
 	ft_printf("Resolution : X : %d, Y : %d\n\n", scene.resx, scene.resy);
 	ft_printf("Ambiant light:\n");
 	display_light(scene.amb_light);
+	ft_printf("\ncpt : %d, %d, %d \n", scene.cpt[0], scene.cpt[1], scene.cpt[2]);
 	i = 0;
 	ft_printf("\n##############################################################\n\nOBJECTS LIST :\n\n");
 	while (i < MAX_OBJS)

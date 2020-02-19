@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 13:47:53 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/07 16:27:30 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/19 16:33:12 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,17 @@
 t_scene	*map_parse(int map_fd)
 {
 	char	*line;
-	int		cpt[3];
 	t_scene	*scene_ptr;
 
 	if (!(scene_ptr = malloc(sizeof(t_scene))))
 		return (NULL);
-	cpt[0] = 0;
-	cpt[1] = 0;
-	cpt[2] = 0;
+	scene_ptr->cpt[0] = 0;
+	scene_ptr->cpt[1] = 0;
+	scene_ptr->cpt[2] = 0;
 	scene_initiate(scene_ptr);
 	while (get_next_line(map_fd, &line) > 0)
 	{
-		if (line_parse(line, cpt, scene_ptr) == -1)
+		if (line_parse(line, scene_ptr->cpt, scene_ptr) == -1)
 		{
 			free(line);
 			ft_printf("\n\n\n\n\n\nERROR\n\n\n\n\n\n\n\n\n\n\n");
@@ -34,7 +33,7 @@ t_scene	*map_parse(int map_fd)
 		}
 		free(line);
 	}
-	if (line_parse(line, cpt, scene_ptr) == -1)
+	if (line_parse(line, scene_ptr->cpt, scene_ptr) == -1)
 	{
 		free(line);
 		ft_printf("\n\n\n\n\n\nERROR\n\n\n\n\n\n\n\n\n\n\n");
