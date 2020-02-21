@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 16:03:54 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/19 18:19:52 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/21 15:25:20 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,34 @@ t_color		obj_illum(t_color col, t_light light)
 	return (res);
 }
 
+int		closest_pos(t_ray ray, t_scene *scene)
+{
+	int		i;
+	double	dist;
+	int		clst;
+
+	i = 0;
+	clst = -1;
+	dist = -1;
+	while (i < MAX_OBJS && scene->objects[i].type[0] != '_')
+	{
+		if (collision(ray, scene->objects[i]) > 0 && (collision(ray, scene->objects[i]) < dist || dist == -1))
+		{
+			clst = i;
+			dist = collision(ray, scene->objects[i]);
+		}
+		i ++;
+	}
+	return (clst);
+}
+
 t_light		total_light(t_vec3 pos, t_scene *scene)
 {
 	t_ray	ray;
 	t_light	sum;
 	int		i;
 	int		j;
+	// int		clst;
 
 	initiate_light(&sum);
 	ray.start = pos;
@@ -36,9 +58,10 @@ t_light		total_light(t_vec3 pos, t_scene *scene)
 	{
 		j = 0;
 		ray.dir = (vec_sous(scene->lights[i].pos, pos));
+		// clst = closest_pos(ray, scene);
 		while (j < scene->cpt[0])
 		{
-			if (collision(ray, scene->objects[j]) >= 0)
+			if (/*j != clst &&*/ collision(ray, scene->objects[j]) != -1)
 			{
 				j = scene->cpt[0];
 			}

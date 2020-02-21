@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:37:08 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/19 16:49:47 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/21 15:16:51 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ int		check_tr_som(t_vec3 pt, t_obj tr, int s);
 t_color	obj_illum(t_color col, t_light light);
 t_light	total_light(t_vec3 pos, t_scene *scene);
 t_light		light_sum(t_light l1, t_light l2);
+
+int		closest_pos(t_ray ray, t_scene *scene);
 
 
 #endif
