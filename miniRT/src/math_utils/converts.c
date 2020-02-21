@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 19:54:23 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/07 15:47:26 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/21 16:14:53 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ double	to_rad(double deg)
 	return (deg * M_PI / 180);
 }
 
-
 int		color_to_int(t_color color)
 {
 	int	c;
@@ -45,9 +44,8 @@ int		color_to_int(t_color color)
 	c = color.r * 256 * 256;
 	c += color.g * 256;
 	c += color.b;
-	return (c); 
+	return (c);
 }
-
 
 t_vec3	vec_sous(t_vec3 u, t_vec3 v)
 {

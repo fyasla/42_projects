@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 15:27:57 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/11 13:46:36 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/21 16:14:29 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 double	discriminant(t_vec3 tri)
 {
-	return(tri.y * tri.y - 4 * tri.x * tri.z);
+	return (tri.y * tri.y - 4 * tri.x * tri.z);
 }
 
 int		nb_pos_sol(t_vec3 tri)
 {
 	int		nb;
 	double	sol;
-	double delta;
+	double	delta;
 
 	nb = 0;
 	delta = discriminant(tri);
@@ -39,7 +39,7 @@ int		nb_pos_sol(t_vec3 tri)
 double	smallest_sol(t_vec3 tri)
 {
 	double	sol;
-	double delta;
+	double	delta;
 
 	delta = discriminant(tri);
 	if (delta < 0)
@@ -57,7 +57,7 @@ double	smallest_sol(t_vec3 tri)
 double	biggest_sol(t_vec3 tri)
 {
 	double	sol;
-	double delta;
+	double	delta;
 
 	delta = discriminant(tri);
 	if (delta < 0)
