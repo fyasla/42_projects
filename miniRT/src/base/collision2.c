@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/08 18:23:29 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/11 13:51:38 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/21 16:30:47 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,12 @@ double	cyl_tri_1(t_ray ray, t_obj cyl)
 	c = cyl.vec0;
 	ori = normalize_vec(cyl.vec1);
 	coef = 2 * (scal_prod(ray.dir, vec_sous(ray.start, c)));
-	coef -= 2 * (scal_prod(ray.dir, ori) * scal_prod(vec_sous(ray.start, c), ori));
+	coef -= 2 * (scal_prod(ray.dir, ori) *
+	scal_prod(vec_sous(ray.start, c), ori));
 	return (coef);
 }
 
-double cyl_tri_0(t_ray ray, t_obj cyl)
+double	cyl_tri_0(t_ray ray, t_obj cyl)
 {
 	double	coef;
 	t_vec3	ori;

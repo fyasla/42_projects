@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 15:08:57 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/19 16:13:26 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/21 16:23:33 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 double	collision(t_ray ray, t_obj object)
 {
-	if(object.type[0] == 's' && object.type[1] == 'p')
+	if (object.type[0] == 's' && object.type[1] == 'p')
 		return (collision_sp(ray, object));
-	else if(object.type[0] == 'p' && object.type[1] == 'l')
+	else if (object.type[0] == 'p' && object.type[1] == 'l')
 		return (collision_pl(ray, object));
-	else if(object.type[0] == 's' && object.type[1] == 'q')
+	else if (object.type[0] == 's' && object.type[1] == 'q')
 		return (collision_sq(ray, object));
-	else if(object.type[0] == 'c' && object.type[1] == 'y')
+	else if (object.type[0] == 'c' && object.type[1] == 'y')
 		return (collision_cy(ray, object));
-	else if(object.type[0] == 't' && object.type[1] == 'r')
+	else if (object.type[0] == 't' && object.type[1] == 'r')
 		return (collision_tr(ray, object));
 	else
 		return (-1);
@@ -38,12 +38,13 @@ t_obj	closest(t_ray ray, t_scene *scene)
 	dist = -1;
 	while (i < MAX_OBJS && scene->objects[i].type[0] != '_')
 	{
-		if (collision(ray, scene->objects[i]) > 0 && (collision(ray, scene->objects[i]) < dist || dist == -1))
+		if (collision(ray, scene->objects[i]) > 0 &&
+		(collision(ray, scene->objects[i]) < dist || dist == -1))
 		{
 			closest = scene->objects[i];
 			dist = collision(ray, scene->objects[i]);
 		}
-		i ++;
+		i++;
 	}
 	if (dist == -1)
 		initiate_obj(&closest);
@@ -54,11 +55,13 @@ double	collision_sp(t_ray ray, t_obj sphere)
 {
 	double	t;
 	t_vec3	tri;
+	t_vec3	tmp;
 
 	t = -1;
 	tri.x = scal_prod(ray.dir, ray.dir);
 	tri.y = 2 * scal_prod(ray.dir, vec_sous(ray.start, sphere.vec0));
-	tri.z = scal_prod(vec_sous(ray.start, sphere.vec0), vec_sous(ray.start, sphere.vec0)) - (sphere.float0 * sphere.float0 / 4);
+	tmp = vec_sous(ray.start, sphere.vec0);
+	tri.z = scal_prod(tmp, tmp) - (sphere.float0 * sphere.float0 / 4);
 	t = smallest_sol(tri);
 	return (t);
 }
@@ -82,9 +85,8 @@ double	collision_sq(t_ray ray, t_obj square)
 	double	t;
 	t_vec3	norm;
 	t_vec3	pt;
-	
-	norm = vec(0, 0, 1);
-	norm = mat_vec(mat_rot(square.vec1), norm);
+
+	norm = mat_vec(mat_rot(square.vec1), vec(0, 0, 1));
 	if (scal_prod(ray.dir, norm) == 0)
 		return (-1);
 	t = scal_prod(square.vec0, norm);
@@ -96,11 +98,12 @@ double	collision_sq(t_ray ray, t_obj square)
 	pt = vec_sous(pt, square.vec0);
 	norm = vec(0, 1, 0);
 	norm = mat_vec(mat_rot(square.vec1), norm);
-	if (scal_prod(pt, norm) * scal_prod(pt, norm) > square.float0 * square.float0 / 4)
+	if (scal_prod(pt, norm) *
+	scal_prod(pt, norm) > square.float0 * square.float0 / 4)
 		return (-1);
-	norm = vec(1, 0, 0);
-	norm = mat_vec(mat_rot(square.vec1), norm);
-	if (scal_prod(pt, norm) * scal_prod(pt, norm) > square.float0 * square.float0 / 4)
+	norm = mat_vec(mat_rot(square.vec1), vec(1, 0, 0));
+	if (scal_prod(pt, norm) *
+	scal_prod(pt, norm) > square.float0 * square.float0 / 4)
 		return (-1);
 	return (t);
 	return (-1);
