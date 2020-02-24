@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:37:08 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/24 13:36:30 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/24 16:53:33 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ double	vec_norme(t_vec3 u);
 t_vec3	normalize_vec(t_vec3 u);
 
 t_vec3	vec_prod(t_vec3 u, t_vec3 v);
+double	distance(t_vec3	a, t_vec3 b);
 
 t_color	pix_col(t_pix pix, t_scene *scene, int cam);
 t_vec3	rstr_to_cam(t_pix pix, t_scene *scene, int cam);

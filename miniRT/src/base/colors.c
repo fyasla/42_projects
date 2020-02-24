@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 16:03:54 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/24 12:44:22 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/24 16:54:14 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ t_light		total_light(t_vec3 pos, t_ray ray0, t_scene *scene)
 	int		j;
 	t_vec3	normal;
 	t_light	tmp;
+	double	coll;
 
 	normal = collision_normal(ray0, scene);
 	initiate_light(&sum);
@@ -44,7 +45,7 @@ t_light		total_light(t_vec3 pos, t_ray ray0, t_scene *scene)
 		ray.dir = normalize_vec(vec_sous(scene->lights[i].pos, pos));
 		while (j < scene->cpt[0])
 		{
-			if (collision(ray, scene->objects[j]) != -1)
+			if ((coll = collision(ray, scene->objects[j])) != -1 && coll < distance(pos, scene->lights[i].pos))
 				j = scene->cpt[0];
 			j++;
 		}
