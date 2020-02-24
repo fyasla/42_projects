@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:54:22 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/24 13:36:50 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/24 14:24:11 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,6 @@ t_vec3	normal_tr(t_ray ray, t_obj tr)
 	side0 = vec_sous(tr.vec1, tr.vec0);
 	side1 = vec_sous(tr.vec2, tr.vec0);
 	norm = vec_prod(side0, side1);
+	norm = normalize_vec(norm);
 	return (norm);
 }
