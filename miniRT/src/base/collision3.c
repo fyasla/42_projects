@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 13:53:36 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/21 16:30:09 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/24 14:04:18 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ double	collision_tr(t_ray ray, t_obj tr)
 		return (-1);
 	pt = vec_sum(ray.start, mul_vec(t, ray.dir));
 	if ((check_tr_som(pt, tr, 0) + check_tr_som(pt, tr, 1) +
-	check_tr_som(pt, tr, 2)) != 3)
+	check_tr_som(pt, tr, 2)) < 2)
 		return (-1);
 	return (t);
 }
@@ -39,6 +39,7 @@ int		check_tr_som(t_vec3 pt, t_obj tr, int s)
 	t_vec3	b;
 	t_vec3	c;
 	t_vec3	tmp;
+	double	res;
 
 	a = tr.vec0;
 	b = tr.vec1;
@@ -55,7 +56,7 @@ int		check_tr_som(t_vec3 pt, t_obj tr, int s)
 	}
 	pt = vec_sous(pt, a);
 	tmp = vec_prod(vec_sous(b, a), pt);
-	if (scal_prod(tmp, vec_prod(pt, vec_sous(c, a))) < 0)
+	if (scal_prod(tmp, vec_prod(pt, vec_sous(c, a))) <= 0)
 		return (0);
 	else
 		return (1);
