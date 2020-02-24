@@ -6,7 +6,7 @@
 #    By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/07 10:49:58 by fbougama          #+#    #+#              #
-#    Updated: 2020/02/21 16:10:42 by fbougama         ###   ########.fr        #
+#    Updated: 2020/02/24 11:21:34 by fbougama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ SRCS_PARSING		=	src/parsing/get_next_line_utils.c src/parsing/get_next_line.c li
 SRCS				=	$(SRCS_PARSING) \
 						src/base/draw.c src/base/pixel.c src/base/collision.c \
 						src/base/collision2.c src/base/collision3.c \
-						src/base/colors.c \
+						src/base/colors.c src/base/normal.c\
 						src/math_utils/vectors.c src/math_utils/vectors2.c src/math_utils/converts.c \
 						src/math_utils/trinome.c src/math_utils/rotations.c \
 						src/main.c

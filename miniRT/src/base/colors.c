@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 16:03:54 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/21 16:18:07 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/24 11:43:17 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,23 @@ t_color		obj_illum(t_color col, t_light light)
 	return (res);
 }
 
-t_light		total_light(t_vec3 pos, t_scene *scene)
+t_light		total_light(t_vec3 pos, t_ray ray0, t_scene *scene)
 {
 	t_ray	ray;
 	t_light	sum;
 	int		i;
 	int		j;
+	t_vec3	normal;
+	t_light	tmp;
 
+	normal = collision_normal(ray0, scene);
 	initiate_light(&sum);
 	ray.start = pos;
 	i = 0;
 	while (i < scene->cpt[2])
 	{
 		j = 0;
-		ray.dir = (vec_sous(scene->lights[i].pos, pos));
+		ray.dir = normalize_vec(vec_sous(scene->lights[i].pos, pos));
 		while (j < scene->cpt[0])
 		{
 			if (collision(ray, scene->objects[j]) != -1)
@@ -46,7 +49,11 @@ t_light		total_light(t_vec3 pos, t_scene *scene)
 			j++;
 		}
 		if (j == scene->cpt[0])
-			sum = light_sum(sum, scene->lights[i]);
+		{
+			tmp = scene->lights[i];
+			tmp.lum_rat *= fabs(scal_prod(ray.dir, normal));
+			sum = light_sum(sum, tmp);
+		}
 		i++;
 	}
 	sum = light_sum(sum, scene->amb_light);

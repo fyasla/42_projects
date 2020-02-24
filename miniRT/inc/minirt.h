@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:37:08 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/21 15:40:54 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/02/24 11:33:07 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,11 @@ double	collision_tr(t_ray ray, t_obj tr);
 int		check_tr_som(t_vec3 pt, t_obj tr, int s);
 
 t_color	obj_illum(t_color col, t_light light);
-t_light	total_light(t_vec3 pos, t_scene *scene);
-t_light		light_sum(t_light l1, t_light l2);
+t_light	total_light(t_vec3 pos, t_ray ray0, t_scene *scene);
+t_light	light_sum(t_light l1, t_light l2);
+
+t_vec3	collision_normal(t_ray ray, t_scene *scene);
+t_vec3	normal_sp(t_ray ray, t_obj clst);
+t_vec3	normal_pl(t_ray ray, t_obj clst);
 
 #endif
