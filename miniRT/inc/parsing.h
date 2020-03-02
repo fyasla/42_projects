@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 18:11:58 by fbougama          #+#    #+#             */
-/*   Updated: 2020/01/31 18:20:54 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/03/02 10:54:51 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int		ft_atoi(char *str);
 
 t_scene	*map_parse(int map_fd);
 int		line_parse(char *line, int *cpt, t_scene *scene_ptr);
+int		line_parse2(char *line, int *cpt, t_scene *scene_ptr);
+
 
 int		parse_r(char *line, t_scene *scene_ptr);
 int		parse_a(char *line, t_scene *scene_ptr);

@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 16:12:54 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/24 16:53:22 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/03/02 10:51:03 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_vec3	vec_prod(t_vec3 u, t_vec3 v)
 	return (prod);
 }
 
-double	distance(t_vec3	a, t_vec3 b)
+double	distance(t_vec3 a, t_vec3 b)
 {
-	return (vec_norme(vec_sous(b,a)));
+	return (vec_norme(vec_sous(b, a)));
 }

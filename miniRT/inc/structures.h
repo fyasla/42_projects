@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:37:43 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/19 16:32:24 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/03/02 11:16:12 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,6 @@ typedef	struct	s_color
 	int		b;
 }				t_color;
 
-typedef struct	s_ray
-{
-	t_vec3	start;
-	t_vec3	dir;
-}				t_ray;
-
 typedef struct	s_obj
 {
 	char	type[3];
@@ -62,6 +56,14 @@ typedef struct	s_obj
 	double	float1;
 	t_color	color;
 }				t_obj;
+
+typedef struct	s_ray
+{
+	t_vec3	start;
+	t_vec3	dir;
+	t_obj	clst;
+	double	t;
+}				t_ray;
 
 typedef struct	s_cam
 {

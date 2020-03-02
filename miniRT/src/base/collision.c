@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 15:08:57 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/21 16:23:33 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/03/02 11:35:26 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,18 @@ t_obj	closest(t_ray ray, t_scene *scene)
 	int		i;
 	double	dist;
 	t_obj	closest;
+	double	t;
 
 	i = 0;
 	dist = -1;
 	while (i < MAX_OBJS && scene->objects[i].type[0] != '_')
 	{
-		if (collision(ray, scene->objects[i]) > 0 &&
-		(collision(ray, scene->objects[i]) < dist || dist == -1))
+		t = collision(ray, scene->objects[i]);
+		if (t > 0 &&
+		(t < dist || dist == -1))
 		{
 			closest = scene->objects[i];
-			dist = collision(ray, scene->objects[i]);
+			dist = t;
 		}
 		i++;
 	}

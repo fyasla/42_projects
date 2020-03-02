@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 13:47:53 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/19 16:33:12 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/03/02 10:57:01 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ t_scene	*map_parse(int map_fd)
 		if (line_parse(line, scene_ptr->cpt, scene_ptr) == -1)
 		{
 			free(line);
-			ft_printf("\n\n\n\n\n\nERROR\n\n\n\n\n\n\n\n\n\n\n");
 			return (scene_ptr);
 		}
 		free(line);
@@ -36,7 +35,6 @@ t_scene	*map_parse(int map_fd)
 	if (line_parse(line, scene_ptr->cpt, scene_ptr) == -1)
 	{
 		free(line);
-		ft_printf("\n\n\n\n\n\nERROR\n\n\n\n\n\n\n\n\n\n\n");
 		return (scene_ptr);
 	}
 	free(line);
@@ -62,7 +60,17 @@ int		line_parse(char *line, int *cpt, t_scene *scene_ptr)
 		ret = parse_pl(line, cpt, scene_ptr);
 	else if (line[0] == 's' && line[1] == 'p')
 		ret = parse_sp(line, cpt, scene_ptr);
-	else if (line[0] == 's' && line[1] == 'q')
+	else
+		return (line_parse2(line, cpt, scene_ptr));
+	return (ret);
+}
+
+int		line_parse2(char *line, int *cpt, t_scene *scene_ptr)
+{
+	int ret;
+
+	ret = 0;
+	if (line[0] == 's' && line[1] == 'q')
 		ret = parse_sq(line, cpt, scene_ptr);
 	else if (line[0] == 'c' && line[1] == 'y')
 		ret = parse_cy(line, cpt, scene_ptr);
@@ -71,10 +79,6 @@ int		line_parse(char *line, int *cpt, t_scene *scene_ptr)
 	else if (line[0] == '#')
 		return (0);
 	else
-	{
-		//write(1, "ERROR\nA line must be empty or s 
-		//tart with a valid identifier", 50);
 		return (-1);
-	}
 	return (ret);
 }
