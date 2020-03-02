@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 19:13:06 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/19 16:17:20 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/03/02 13:08:30 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ int		draw2(t_win *w, t_scene *scene, int cam)
 		}
 		pix.x++;
 	}
+	w->img_p = img_ptr;
 	mlx_put_image_to_window(w->mlx_p, w->win_p, img_ptr, 0, 0);
 	return (0);
 }

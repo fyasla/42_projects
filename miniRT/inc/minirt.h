@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:37:08 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/24 16:53:33 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/03/02 13:34:13 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,7 @@ t_vec3	normal_sp(t_ray ray, t_obj sp);
 t_vec3	normal_sq(t_ray ray, t_obj sq);
 t_vec3	normal_cy(t_ray ray, t_obj cy);
 t_vec3	normal_tr(t_ray ray, t_obj tr);
+
+int		exit_prog(int n, t_win *win);
 
 #endif
