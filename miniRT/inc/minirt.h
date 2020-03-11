@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:37:08 by fbougama          #+#    #+#             */
-/*   Updated: 2020/03/02 13:34:13 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/03/11 15:28:36 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ t_vec3	cam_to_world(t_vec3 cam_crd, t_cam cam);
 t_ray	pix_ray(t_pix pix, t_scene *scene, int cam);
 
 
-int		draw2(t_win *w, t_scene *scene, int cam);
+int		draw2(t_win *w, t_scene *scene, char *img);
+char	*create_img(t_win *w, t_scene *scene);
 
 int		draw(t_win *win, t_scene *scene_ptr, int cam);
 
@@ -91,5 +92,6 @@ t_vec3	normal_cy(t_ray ray, t_obj cy);
 t_vec3	normal_tr(t_ray ray, t_obj tr);
 
 int		exit_prog(int n, t_win *win);
+int		deal_key(int key, t_win *win);
 
 #endif

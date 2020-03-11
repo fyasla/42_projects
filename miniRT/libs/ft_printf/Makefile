@@ -6,7 +6,7 @@
 #    By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/11 14:25:15 by fbougama          #+#    #+#              #
-#    Updated: 2020/01/31 17:47:55 by fbougama         ###   ########.fr        #
+#    Updated: 2020/03/02 14:11:38 by fbougama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,19 +26,19 @@ CFLAGS = -Wall -Werror -Wextra
 
 RM = rm -f
 
-all		: $(NAME)
+all		:	$(NAME)
 
-$(NAME)	: $(OBJS)
-	ar rcs $(NAME) $(OBJS) 
+$(NAME)	:	$(OBJS)
+	@ar rcs $(NAME) $(OBJS) 
 
-%.o:	%.c
-		@$(CC) $(FLAGS) -o $@ -c $<
+%.o		:	%.c
+	@$(CC) $(FLAGS) -o $@ -c $<
 
 clean	:
-	$(RM) *.o src/*.o
+	@$(RM) *.o src/*.o
 
 fclean	: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 
 re : fclean all
 
