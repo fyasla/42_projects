@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 13:47:53 by fbougama          #+#    #+#             */
-/*   Updated: 2020/03/02 10:57:01 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/03/12 15:42:52 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@ t_scene	*map_parse(int map_fd)
 {
 	char	*line;
 	t_scene	*scene_ptr;
+	int		ret;
+	int		l;
 
+	l = 1;
 	if (!(scene_ptr = malloc(sizeof(t_scene))))
 		return (NULL);
 	scene_ptr->cpt[0] = 0;
@@ -25,16 +28,17 @@ t_scene	*map_parse(int map_fd)
 	scene_initiate(scene_ptr);
 	while (get_next_line(map_fd, &line) > 0)
 	{
-		if (line_parse(line, scene_ptr->cpt, scene_ptr) == -1)
+		if ((ret = line_parse(line, scene_ptr->cpt, scene_ptr)) != 0)
 		{
-			free(line);
+			parsing_error(ret, line, l);
 			return (scene_ptr);
 		}
 		free(line);
+		l++;
 	}
-	if (line_parse(line, scene_ptr->cpt, scene_ptr) == -1)
+	if ((ret = line_parse(line, scene_ptr->cpt, scene_ptr)) != 0)
 	{
-		free(line);
+		parsing_error(ret, line, l);
 		return (scene_ptr);
 	}
 	free(line);
@@ -79,6 +83,6 @@ int		line_parse2(char *line, int *cpt, t_scene *scene_ptr)
 	else if (line[0] == '#')
 		return (0);
 	else
-		return (-1);
+		return (-10);
 	return (ret);
 }

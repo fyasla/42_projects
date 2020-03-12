@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:37:08 by fbougama          #+#    #+#             */
-/*   Updated: 2020/03/11 15:28:36 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/03/12 16:22:53 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,13 @@ t_vec3	normal_sq(t_ray ray, t_obj sq);
 t_vec3	normal_cy(t_ray ray, t_obj cy);
 t_vec3	normal_tr(t_ray ray, t_obj tr);
 
-int		exit_prog(int n, t_win *win);
+int		exit_prog(t_win *win);
 int		deal_key(int key, t_win *win);
+int		deal_cam(int key, t_win *win);
+
+void	parsing_error(int ret, char *line, int l);
+void	parsing_error2(int ret, int l);
+void	parsing_error3(int ret, int l);
+void	parsing_error4(int ret, int l);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:15:03 by fbougama          #+#    #+#             */
-/*   Updated: 2020/03/11 15:25:29 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/03/11 17:10:39 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int		main(int ac, char **av)
 	win.scene = scene_ptr;
 	img = create_img(&win, scene_ptr);
 	draw2(&win, scene_ptr, img);
+	mlx_hook(win.win_p, 1, 1L<<8, &exit_prog, &win);
 	mlx_key_hook(win.win_p, &deal_key, &win);
 	mlx_loop(win.mlx_p);
 	return (0);

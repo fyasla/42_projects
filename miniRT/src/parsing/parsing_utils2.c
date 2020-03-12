@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/22 13:43:29 by fbougama          #+#    #+#             */
-/*   Updated: 2020/03/02 11:00:03 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/03/11 17:52:19 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,6 @@ int	skip_float(char *str, int *i)
 	ret += skip_int(str, i);
 	if (str[*i] == '.')
 		*i += 1;
-	else if (ft_isspace(str[*i]))
-		return (0);
-	else
-		return (-1);
 	ret += skip_numbers(str, i);
 	return (ret);
 }
