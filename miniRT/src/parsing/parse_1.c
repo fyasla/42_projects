@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 17:39:16 by fbougama          #+#    #+#             */
-/*   Updated: 2020/03/12 16:05:40 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/03/12 17:01:51 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		parse_r(char *line, t_scene *scene_ptr)
 	ret += skip_signs(line, &i);
 	ret += skip_int(line, &i);
 	ret += skip_whitespaces(line, &i);
-	if (line[i] || scene_ptr->resx < 1 || scene_ptr->resy < 1) 
+	if (line[i] || scene_ptr->resx < 1 || scene_ptr->resy < 1)
 		return (1);
 	return (ret);
 }
@@ -51,7 +51,8 @@ int		parse_a(char *line, t_scene *scene_ptr)
 		return (-3);
 	ret += skip_float(line, &i);
 	ret += skip_whitespaces(line, &i);
-	if (((line[i] > '9' || line[i] < '0') && line[i] != '-' && line[i] != '+') || ret > 0)
+	if (((line[i] > '9' || line[i] < '0') && line[i] != '-' &&
+	line[i] != '+') || ret > 0)
 		return (2);
 	else
 		scene_ptr->amb_light.color = vec3tocol(ft_atov(line + i));

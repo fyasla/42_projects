@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 13:47:53 by fbougama          #+#    #+#             */
-/*   Updated: 2020/03/12 15:42:52 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/03/12 16:41:21 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,12 @@ t_scene	*map_parse(int map_fd)
 	while (get_next_line(map_fd, &line) > 0)
 	{
 		if ((ret = line_parse(line, scene_ptr->cpt, scene_ptr)) != 0)
-		{
-			parsing_error(ret, line, l);
-			return (scene_ptr);
-		}
+			return (parsing_error(ret, line, l, scene_ptr));
 		free(line);
 		l++;
 	}
 	if ((ret = line_parse(line, scene_ptr->cpt, scene_ptr)) != 0)
-	{
-		parsing_error(ret, line, l);
-		return (scene_ptr);
-	}
+		return (parsing_error(ret, line, l, scene_ptr));
 	free(line);
 	return (scene_ptr);
 }

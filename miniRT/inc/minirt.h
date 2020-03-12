@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:37:08 by fbougama          #+#    #+#             */
-/*   Updated: 2020/03/12 16:22:53 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/03/12 16:43:37 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,9 +95,9 @@ int		exit_prog(t_win *win);
 int		deal_key(int key, t_win *win);
 int		deal_cam(int key, t_win *win);
 
-void	parsing_error(int ret, char *line, int l);
-void	parsing_error2(int ret, int l);
-void	parsing_error3(int ret, int l);
-void	parsing_error4(int ret, int l);
+t_scene	*parsing_error(int ret, char *line, int l, t_scene *scene_ptr);
+t_scene	*parsing_error2(int ret, int l, t_scene *scene_ptr);
+t_scene	*parsing_error3(int ret, int l, t_scene *scene_ptr);
+t_scene	*parsing_error4(int ret, int l, t_scene *scene_ptr);
 
 #endif
