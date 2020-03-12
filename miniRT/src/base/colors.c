@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 16:03:54 by fbougama          #+#    #+#             */
-/*   Updated: 2020/03/02 11:08:00 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/03/12 17:31:53 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,14 @@ t_color		obj_illum(t_color col, t_light light)
 	return (res);
 }
 
-t_light		total_light(t_vec3 pos, t_ray ray0, t_scene *scene)
+t_light		total_light(t_vec3 pos, t_ray ray0, t_scene *scene, t_vec3 normal)
 {
 	t_ray	ray;
 	t_light	sum;
 	int		i;
 	int		j;
-	t_vec3	normal;
-	t_light	tmp;
 	double	coll;
 
-	normal = collision_normal(ray0, scene);
 	initiate_light(&sum);
 	ray.start = pos;
 	i = 0;
@@ -45,20 +42,16 @@ t_light		total_light(t_vec3 pos, t_ray ray0, t_scene *scene)
 		ray.dir = normalize_vec(vec_sous(scene->lights[i].pos, pos));
 		while (j < scene->cpt[0])
 		{
-			if ((coll = collision(ray, scene->objects[j])) != -1 && coll < distance(pos, scene->lights[i].pos))
+			if ((coll = collision(ray, scene->objects[j])) != -1 &&
+			coll < distance(pos, scene->lights[i].pos))
 				j = scene->cpt[0];
 			j++;
 		}
 		if (j == scene->cpt[0])
-		{
-			tmp = scene->lights[i];
-			tmp.lum_rat *= fabs(scal_prod(ray.dir, normal));
-			sum = light_sum(sum, tmp);
-		}
+			sum = light_sum(sum, tmp_l(scene, ray, normal, i));
 		i++;
 	}
-	sum = light_sum(sum, scene->amb_light);
-	return (sum);
+	return (light_sum(sum, scene->amb_light));
 }
 
 t_light		light_sum(t_light l1, t_light l2)
@@ -73,4 +66,13 @@ t_light		light_sum(t_light l1, t_light l2)
 	l2.lum_rat * (double)l2.color.b), 255);
 	sum.lum_rat = 1;
 	return (sum);
+}
+
+t_light		tmp_l(t_scene *scene, t_ray ray, t_vec3 normal, int i)
+{
+	t_light	tmp;
+
+	tmp = scene->lights[i];
+	tmp.lum_rat *= fabs(scal_prod(ray.dir, normal));
+	return (tmp);
 }

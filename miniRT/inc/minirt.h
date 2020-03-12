@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:37:08 by fbougama          #+#    #+#             */
-/*   Updated: 2020/03/12 16:43:37 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/03/12 17:28:44 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,8 @@ t_vec3	cam_to_world(t_vec3 cam_crd, t_cam cam);
 t_ray	pix_ray(t_pix pix, t_scene *scene, int cam);
 
 
-int		draw2(t_win *w, t_scene *scene, char *img);
+int		draw(t_win *w, t_scene *scene, char *img);
 char	*create_img(t_win *w, t_scene *scene);
-
-int		draw(t_win *win, t_scene *scene_ptr, int cam);
 
 double	discriminant(t_vec3 tri);
 int		nb_pos_sol(t_vec3 tri);
@@ -82,8 +80,9 @@ double	collision_tr(t_ray ray, t_obj tr);
 int		check_tr_som(t_vec3 pt, t_obj tr, int s);
 
 t_color	obj_illum(t_color col, t_light light);
-t_light	total_light(t_vec3 pos, t_ray ray0, t_scene *scene);
+t_light	total_light(t_vec3 pos, t_ray ray0, t_scene *scene, t_vec3 normal);
 t_light	light_sum(t_light l1, t_light l2);
+t_light	tmp_l(t_scene *scene, t_ray ray, t_vec3 normal, int i);
 
 t_vec3	collision_normal(t_ray ray, t_scene *scene);
 t_vec3	normal_sp(t_ray ray, t_obj sp);

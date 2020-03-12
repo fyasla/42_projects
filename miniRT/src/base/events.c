@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 14:28:08 by fbougama          #+#    #+#             */
-/*   Updated: 2020/03/11 17:11:53 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/03/12 17:10:03 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int		deal_key(int key, t_win *win)
 
 int		exit_prog(t_win *win)
 {
-		mlx_destroy_window(win->mlx_p, win->win_p);
-		exit(EXIT_SUCCESS);
+	mlx_destroy_window(win->mlx_p, win->win_p);
+	exit(EXIT_SUCCESS);
 	return (0);
 }
 
@@ -43,12 +43,12 @@ int		deal_cam(int key, t_win *win)
 	if (key == 8)
 	{
 		scene->cam = (scene->cam == (scene->cpt[1] - 1)) ? 0 : (scene->cam + 1);
-		draw2(win, scene, img);
+		draw(win, scene, img);
 	}
 	else if (key == 7)
 	{
 		scene->cam = (scene->cam == 0) ? (scene->cpt[1] - 1) : (scene->cam - 1);
-		draw2(win, scene, img);	
+		draw(win, scene, img);
 	}
 	return (0);
 }
