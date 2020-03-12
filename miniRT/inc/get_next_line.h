@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 11:28:48 by fbougama          #+#    #+#             */
-/*   Updated: 2020/03/12 17:48:44 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/03/12 17:59:04 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-# ifndef BUFFER_SIZE
-# define BUFFER_SIZE	42
-# endif
+# define BUFFER_SIZE 42
 
 size_t	ft_sl(char const *str);
 char	*ft_substr(char const *str, size_t start, size_t len);

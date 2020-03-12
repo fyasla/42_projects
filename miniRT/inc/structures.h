@@ -6,7 +6,7 @@
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:37:43 by fbougama          #+#    #+#             */
-/*   Updated: 2020/03/11 15:29:46 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/03/12 17:57:23 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,30 +93,5 @@ typedef	struct	s_scene
 	int		resy;
 	t_light	amb_light;
 }				t_scene;
-
-// typedef struct	s_2dcoord
-// {
-// 	double	x;
-// 	double	y;
-// }				t_2dcoord;
-
-// /*typedef	struct	s_mat33
-// {
-// 	t_3dcoord	c1;
-// 	t_3dcoord	c2;
-// 	t_3dcoord	c3;
-// }*/
-
-// typedef struct	s_obj
-// {
-// 	t_3dcoord	pos;
-// 	t_3dcoord	ori;
-// }
-
-// typedef struct	s_cam
-// {
-// 	t_obj	obj;
-// 	int		fov;
-// }				t_cam;
 
 #endif
