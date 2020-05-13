@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initiate_scene.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 19:43:19 by fbougama          #+#    #+#             */
-/*   Updated: 2020/03/11 15:07:54 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/05/12 22:32:53 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 void	initiate_obj(t_obj *object)
 {
-	int		i;
-
-	i = 0;
 	object->type[0] = '_';
 	object->type[1] = '_';
 	object->type[2] = '\0';

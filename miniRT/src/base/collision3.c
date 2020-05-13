@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   collision3.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 13:53:36 by fbougama          #+#    #+#             */
-/*   Updated: 2020/02/24 14:04:18 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/05/12 22:21:23 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int		check_tr_som(t_vec3 pt, t_obj tr, int s)
 	t_vec3	b;
 	t_vec3	c;
 	t_vec3	tmp;
-	double	res;
 
 	a = tr.vec0;
 	b = tr.vec1;

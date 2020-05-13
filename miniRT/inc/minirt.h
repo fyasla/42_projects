@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minirt.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:37:08 by fbougama          #+#    #+#             */
-/*   Updated: 2020/03/12 17:57:04 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/05/12 22:28:12 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,15 +79,15 @@ double	collision_tr(t_ray ray, t_obj tr);
 int		check_tr_som(t_vec3 pt, t_obj tr, int s);
 
 t_color	obj_illum(t_color col, t_light light);
-t_light	total_light(t_vec3 pos, t_ray ray0, t_scene *scene, t_vec3 normal);
+t_light	total_light(t_vec3 pos, t_scene *scene, t_vec3 normal);
 t_light	light_sum(t_light l1, t_light l2);
 t_light	tmp_l(t_scene *scene, t_ray ray, t_vec3 normal, int i);
 
-t_vec3	collision_normal(t_ray ray, t_scene *scene);
+t_vec3	collision_normal(t_ray ray);
 t_vec3	normal_sp(t_ray ray, t_obj sp);
-t_vec3	normal_sq(t_ray ray, t_obj sq);
+t_vec3	normal_sq(t_obj sq);
 t_vec3	normal_cy(t_ray ray, t_obj cy);
-t_vec3	normal_tr(t_ray ray, t_obj tr);
+t_vec3	normal_tr(t_obj tr);
 
 int		exit_prog(t_win *win);
 int		deal_key(int key, t_win *win);

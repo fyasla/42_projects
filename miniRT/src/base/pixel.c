@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pixel.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 19:32:17 by fbougama          #+#    #+#             */
-/*   Updated: 2020/03/12 17:24:14 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/05/12 22:29:11 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ t_color	pix_col(t_pix pix, t_scene *scene, int cam)
 	ray.clst = closest(ray, scene);
 	ray.t = collision(ray, ray.clst);
 	inter = vec_sum(ray.start, mul_vec(0.99999 * ray.t, ray.dir));
-	normal = collision_normal(ray, scene);
-	color = obj_illum(ray.clst.color, total_light(inter, ray, scene, normal));
+	normal = collision_normal(ray);
+	color = obj_illum(ray.clst.color, total_light(inter, scene, normal));
 	return (color);
 }
 

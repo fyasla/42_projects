@@ -3,22 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/01/07 10:49:58 by fbougama          #+#    #+#              #
-#    Updated: 2020/03/11 16:56:37 by fbougama         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+         #
+#    By: faysal <faysal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/12 15:32:20 by fbougama          #+#    #+#              #
-#    Updated: 2020/01/07 10:50:58 by fbougama         ###   ########.fr        #
+#    Updated: 2020/05/12 22:54:03 by faysal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,6 +43,10 @@ RM					=	rm -f
 				
 all				:	$(NAME)
 	@echo "Project built"
+
+linux			:	$(SRCS) $(LIBS)
+	gcc -Wall -Werror -Wextra -I /usr/local/include -g -L /usr/local/lib $(SRCS) $(LIBS) -o \
+	minirt_linux -lX11 -lXext -lm -lmlx
 
 $(NAME)			:	$(OBJS) $(LIBS)
 	@$(CC) $(OBJS) $(LIBS) -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit \

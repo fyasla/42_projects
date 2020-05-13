@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   colors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 16:03:54 by fbougama          #+#    #+#             */
-/*   Updated: 2020/03/12 17:31:53 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/05/12 22:26:38 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_color		obj_illum(t_color col, t_light light)
 	return (res);
 }
 
-t_light		total_light(t_vec3 pos, t_ray ray0, t_scene *scene, t_vec3 normal)
+t_light		total_light(t_vec3 pos, t_scene *scene, t_vec3 normal)
 {
 	t_ray	ray;
 	t_light	sum;

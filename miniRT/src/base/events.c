@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 14:28:08 by fbougama          #+#    #+#             */
-/*   Updated: 2020/03/12 17:10:03 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/05/12 22:33:57 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 
 int		deal_key(int key, t_win *win)
 {
-	t_scene	*scene;
-	char	*img;
-
-	img = win->img;
-	scene = win->scene;
 	if (key == 53)
 		exit_prog(win);
 	else if (key == 8 || key == 7)
