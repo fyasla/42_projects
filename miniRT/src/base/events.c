@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 14:28:08 by fbougama          #+#    #+#             */
-/*   Updated: 2020/05/12 22:33:57 by faysal           ###   ########.fr       */
+/*   Updated: 2020/05/21 16:12:34 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int		deal_key(int key, t_win *win)
 {
-	if (key == 53)
+	if (key == 53 || key == 27)
 		exit_prog(win);
-	else if (key == 8 || key == 7)
+	else if (key == 8 || key == 7 || key == 54)
 		deal_cam(key, win);
 	return (0);
 }

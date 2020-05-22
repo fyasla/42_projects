@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:15:03 by fbougama          #+#    #+#             */
-/*   Updated: 2020/03/12 17:34:04 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/05/22 20:27:03 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,10 @@ int		main(int ac, char **av)
 	win.win_p = mlx_new_window(win.mlx_p, scene->resx, scene->resy, av[1]);
 	win.scene = scene;
 	img = create_img(&win, scene);
+	if (ac == 3 && ft_strncmp(av[2], "-save", 6) == 0)
+		{
+		gen(scene);
+		}
 	draw(&win, scene, img);
 	mlx_hook(win.win_p, 1, 1L << 8, &exit_prog, &win);
 	mlx_key_hook(win.win_p, &deal_key, &win);

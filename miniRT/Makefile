@@ -6,7 +6,7 @@
 #    By: faysal <faysal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/12 15:32:20 by fbougama          #+#    #+#              #
-#    Updated: 2020/05/12 22:54:03 by faysal           ###   ########.fr        #
+#    Updated: 2020/05/22 19:53:19 by faysal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRCS				=	$(SRCS_PARSING) \
 						src/base/colors.c src/base/normal.c src/base/events.c\
 						src/math_utils/vectors.c src/math_utils/vectors2.c src/math_utils/converts.c \
 						src/math_utils/trinome.c src/math_utils/rotations.c \
-						src/main.c
+						src/main.c src/base/save_main.c
 
 
 SRCS_BONUS 			= 
