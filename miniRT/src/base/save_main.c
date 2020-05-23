@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/22 19:41:42 by faysal            #+#    #+#             */
-/*   Updated: 2020/05/22 20:30:18 by faysal           ###   ########.fr       */
+/*   Updated: 2020/05/23 15:40:42 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,20 @@ unsigned char* createBitmapInfoHeader(int height, int width);
 
 
 int gen(t_scene *scene){
-    int height = scene->resx;
-    int width = scene->resy;
+    int height = scene->resy;
+    int width = scene->resx;
     unsigned char image[height][width][bytesPerPixel];
     char* imageFileName = "bitmapImage.bmp";
 
     t_pix	p;
 
     p.x = 0;
-    while(p.x < height){
+    while(p.x < width){
         p.y = 0;
-        while(p.y <width){
-            image[p.x][p.y][2] = (unsigned char)pix_col(p, scene, scene->cam).r; ///red
-            image[p.x][p.y][1] = (unsigned char)pix_col(p, scene, scene->cam).g; ///green
-            image[p.x][p.y][0] = (unsigned char)pix_col(p, scene, scene->cam).b; ///blue
+        while(p.y < height){
+            image[height - 1 - p.y][p.x][2] = (unsigned char)pix_col(p, scene, scene->cam).r; ///red
+            image[height - 1 - p.y][p.x][1] = (unsigned char)pix_col(p, scene, scene->cam).g; ///green
+            image[height - 1 - p.y][p.x][0] = (unsigned char)pix_col(p, scene, scene->cam).b; ///blue
             p.y++;
         }
         p.x++;
@@ -43,7 +43,6 @@ int gen(t_scene *scene){
 
 
     generateBitmapImage((unsigned char *)image, height, width, imageFileName);
-    printf("Image generated!!");
     return(0);
 }
 
@@ -56,20 +55,26 @@ void generateBitmapImage(unsigned char *image, int height, int width, char* imag
     unsigned char* fileHeader = createBitmapFileHeader(height, width, paddingSize);
     unsigned char* infoHeader = createBitmapInfoHeader(height, width);
 
-    FILE* imageFile = fopen(imageFileName, "wb");
+    // FILE* imageFile = fopen(imageFileName, "wb");
+    int imageFile;
+    imageFile = open(imageFileName, O_WRONLY);    
 
-    fwrite(fileHeader, 1, fileHeaderSize, imageFile);
-    fwrite(infoHeader, 1, infoHeaderSize, imageFile);
+    /* fwrite(fileHeader, 1, fileHeaderSize, imageFile);
+    fwrite(infoHeader, 1, infoHeaderSize, imageFile); */
 
+    write(imageFile, fileHeader, fileHeaderSize);
+    write(imageFile, infoHeader, infoHeaderSize);
     int i;
     i = 0;
     while(i < height){
-        fwrite(image+(i*width*bytesPerPixel), bytesPerPixel, width, imageFile);
-        fwrite(padding, 1, paddingSize, imageFile);
+       /*  fwrite(image+(i*width*bytesPerPixel), bytesPerPixel, width, imageFile);
+        fwrite(padding, 1, paddingSize, imageFile); */
+        write(imageFile, image+(i*width*bytesPerPixel), bytesPerPixel * width);
+        write(imageFile, padding, paddingSize);
         i++;
     }
 
-    fclose(imageFile);
+    close(imageFile);
 }
 
 unsigned char* createBitmapFileHeader(int height, int width, int paddingSize){
