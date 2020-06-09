@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:15:03 by fbougama          #+#    #+#             */
-/*   Updated: 2020/05/22 20:27:03 by faysal           ###   ########.fr       */
+/*   Updated: 2020/06/09 16:25:34 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,11 @@ int		main(int ac, char **av)
 		ft_printf("Arguments should be one map (and optionnaly \"-save\")\n");
 		return (0);
 	}
-	map_fd = open(av[1], O_RDONLY);
+	if ((map_fd = open(av[1], O_RDONLY)) == -1)
+	{
+		ft_printf(ft_strjoin("ERROR while opening ", av[1]));
+		return (0);
+	};
 	scene = map_parse(map_fd);
 	close(map_fd);
 	win.mlx_p = mlx_init();
@@ -44,12 +48,12 @@ int		main(int ac, char **av)
 	win.scene = scene;
 	img = create_img(&win, scene);
 	if (ac == 3 && ft_strncmp(av[2], "-save", 6) == 0)
-		{
 		gen(scene);
-		}
+	//draw(&win, scene, img);
+	//mlx_hook(win.win_p, 1, 1L << 8, &exit_prog, &win);
+	mlx_key_hook(win.win_p, deal_key, &win);
+	//mlx_hook(win.win_p, 2, 1L<<0, &exit_prog, &win);
 	draw(&win, scene, img);
-	mlx_hook(win.win_p, 1, 1L << 8, &exit_prog, &win);
-	mlx_key_hook(win.win_p, &deal_key, &win);
 	mlx_loop(win.mlx_p);
 	return (0);
 }

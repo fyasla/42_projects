@@ -6,7 +6,7 @@
 #    By: faysal <faysal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/12 15:32:20 by fbougama          #+#    #+#              #
-#    Updated: 2020/05/22 19:53:19 by faysal           ###   ########.fr        #
+#    Updated: 2020/06/09 15:23:27 by faysal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,7 +70,7 @@ clean			:
 	@echo "clean !"
 
 fclean			:	clean
-	@$(RM) $(NAME) parsing_test
+	@$(RM) $(NAME) parsing_test minirt_linux
 	@echo "REALLY clean !"
 
 re				:	fclean all
