@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:15:03 by fbougama          #+#    #+#             */
-/*   Updated: 2020/06/09 16:25:34 by faysal           ###   ########.fr       */
+/*   Updated: 2020/06/17 15:32:49 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int		main(int ac, char **av)
 	//draw(&win, scene, img);
 	//mlx_hook(win.win_p, 1, 1L << 8, &exit_prog, &win);
 	mlx_key_hook(win.win_p, deal_key, &win);
-	//mlx_hook(win.win_p, 2, 1L<<0, &exit_prog, &win);
+	mlx_hook(win.win_p, 17, 131072, exit_prog, &win);
 	draw(&win, scene, img);
 	mlx_loop(win.mlx_p);
 	return (0);
