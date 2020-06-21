@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 17:39:16 by fbougama          #+#    #+#             */
-/*   Updated: 2020/03/12 17:01:51 by fbougama         ###   ########.fr       */
+/*   Updated: 2020/06/20 13:54:41 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int		parse_r(char *line, t_scene *scene_ptr)
 	ret += skip_whitespaces(line, &i);
 	if (line[i] || scene_ptr->resx < 1 || scene_ptr->resy < 1)
 		return (1);
+	scene_ptr->resx = (scene_ptr->resx > RES_MAX_X) ? RES_MAX_X : scene_ptr->resx;
+	scene_ptr->resy = (scene_ptr->resy > RES_MAX_Y) ? RES_MAX_Y : scene_ptr->resy;
 	return (ret);
 }
 

@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:37:08 by fbougama          #+#    #+#             */
-/*   Updated: 2020/05/22 19:52:49 by faysal           ###   ########.fr       */
+/*   Updated: 2020/06/20 14:22:14 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 # define MINIRT_H
 
 # define MAX_OBJS 30
-# define MAX_CAMS 5
+# define MAX_CAMS 10
 # define MAX_LIGHTS 5
+# define RES_MAX_X 1366
+# define RES_MAX_Y 768
 
 # include <math.h>
 # include <fcntl.h>

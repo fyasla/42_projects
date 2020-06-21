@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 14:28:08 by fbougama          #+#    #+#             */
-/*   Updated: 2020/06/09 15:42:20 by faysal           ###   ########.fr       */
+/*   Updated: 2020/06/20 14:14:56 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 int		deal_key(int key, t_win *win)
 {
-
-	printf("%d\n", key);
-	ft_printf("%d\n", key);
 	if (key == 65307)
 		exit_prog(win);
 	else if (key == 65361 || key == 65363)

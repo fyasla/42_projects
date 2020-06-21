@@ -6,7 +6,7 @@
 #    By: faysal <faysal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/12 15:32:20 by fbougama          #+#    #+#              #
-#    Updated: 2020/06/09 15:23:27 by faysal           ###   ########.fr        #
+#    Updated: 2020/06/21 13:01:42 by faysal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,11 +44,11 @@ RM					=	rm -f
 all				:	$(NAME)
 	@echo "Project built"
 
-linux			:	$(SRCS) $(LIBS)
+$(NAME)			:	$(SRCS) $(LIBS)
 	gcc -Wall -Werror -Wextra -I /usr/local/include -g -L /usr/local/lib $(SRCS) $(LIBS) -o \
 	minirt_linux -lX11 -lXext -lm -lmlx
 
-$(NAME)			:	$(OBJS) $(LIBS)
+mac				:	$(OBJS) $(LIBS)
 	@$(CC) $(OBJS) $(LIBS) -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit \
 	&& mv a.out $(NAME)
 
