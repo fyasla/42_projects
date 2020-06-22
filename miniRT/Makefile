@@ -6,7 +6,7 @@
 #    By: faysal <faysal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/12 15:32:20 by fbougama          #+#    #+#              #
-#    Updated: 2020/06/21 13:01:42 by faysal           ###   ########.fr        #
+#    Updated: 2020/06/22 16:28:00 by faysal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ LIBS				=	libftprintf.a
 SRCS_PARSING		=	src/parsing/get_next_line_utils.c src/parsing/get_next_line.c libftprintf.a \
 						src/parsing/initiate_scene.c src/parsing/map_parse.c \
 						src/parsing/parse_1.c src/parsing/parse_2.c \
-						src/parsing/parsing_utils.c src/parsing/parsing_utils2.c src/parsing/parsing_utils3.c
+						src/parsing/parsing_utils.c src/parsing/parsing_utils2.c src/parsing/parsing_utils3.c \
+						src/parsing/parsing_utils4.c
 
 SRCS				=	$(SRCS_PARSING) \
 						src/base/draw.c src/base/pixel.c src/base/collision.c \

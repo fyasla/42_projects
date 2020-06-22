@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 17:39:16 by fbougama          #+#    #+#             */
-/*   Updated: 2020/06/20 13:54:41 by faysal           ###   ########.fr       */
+/*   Updated: 2020/06/22 16:26:10 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,9 @@ int		parse_c(char *line, int cpt[3], t_scene *scene_ptr)
 	scene_ptr->cameras[cpt[1]].ori = ft_atov(line + i);
 	ret += skip_vector(line, &i);
 	scene_ptr->cameras[cpt[1]].fov = ft_atof(line + i);
+	if (scene_ptr->cameras[cpt[1]].fov > 180 ||
+	scene_ptr->cameras[cpt[1]].fov < 0)
+		return (10);
 	ret += skip_float(line, &i);
 	ret += skip_whitespaces(line, &i);
 	cpt[1] += 1;

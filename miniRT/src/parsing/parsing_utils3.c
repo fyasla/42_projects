@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+  /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   parsing_utils3.c                                   :+:      :+:    :+:   */
@@ -140,5 +140,7 @@ t_scene	*parsing_error4(int ret, int l, t_scene *scene)
 		ft_printf("ERROR\nParsing error line %d\ntriangles (tr) should ", l);
 		ft_printf("specify 4 arguments : 3 points and RGB color\n");
 	}
+	else
+		parsing_error5(ret, l, scene);
 	return (scene);
 }

@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:37:08 by fbougama          #+#    #+#             */
-/*   Updated: 2020/06/20 14:22:14 by faysal           ###   ########.fr       */
+/*   Updated: 2020/06/22 16:27:23 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,5 +100,7 @@ t_scene	*parsing_error(int ret, char *line, int l, t_scene *scene_ptr);
 t_scene	*parsing_error2(int ret, int l, t_scene *scene_ptr);
 t_scene	*parsing_error3(int ret, int l, t_scene *scene_ptr);
 t_scene	*parsing_error4(int ret, int l, t_scene *scene_ptr);
+
+t_scene	*parsing_error5(int ret, int l, t_scene *scene);
 
 #endif
