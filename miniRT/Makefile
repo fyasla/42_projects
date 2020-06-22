@@ -6,7 +6,7 @@
 #    By: faysal <faysal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/12 15:32:20 by fbougama          #+#    #+#              #
-#    Updated: 2020/06/22 16:28:00 by faysal           ###   ########.fr        #
+#    Updated: 2020/06/22 17:20:27 by faysal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,12 +46,12 @@ all				:	$(NAME)
 	@echo "Project built"
 
 $(NAME)			:	$(SRCS) $(LIBS)
-	gcc -Wall -Werror -Wextra -I /usr/local/include -g -L /usr/local/lib $(SRCS) $(LIBS) -o \
-	minirt_linux -lX11 -lXext -lm -lmlx
+	clang -Wall -Werror -Wextra -I /usr/local/include -g -L /usr/local/lib $(SRCS) $(LIBS) -o \
+	$(NAME) -lX11 -lXext -lm -lmlx
 
 mac				:	$(OBJS) $(LIBS)
 	@$(CC) $(OBJS) $(LIBS) -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit \
-	&& mv a.out $(NAME)
+	&& mv a.out minirt_mac
 
 $(LIBS)			:
 	@cd libs/ft_printf && make && make clean && mv $(LIBS) ../..	
@@ -71,7 +71,7 @@ clean			:
 	@echo "clean !"
 
 fclean			:	clean
-	@$(RM) $(NAME) parsing_test minirt_linux
+	@$(RM) $(NAME) parsing_test minirt_mac
 	@echo "REALLY clean !"
 
 re				:	fclean all
