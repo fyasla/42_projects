@@ -6,37 +6,36 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/22 19:41:42 by faysal            #+#    #+#             */
-/*   Updated: 2020/06/25 16:27:39 by faysal           ###   ########.fr       */
+/*   Updated: 2020/06/25 20:27:53 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/minirt.h"
 
-int				gen(t_scene *scene)
+int				gen(t_scene *s)
 {
 	int				h;
 	int				w;
-	unsigned char	image[scene->resy][scene->resx][3];
-	char			*imgfn = "bitmapImage.bmp";
+	unsigned char	im[s->resy][s->resx][3];
 	t_pix			p;
 
 	p.x = 0;
-	h = scene->resy;
-	w = scene->resx;
+	h = s->resy;
+	w = s->resx;
 	while (p.x < w)
 	{
 		p.y = 0;
 		while (p.y < h)
 		{
-			image[h - 1 - p.y][p.x][2] = (unsigned char)pix_col(p, scene, scene->cam).r;
-			image[h - 1 - p.y][p.x][1] = (unsigned char)pix_col(p, scene, scene->cam).g;
-			image[h - 1 - p.y][p.x][0] = (unsigned char)pix_col(p, scene, scene->cam).b;
+			im[h - 1 - p.y][p.x][2] = (unsigned char)pix_col(p, s, s->cam).r;
+			im[h - 1 - p.y][p.x][1] = (unsigned char)pix_col(p, s, s->cam).g;
+			im[h - 1 - p.y][p.x][0] = (unsigned char)pix_col(p, s, s->cam).b;
 			p.y++;
 		}
 		p.x++;
 	}
-	genbmpim((unsigned char *)image, h, w, imgfn);
-	return(0);
+	genbmpim((unsigned char *)im, h, w, "bitmapImage.bmp");
+	return (0);
 }
 
 void			genbmpim(unsigned char *image, int h, int w, char *imgfn)

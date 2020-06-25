@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:15:03 by fbougama          #+#    #+#             */
-/*   Updated: 2020/06/24 18:18:41 by faysal           ###   ########.fr       */
+/*   Updated: 2020/06/25 20:06:43 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int		check_args(int ac, int map_fd, char **av)
 		ft_printf("Arguments should be one map (and optionnaly \"-save\")\n");
 	if (map_fd == -1)
 		ft_printf(ft_strjoin("ERROR while opening ", av[1]));
+		ft_printf("\n");
 	return (0);
 }
 
