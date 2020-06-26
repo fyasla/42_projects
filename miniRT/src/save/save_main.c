@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/22 19:41:42 by faysal            #+#    #+#             */
-/*   Updated: 2020/06/26 16:32:54 by faysal           ###   ########.fr       */
+/*   Updated: 2020/06/26 17:29:57 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,18 @@ int				gen(t_scene *s)
 
 void			genbmpim(unsigned char *image, int h, int w, char *imgfn)
 {
-	unsigned char	padding[3] = {0, 0, 0};
-	int				padds = (4 - (w * 3) % 4) % 4;
-	unsigned char	*fileh = createbmpfh(h, w, padds);
-	unsigned char	*infoh = createbmpih(h, w);
+	unsigned char	padding[3];
+	int				padds;
 	int				imgf;
+	int				i;
 
+	padding[0] = 0;
+	padding[1] = 0;
+	padding[2] = 0;
+	padds = (4 - (w * 3) % 4) % 4;
 	imgf = open(imgfn, O_CREAT | O_WRONLY, 0777);
-	write(imgf, fileh, 14);
-	write(imgf, infoh, 40);
-	int i;
+	write(imgf, createbmpfh(h, w, padds), 14);
+	write(imgf, createbmpih(h, w), 40);
 	i = 0;
 	while (i < h)
 	{
@@ -62,9 +64,14 @@ void			genbmpim(unsigned char *image, int h, int w, char *imgfn)
 
 unsigned char	*createbmpfh(int h, int w, int padds)
 {
-	int						files = 14 + 40 + (3 * w + padds) * h;
-	static unsigned char	fileh[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	int						files;
+	static unsigned char	fileh[14];
+	int						i;
 
+	files = 14 + 40 + (3 * w + padds) * h;
+	i = 0;
+	while (i < 14)
+		fileh[i++] = 0;
 	fileh[0] = (unsigned char)('B');
 	fileh[1] = (unsigned char)('M');
 	fileh[2] = (unsigned char)(files);
@@ -77,8 +84,12 @@ unsigned char	*createbmpfh(int h, int w, int padds)
 
 unsigned char	*createbmpih(int h, int w)
 {
-	static unsigned char	infoh[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	static unsigned char	infoh[40];
+	int						i;
 
+	i = 0;
+	while (i < 40)
+		infoh[i++] = 0;
 	infoh[0] = (unsigned char)(40);
 	infoh[4] = (unsigned char)(w);
 	infoh[5] = (unsigned char)(w >> 8);

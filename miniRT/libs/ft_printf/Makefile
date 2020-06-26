@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+         #
+#    By: faysal <faysal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/11 14:25:15 by fbougama          #+#    #+#              #
-#    Updated: 2020/03/02 14:11:38 by fbougama         ###   ########.fr        #
+#    Updated: 2020/06/26 17:04:33 by faysal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,10 @@ CFLAGS = -Wall -Werror -Wextra
 RM = rm -f
 
 all		:	$(NAME)
+	@echo "ft_printf ready !"
 
 $(NAME)	:	$(OBJS)
+	@echo "making ft_printf..."
 	@ar rcs $(NAME) $(OBJS) 
 
 %.o		:	%.c

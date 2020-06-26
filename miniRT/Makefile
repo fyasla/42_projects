@@ -6,7 +6,7 @@
 #    By: faysal <faysal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/12 15:32:20 by fbougama          #+#    #+#              #
-#    Updated: 2020/06/22 17:20:27 by faysal           ###   ########.fr        #
+#    Updated: 2020/06/26 17:17:37 by faysal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRCS				=	$(SRCS_PARSING) \
 						src/base/colors.c src/base/normal.c src/base/events.c\
 						src/math_utils/vectors.c src/math_utils/vectors2.c src/math_utils/converts.c \
 						src/math_utils/trinome.c src/math_utils/rotations.c \
-						src/main.c src/base/save_main.c
+						src/main.c src/save/save_main.c
 
 
 SRCS_BONUS 			= 
@@ -46,7 +46,8 @@ all				:	$(NAME)
 	@echo "Project built"
 
 $(NAME)			:	$(SRCS) $(LIBS)
-	clang -Wall -Werror -Wextra -I /usr/local/include -g -L /usr/local/lib $(SRCS) $(LIBS) -o \
+	@echo "Building..."
+	@clang -Wall -Werror -Wextra -I /usr/local/include -g -L /usr/local/lib $(SRCS) $(LIBS) -o \
 	$(NAME) -lX11 -lXext -lm -lmlx
 
 mac				:	$(OBJS) $(LIBS)
@@ -71,7 +72,7 @@ clean			:
 	@echo "clean !"
 
 fclean			:	clean
-	@$(RM) $(NAME) parsing_test minirt_mac
+	@$(RM) $(NAME) parsing_test minirt_mac bitmapImage.bmp
 	@echo "REALLY clean !"
 
 re				:	fclean all

@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:15:03 by fbougama          #+#    #+#             */
-/*   Updated: 2020/06/25 20:06:43 by faysal           ###   ########.fr       */
+/*   Updated: 2020/06/26 16:55:36 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,16 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 int		check_args(int ac, int map_fd, char **av)
 {
 	if (ac != 2 && (ac != 3 || ft_strncmp(av[2], "-save", 6) != 0))
+	{
 		ft_printf("Arguments should be one map (and optionnaly \"-save\")\n");
+		return (1);
+	}
 	if (map_fd == -1)
+	{
 		ft_printf(ft_strjoin("ERROR while opening ", av[1]));
 		ft_printf("\n");
+		return (1);
+	}
 	return (0);
 }
 
@@ -42,7 +48,8 @@ int		main(int ac, char **av)
 	char	*img;
 
 	map_fd = open(av[1], O_RDONLY);
-	check_args(ac, map_fd, av);
+	if (check_args(ac, map_fd, av) != 0)
+		return (0);
 	scene = map_parse(map_fd);
 	close(map_fd);
 	win.mlx_p = mlx_init();
