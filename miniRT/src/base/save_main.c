@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/22 19:41:42 by faysal            #+#    #+#             */
-/*   Updated: 2020/06/25 20:27:53 by faysal           ###   ########.fr       */
+/*   Updated: 2020/06/26 16:32:54 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void			genbmpim(unsigned char *image, int h, int w, char *imgfn)
 	unsigned char	*infoh = createbmpih(h, w);
 	int				imgf;
 
-	imgf = open(imgfn, O_WRONLY);
+	imgf = open(imgfn, O_CREAT | O_WRONLY, 0777);
 	write(imgf, fileh, 14);
 	write(imgf, infoh, 40);
 	int i;
