@@ -1,4 +1,5 @@
-; rdi is the parameter (char *s) and rax the return value (length of the sting pointed to by s)
+; rdi is the parameter : char *s
+; rax is the return value (length of the sting pointed to by s)
 
 section .text
 	global	ft_strlen

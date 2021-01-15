@@ -5,32 +5,53 @@
 #                                                     +:+ +:+         +:+      #
 #    By: faysal <faysal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/01/15 00:09:02 by faysal            #+#    #+#              #
-#    Updated: 2021/01/15 00:35:48 by faysal           ###   ########.fr        #
+#    Created: 2021/01/16 00:09:02 by faysal            #+#    #+#              #
+#    Updated: 2021/01/16 00:19:35 by faysal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libasm.a
 
+TEST = test
+
+SRC_TEST = main.c
+
 SRCS = srcs/ft_strlen.s
 
-SRCS_BONUS =
+SRCS_BONUS = 
 
-OBJS =
+OBJS = $(SRCS:.s=.o)
 
-OBJS_BONUS =
+OBJS_BONUS = $(SRCS:.s=.o)
 
-ASM =
+ASM = nasm
 
-ASMFLAGS =
+ASMFLAGS = -f elf64
 
-CC =
+CC = gcc
 
-CFLAGS =
+CCFLAGS = -Wall -Werror -Wextra
 
 RM = rm -f
 
-all		:	$(NAME)
+%.o : %.s
+	$(ASM) $(ASMFLAGS) $<
 
-$(NAME)	:	$(OBJS)
+all : $(NAME)
+
+$(NAME) : $(OBJS)
 	ar rcs $(NAME) $(OBJS)
+
+bonus : $(OBJS) $(OBJS_BONUS)
+	ar rcs $(NAME) $(OBJS) $(OBJS_BONUS)
+
+test :
+	$(CC) $(CCFLAGS) $(SRC_TEST) $(NAME) -o $(TEST)
+
+clean :
+	$(RM) $(OBJS)
+
+fclean : clean
+	$(RM) $(NAME) $(TEST)
+
+re : fclean all

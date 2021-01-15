@@ -6,8 +6,9 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 18:21:50 by faysal            #+#    #+#             */
-/*   Updated: 2021/01/14 19:40:44 by faysal           ###   ########.fr       */
+/*   Updated: 2021/01/15 23:45:40 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(const char *s);
+size_t	ft_strlen(const char *s);
+char	*strcpy(char *dest, const char *src);
