@@ -8,6 +8,7 @@ section .text
 	global ft_strcpy
 
 ft_strcpy:
+	mov rax, rdi
 	cmp	rdi, 0	; check if pointer is not NULL
 	je _end
 	mov rcx, 0	

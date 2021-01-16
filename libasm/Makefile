@@ -6,7 +6,7 @@
 #    By: faysal <faysal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/16 00:09:02 by faysal            #+#    #+#              #
-#    Updated: 2021/01/16 04:10:11 by faysal           ###   ########.fr        #
+#    Updated: 2021/01/16 04:29:12 by faysal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,17 +14,13 @@ NAME = libasm.a
 
 TEST = test
 
-SRC_TEST = main.c
+SRC_TEST = test.c
 
 SRCS = srcs/ft_strlen.s srcs/ft_strcpy.s \
 	srcs/ft_strcmp.s srcs/ft_write.s \
 	srcs/ft_read.s srcs/ft_strdup.s
 
-SRCS_BONUS = 
-
 OBJS = $(SRCS:.s=.o)
-
-OBJS_BONUS = $(SRCS:.s=.o)
 
 ASM = nasm
 
@@ -44,10 +40,7 @@ all : $(NAME)
 $(NAME) : $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
-bonus : $(OBJS) $(OBJS_BONUS)
-	ar rcs $(NAME) $(OBJS) $(OBJS_BONUS)
-
-test :
+test : $(NAME)
 	$(CC) $(CCFLAGS) $(SRC_TEST) $(NAME) -o $(TEST)
 
 clean :
