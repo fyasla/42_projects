@@ -1,6 +1,6 @@
 ;	Linux system calls :
-; %rax	| System call	|		%rdi		| %rsi		| %rdx
-;  0	| sys_write		| unsigned int fd	| char* buf	| size_t count
+; %rax	| System call	|		%rdi		| 		%rsi		| %rdx
+;  1	| sys_write		| unsigned int fd	| const char* buf	| size_t count
 
 section .text
 	extern __errno_location
