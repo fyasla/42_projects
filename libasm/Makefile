@@ -6,7 +6,7 @@
 #    By: faysal <faysal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/16 00:09:02 by faysal            #+#    #+#              #
-#    Updated: 2021/01/16 00:34:27 by faysal           ###   ########.fr        #
+#    Updated: 2021/01/16 04:10:11 by faysal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ ASM = nasm
 
 ASMFLAGS = -f elf64
 
-CC = gcc
+CC = clang
 
 CCFLAGS = -Wall -Werror -Wextra
 
