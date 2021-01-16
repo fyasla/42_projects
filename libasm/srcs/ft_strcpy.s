@@ -1,6 +1,8 @@
 ; rdi is the parameter : char *dest
 ; rsi is the parameter : char *src
 ; rax is the return value (pointer to dest)
+; rcx is the counting variable
+; dl is a buffer for char
 
 section .text
 	global ft_strcpy
