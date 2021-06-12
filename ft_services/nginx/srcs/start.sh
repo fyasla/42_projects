@@ -9,6 +9,4 @@ chown -R www:www /var/lib/nginx && \
 chown -R www:www /www && \
 mkdir -p /run/nginx
 
-openrc
-touch /run/openrc/softlevel
 nginx -g 'daemon off;'
