@@ -6,7 +6,7 @@
 #    By: faysal <faysal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/13 13:48:35 by faysal            #+#    #+#              #
-#    Updated: 2021/06/13 15:41:39 by faysal           ###   ########.fr        #
+#    Updated: 2021/06/13 16:09:51 by faysal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,4 +20,4 @@ COPY srcs /srcs
 
 EXPOSE 3306
 
-ENTRYPOINT sh srcs/entrypoint.sh
+#ENTRYPOINT sh srcs/entrypoint.sh
