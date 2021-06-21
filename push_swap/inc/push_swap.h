@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/21 12:27:27 by fbougama          #+#    #+#             */
-/*   Updated: 2021/06/21 15:55:25 by fbougama         ###   ########.fr       */
+/*   Created: 2021/06/21 15:51:54 by fbougama          #+#    #+#             */
+/*   Updated: 2021/06/21 15:55:46 by fbougama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-int	main(int ac, char **av)
-{	
-	int	*a;
-	int	*b;
-	int	i;
+#include <stdlib.h>
+#include <stdio.h>
+#include "../libft/libft.h"
 
-	i = 1;
-	if (!check_arguments(ac - 1, &av[1]))
-	{
-		printf("Error\n");
-		return (1);
-	}
-	initiate_stacks(ac - 1, &av[1]);
-	return (0);
-}
+int	str_is_inf(char *str, char *max);
+int	check_int_range(char *str);
+int	is_integer(char *str);
+int	check_arguments(int	arg_nb, char **arg_list);
+int	**initiate_stacks(int arg_nb, char **arg_list);
+
+#endif
