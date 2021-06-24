@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "/home/faysal/Bureau/42/projects/push_swap/push_swap",
-            "args": [],
+            "args": ["1","2","3","4", "5"],
             "stopAtEntry": true,
             "cwd": "/home/faysal/Bureau/42/projects/push_swap",
             "environment": [],

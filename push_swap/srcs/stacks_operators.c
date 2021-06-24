@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 00:00:18 by faysal            #+#    #+#             */
-/*   Updated: 2021/06/24 00:30:44 by faysal           ###   ########.fr       */
+/*   Updated: 2021/06/24 22:14:46 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,14 @@ void	swap(t_list2 **bottom)
 	int		temp;
 	t_list2	*top;
 
-	top = malloc(sizeof(t_list2));
-	top = ft_lst2top(bottom);
+	if(!(top = malloc(sizeof(t_list2))))
+		return ;
+	if (!(top = ft_lst2top(bottom)))
+		return ;
 	temp = top->content;
 	top->content = (top->prev)->content;
 	(top->prev)->content = temp;
-	free(top);
+	//free(top);
 }
 
 void	rotate(t_list2 **bottom)

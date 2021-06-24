@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 15:51:38 by fbougama          #+#    #+#             */
-/*   Updated: 2021/06/24 02:38:24 by faysal           ###   ########.fr       */
+/*   Updated: 2021/06/24 03:39:03 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,11 +77,11 @@ int	check_arguments(int	arg_nb, char **arg_list)
 		return (1);
 }
 
-t_list2	***initiate_stacks(int arg_nb, char **arg_list)
+t_stacks	*initiate_stacks(int arg_nb, char **arg_list)
 {
 	t_list2	**a_bottom;
 	t_list2	**b_bottom;
-	t_list2 ***stacks;
+	t_stacks *stacks;
 	t_list2	*new;
 	int	i;
 
@@ -90,17 +90,17 @@ t_list2	***initiate_stacks(int arg_nb, char **arg_list)
 		return (NULL);
 	if (!(b_bottom = malloc(sizeof (t_list2 *))))
 		return (NULL);
-	if (!(stacks = malloc (2 * sizeof(t_list2 *))))
+	if (!(stacks = malloc (sizeof(t_stacks ))))
 		return (NULL);
-	*stacks = a_bottom;
-	*(stacks + sizeof(t_list2 **)) = b_bottom;
+	stacks->a = a_bottom;
+	stacks->b = b_bottom;
 	*a_bottom = NULL;
 	*b_bottom = NULL;
 	while (i >= 0)
 	{
 		if(!(new = ft_lst2new(ft_atoi(arg_list[i]))))
 			return (NULL);
-		ft_lst2addtop(a_bottom, new);
+		ft_lst2addtop(stacks->a, new);
 		i--;
 	}
 	return (stacks);

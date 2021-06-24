@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 23:04:17 by faysal            #+#    #+#             */
-/*   Updated: 2021/06/24 00:29:08 by faysal           ###   ########.fr       */
+/*   Updated: 2021/06/24 22:11:39 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,25 @@ t_list2	*ft_lst2new(int content)
 
 void	ft_lst2addtop(t_list2 **bottom, t_list2 *new)
 {
+	t_list2	*top;
+	t_list2	*cpy;
+
+	if(!(cpy = malloc(sizeof(t_list2 *))))
+		return ;
+	cpy->content = new->content;
 	if (!(*bottom))
-		*bottom = new;
+		*bottom = cpy;
 	else
 	{
-		if (!ft_lst2top(bottom))
+		if(!(top = malloc(sizeof(t_list2))))
 			return ;
-		(ft_lst2top(bottom))->next = new;
-		new->prev = ft_lst2top(bottom);
+		if (!(top = ft_lst2top(bottom)))
+			return ;
+		top->next = cpy;
+		cpy->prev = top;
 	}
-	new->next = *bottom;
-	(*bottom)->prev = new;
+	cpy->next = *bottom;
+	(*bottom)->prev = cpy;
 }
 
 void	ft_lst2deltop(t_list2 **bottom)
