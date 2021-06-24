@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 15:51:38 by fbougama          #+#    #+#             */
-/*   Updated: 2021/06/23 00:31:59 by faysal           ###   ########.fr       */
+/*   Updated: 2021/06/24 02:38:24 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	check_int_range(char *str)
 
 int	is_integer(char *str)
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
 	if (str[i] == '-' || str[i] == '+')
@@ -85,7 +85,7 @@ t_list2	***initiate_stacks(int arg_nb, char **arg_list)
 	t_list2	*new;
 	int	i;
 
-	i = 0;
+	i = arg_nb - 1;
 	if (!(a_bottom = malloc(sizeof (t_list2 *))))
 		return (NULL);
 	if (!(b_bottom = malloc(sizeof (t_list2 *))))
@@ -96,12 +96,12 @@ t_list2	***initiate_stacks(int arg_nb, char **arg_list)
 	*(stacks + sizeof(t_list2 **)) = b_bottom;
 	*a_bottom = NULL;
 	*b_bottom = NULL;
-	while (i < arg_nb)
+	while (i >= 0)
 	{
 		if(!(new = ft_lst2new(ft_atoi(arg_list[i]))))
 			return (NULL);
 		ft_lst2addtop(a_bottom, new);
-		i++;
+		i--;
 	}
 	return (stacks);
 }

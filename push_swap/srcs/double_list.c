@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 23:04:17 by faysal            #+#    #+#             */
-/*   Updated: 2021/06/23 00:41:15 by faysal           ###   ########.fr       */
+/*   Updated: 2021/06/24 00:29:08 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	ft_lst2addtop(t_list2 **bottom, t_list2 *new)
 		*bottom = new;
 	else
 	{
+		if (!ft_lst2top(bottom))
+			return ;
 		(ft_lst2top(bottom))->next = new;
 		new->prev = ft_lst2top(bottom);
 	}
