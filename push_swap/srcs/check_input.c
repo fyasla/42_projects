@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 15:51:38 by fbougama          #+#    #+#             */
-/*   Updated: 2021/06/24 03:39:03 by faysal           ###   ########.fr       */
+/*   Updated: 2021/06/25 22:03:56 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,40 @@ int	is_integer(char *str)
 int	check_arguments(int	arg_nb, char **arg_list)
 {
 	int	i;
+	int	*int_list;
 
 	i = 0;
+	if (!(int_list = malloc (arg_nb * sizeof(int))))
+		return (0);
 	while (i < arg_nb && is_integer(arg_list[i]))
+	{
+		int_list[i] = ft_atoi(arg_list[i]);
 		i++;
-	if (i < arg_nb)
+	}
+	if (i < arg_nb || !check_duplicates(int_list, arg_nb))
 		return (0);
 	else
 		return (1);
+}
+
+int	check_duplicates(int *int_list, int int_nb)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < int_nb - 1)
+	{
+		j = i + 1;
+		while (j < int_nb)
+		{	printf("i : %d\n j : %d\n\n", int_list[i], int_list[j]);
+			if (int_list[i] == int_list[j])
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
 }
 
 t_stacks	*initiate_stacks(int arg_nb, char **arg_list)
