@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 15:51:54 by fbougama          #+#    #+#             */
-/*   Updated: 2021/06/25 21:40:40 by faysal           ###   ########.fr       */
+/*   Updated: 2021/06/26 14:48:42 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,10 @@ int	is_integer(char *str);
 int	check_arguments(int	arg_nb, char **arg_list);
 int	check_duplicates(int *int_list, int int_nb);
 t_stacks	*initiate_stacks(int arg_nb, char **arg_list);
+
+int	is_sorted(t_list2 **bottom);
+int is_empty(t_list2 **bottom);
+int	is_ok(t_stacks *stacks);
+
 
 #endif
