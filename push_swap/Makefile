@@ -6,16 +6,19 @@
 #    By: faysal <faysal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/21 12:50:16 by fbougama          #+#    #+#              #
-#    Updated: 2021/08/05 19:54:57 by faysal           ###   ########.fr        #
+#    Updated: 2021/08/12 21:06:08 by faysal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	push_swap
 
+NAME_BONUS	=	checker
+
 SRCS	=	srcs/check_input.c srcs/double_list.c srcs/main.c \
 			srcs/stacks_operators.c srcs/checker.c
 
-SRCS_BONUS	= srcs/checker.c
+SRCS_BONUS	= srcs/check_input.c srcs/double_list.c \
+			srcs/stacks_operators.c srcs/checker.c
 
 OBJS	=	$(SRCS:%.c=%.o)
 
@@ -34,8 +37,8 @@ all		:	$(NAME)
 $(NAME)	:	$(OBJS) $(LIB)
 		$(CC) -o $(NAME) $(CFLAGS)  $(OBJS) $(LIB)
 
-bonus	:	$(NAME) $(OBJS_BONUS) $(LIB)
-	$(CC) -o checker $(CFLAGS)  $(OBJS_BONUS) $(LIB)
+bonus	:	 $(OBJS_BONUS) $(LIB)
+	$(CC) -o $(NAME_BONUS) $(CFLAGS) $(OBJS_BONUS) $(LIB)
 
 $(LIB)	:
 	cd libft && make bonus && make clean && mv libft.a .. 
@@ -47,7 +50,7 @@ clean	:
 	$(RM) *.o */*.o $(LIB)
 
 fclean	:	clean
-	$(RM) $(NAME) checker
+	$(RM) $(NAME) $(NAME_BONUS)
 
 re		:	fclean all
 
