@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 22:28:22 by faysal            #+#    #+#             */
-/*   Updated: 2021/06/26 14:48:34 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/12 19:00:06 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int	is_sorted(t_list2 **bottom)
 
 	if (!(e = malloc (sizeof(t_list2))))
 		return (0);
-	e = (*bottom)->next;
-	while (e != *bottom)
+	e = (*bottom);
+	while (e->next != *bottom)
 	{
 		if (e->content < (e->next)->content)
 			return (0);
@@ -42,3 +42,8 @@ int	is_ok(t_stacks *stacks)
 	else
 		return (0);
 }
+
+// int	main(int ac, char **av)
+// {
+// 	return (0);
+// }

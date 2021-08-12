@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 15:51:38 by fbougama          #+#    #+#             */
-/*   Updated: 2021/06/25 22:03:56 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/05 20:03:37 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int	check_duplicates(int *int_list, int int_nb)
 	{
 		j = i + 1;
 		while (j < int_nb)
-		{	printf("i : %d\n j : %d\n\n", int_list[i], int_list[j]);
+		{	//printf("i : %d\n j : %d\n\n", int_list[i], int_list[j]);
 			if (int_list[i] == int_list[j])
 				return (0);
 			j++;

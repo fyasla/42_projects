@@ -6,14 +6,14 @@
 #    By: faysal <faysal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/21 12:50:16 by fbougama          #+#    #+#              #
-#    Updated: 2021/06/26 14:50:58 by faysal           ###   ########.fr        #
+#    Updated: 2021/08/05 19:54:57 by faysal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	push_swap
 
 SRCS	=	srcs/check_input.c srcs/double_list.c srcs/main.c \
-			srcs/stacks_operators.c
+			srcs/stacks_operators.c srcs/checker.c
 
 SRCS_BONUS	= srcs/checker.c
 
