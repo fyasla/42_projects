@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 15:51:38 by fbougama          #+#    #+#             */
-/*   Updated: 2021/08/05 20:03:37 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/13 16:16:00 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,21 +49,6 @@ int	check_int_range(char *str)
 	return (1);
 }
 
-int	is_integer(char *str)
-{
-	unsigned int	i;
-
-	i = 0;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	while (str[i] != 0 && ft_isdigit(str[i]))
-		i++;
-	if (i < ft_strlen(str))
-		return (0);
-	else
-		return (check_int_range(str));
-}
-
 int	check_arguments(int	arg_nb, char **arg_list)
 {
 	int	i;
@@ -93,7 +78,7 @@ int	check_duplicates(int *int_list, int int_nb)
 	{
 		j = i + 1;
 		while (j < int_nb)
-		{	//printf("i : %d\n j : %d\n\n", int_list[i], int_list[j]);
+		{
 			if (int_list[i] == int_list[j])
 				return (0);
 			j++;
@@ -105,11 +90,11 @@ int	check_duplicates(int *int_list, int int_nb)
 
 t_stacks	*initiate_stacks(int arg_nb, char **arg_list)
 {
-	t_list2	**a_bottom;
-	t_list2	**b_bottom;
-	t_stacks *stacks;
-	t_list2	*new;
-	int	i;
+	t_list2		**a_bottom;
+	t_list2		**b_bottom;
+	t_stacks	*stacks;
+	t_list2		*new;
+	int			i;
 
 	i = arg_nb - 1;
 	if (!(a_bottom = malloc(sizeof (t_list2 *))))
@@ -124,7 +109,7 @@ t_stacks	*initiate_stacks(int arg_nb, char **arg_list)
 	*b_bottom = NULL;
 	while (i >= 0)
 	{
-		if(!(new = ft_lst2new(ft_atoi(arg_list[i]))))
+		if (!(new = ft_lst2new(ft_atoi(arg_list[i]))))
 			return (NULL);
 		ft_lst2addtop(stacks->a, new);
 		i--;

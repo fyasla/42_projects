@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 22:28:22 by faysal            #+#    #+#             */
-/*   Updated: 2021/08/12 20:59:28 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/13 15:54:55 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ int	main(int ac, char **av)
 	}
 	if(!(stacks = initiate_stacks(ac - 1, &av[1])))
 		return (-1);
+	check_instructions();
 	return (0);
 }

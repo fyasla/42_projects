@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 15:51:54 by fbougama          #+#    #+#             */
-/*   Updated: 2021/06/26 14:48:42 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/13 15:54:41 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,9 @@ t_stacks	*initiate_stacks(int arg_nb, char **arg_list);
 int	is_sorted(t_list2 **bottom);
 int is_empty(t_list2 **bottom);
 int	is_ok(t_stacks *stacks);
+
+int	instruction_error();
+int	check_instructions();
 
 
 #endif

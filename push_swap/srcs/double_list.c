@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 23:04:17 by faysal            #+#    #+#             */
-/*   Updated: 2021/06/24 22:11:39 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/13 16:15:12 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ void	ft_lst2addtop(t_list2 **bottom, t_list2 *new)
 	t_list2	*top;
 	t_list2	*cpy;
 
-	if(!(cpy = malloc(sizeof(t_list2 *))))
+	if (!(cpy = malloc(sizeof(t_list2 *))))
 		return ;
 	cpy->content = new->content;
 	if (!(*bottom))
 		*bottom = cpy;
 	else
 	{
-		if(!(top = malloc(sizeof(t_list2))))
+		if (!(top = malloc(sizeof(t_list2))))
 			return ;
 		if (!(top = ft_lst2top(bottom)))
 			return ;
@@ -51,7 +51,7 @@ void	ft_lst2deltop(t_list2 **bottom)
 {
 	t_list2	*top;
 
-	if(!(top = malloc(sizeof(t_list2))))
+	if (!(top = malloc(sizeof(t_list2))))
 		return ;
 	if (!(*bottom))
 		return ;
@@ -69,4 +69,19 @@ t_list2	*ft_lst2top(t_list2 **bottom)
 	if (!(*bottom))
 		return (NULL);
 	return ((*bottom)->prev);
+}
+
+int	is_integer(char *str)
+{
+	unsigned int	i;
+
+	i = 0;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	while (str[i] != 0 && ft_isdigit(str[i]))
+		i++;
+	if (i < ft_strlen(str))
+		return (0);
+	else
+		return (check_int_range(str));
 }

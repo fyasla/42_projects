@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stacks_operators.c                                 :+:      :+:    :+:   */
+/*   stacks_instructions.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 00:00:18 by faysal            #+#    #+#             */
-/*   Updated: 2021/06/24 22:14:46 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/13 16:12:29 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,13 @@ void	swap(t_list2 **bottom)
 	int		temp;
 	t_list2	*top;
 
-	if(!(top = malloc(sizeof(t_list2))))
+	if (!(top = malloc(sizeof(t_list2))))
 		return ;
 	if (!(top = ft_lst2top(bottom)))
 		return ;
 	temp = top->content;
 	top->content = (top->prev)->content;
 	(top->prev)->content = temp;
-	//free(top);
 }
 
 void	rotate(t_list2 **bottom)
@@ -50,7 +49,7 @@ void	push_ab(t_list2 **a_bottom, t_list2 **b_bottom)
 void	print_stack(t_list2 **bottom)
 {
 	t_list2	*top;
-	t_list2 *e;
+	t_list2	*e;
 
 	if (!(top = ft_lst2top(bottom)))
 		return ;
@@ -62,6 +61,6 @@ void	print_stack(t_list2 **bottom)
 	while (e != top)
 	{
 		printf("%d\n", e->content);
-		e = e->prev;	
+		e = e->prev;
 	}
 }
