@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 15:41:12 by faysal            #+#    #+#             */
-/*   Updated: 2021/08/13 19:32:31 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/13 20:17:16 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,17 @@ int	instruction_error(void)
 	return (-1);
 }
 
+int	end_of_input(char *buf)
+{
+	if (ft_strncmp("", buf, 1) == 0)
+		return (1);
+	else
+	{
+		printf("Error\n");
+		return (-1);
+	}
+}
+
 int	instructions_parse(t_stacks *stacks)
 {
 	ssize_t		ret;
@@ -25,10 +36,11 @@ int	instructions_parse(t_stacks *stacks)
 
 	if (!(buf = malloc(BUFFER_SIZE * sizeof(char))))
 		return (-1);
-	ret = 1;
-	while (ret > 0)
+	ret = get_next_line(0, &buf);
+	while (ret >= 0)
 	{
-		ret = get_next_line(0, &buf);
+		if (ret == 0)
+			return (end_of_input(buf));
 		if (ft_strncmp("sa", buf, 4) == 0)
 			swap(stacks->a);
 		else if (ft_strncmp("sb", buf, 4) == 0)
@@ -44,6 +56,11 @@ int	instructions_parse(t_stacks *stacks)
 		else
 			if (instructions_parse2(stacks, buf) == -1)
 				return (-1);
+		print_stack(stacks->a);
+		printf("a\n\n");
+		print_stack(stacks->b);
+		printf("b\n\n");
+		ret = get_next_line(0, &buf);
 	}
 	return (1);
 }
