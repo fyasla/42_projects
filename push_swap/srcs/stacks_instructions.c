@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 00:00:18 by faysal            #+#    #+#             */
-/*   Updated: 2021/08/13 16:12:29 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/13 19:40:44 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,14 @@ void	swap(t_list2 **bottom)
 
 void	rotate(t_list2 **bottom)
 {
-	*bottom = (*bottom)->prev;
+	if (*bottom)
+		*bottom = (*bottom)->prev;
 }
 
 void	reverse_rotate(t_list2 **bottom)
-{
-	*bottom = (*bottom)->next;
+{	
+	if (*bottom)
+		*bottom = (*bottom)->next;
 }
 
 void	push_ab(t_list2 **a_bottom, t_list2 **b_bottom)

@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 15:51:54 by fbougama          #+#    #+#             */
-/*   Updated: 2021/08/13 15:54:41 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/13 19:24:06 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ int is_empty(t_list2 **bottom);
 int	is_ok(t_stacks *stacks);
 
 int	instruction_error();
-int	check_instructions();
+int	instructions_parse(t_stacks *stacks);
+int	instructions_parse2(t_stacks *stacks, char *buf);
 
 
 #endif
