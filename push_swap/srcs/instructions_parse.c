@@ -6,25 +6,29 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 15:41:12 by faysal            #+#    #+#             */
-/*   Updated: 2021/08/13 20:17:16 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/18 17:22:16 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int	instruction_error(void)
+int	ps_error(void)
 {
-	printf("ERROR\n");
+	write(2, "Error\n", 6);
 	return (-1);
 }
 
 int	end_of_input(char *buf)
 {
 	if (ft_strncmp("", buf, 1) == 0)
+	{
+		free(buf);
 		return (1);
+	}
 	else
 	{
-		printf("Error\n");
+		write(2, "Error\n", 6);
+		free(buf);
 		return (-1);
 	}
 }
@@ -41,7 +45,7 @@ int	instructions_parse(t_stacks *stacks)
 	{
 		if (ret == 0)
 			return (end_of_input(buf));
-		if (ft_strncmp("sa", buf, 4) == 0)
+		else if (ft_strncmp("sa", buf, 4) == 0)
 			swap(stacks->a);
 		else if (ft_strncmp("sb", buf, 4) == 0)
 			swap(stacks->b);
@@ -56,12 +60,9 @@ int	instructions_parse(t_stacks *stacks)
 		else
 			if (instructions_parse2(stacks, buf) == -1)
 				return (-1);
-		print_stack(stacks->a);
-		printf("a\n\n");
-		print_stack(stacks->b);
-		printf("b\n\n");
 		ret = get_next_line(0, &buf);
 	}
+	free(buf);
 	return (1);
 }
 
@@ -87,6 +88,9 @@ int	instructions_parse2(t_stacks *stacks, char *buf)
 	else if (ft_strncmp("pb", buf, 4) == 0)
 		push_ab(stacks->a, stacks->b);
 	else
-		return (instruction_error());
+	{
+		free(buf);
+		return (ps_error());
+	}
 	return (1);
 }

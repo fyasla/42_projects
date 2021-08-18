@@ -1,34 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   checker_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/25 22:28:22 by faysal            #+#    #+#             */
-/*   Updated: 2021/08/18 17:23:33 by faysal           ###   ########.fr       */
+/*   Created: 2021/08/18 17:24:16 by faysal            #+#    #+#             */
+/*   Updated: 2021/08/18 17:24:18 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int	main(int ac, char **av)
+int	is_sorted(t_list2 **bottom)
 {
-	t_stacks	*stacks;
+	t_list2	*e;
 
-	if (!check_arguments(ac - 1, &av[1]))
-	{
-		write(2, "Error\n", 6);
+	if (is_empty(bottom))
 		return (1);
+	if (!(e = malloc (sizeof(t_list2))))
+		return (0);
+	e = (*bottom);
+	while (e->next != *bottom)
+	{
+		if (e->content < (e->next)->content)
+			return (0);
+		e = e->next;
 	}
-	if (!(stacks = initiate_stacks(ac - 1, &av[1])))
-		return (-1);
-	if (instructions_parse(stacks) == -1)
-		return (-1);
-	if (is_ok(stacks))
-		write(2, "OK\n", 3);
-	else
-		write(2, "KO\n", 3);
-	free(stacks);
+	return (1);
+}
+
+int	is_empty(t_list2 **bottom)
+{
+	if (*bottom == NULL)
+		return (1);
 	return (0);
+}
+
+int	is_ok(t_stacks *stacks)
+{
+	if (is_sorted(stacks->a) && is_empty(stacks->b))
+		return (1);
+	else
+		return (0);
 }
