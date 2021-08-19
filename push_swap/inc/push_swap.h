@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 15:51:54 by fbougama          #+#    #+#             */
-/*   Updated: 2021/08/19 13:36:01 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/19 23:38:38 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,11 @@ char		*sort(t_stacks *stacks, char *inst_list);
 char		*refactor(char *inst_list);
 char		*add_inst(char *inst, char *inst_list);
 char		*sort_2(t_stacks *stacks, char *inst_list);
+char		*sort_3(t_stacks *stacks, char *inst_list);
 
-int	*cpy_stack_to_tab(t_list2 **bottom);
-int	*bubble_sort(int *tab, int size);
-int	get_index_tab(int n, int *tab, int size);
-void	transform_stack(t_list2 **bottom, int *tab, int size);
+int			*cpy_stack_to_tab(t_list2 **bottom);
+int			*bubble_sort(int *tab, int size);
+int			get_index_tab(int n, int *tab, int size);
+void		transform_stack(t_list2 **bottom, int *tab, int size);
 
 #endif
