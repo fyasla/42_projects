@@ -6,7 +6,7 @@
 #    By: faysal <faysal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/21 12:50:16 by fbougama          #+#    #+#              #
-#    Updated: 2021/08/18 17:23:48 by faysal           ###   ########.fr        #
+#    Updated: 2021/08/19 13:31:32 by faysal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME_BONUS	=	checker
 
 SRCS	=	srcs/check_input.c srcs/double_list.c srcs/main.c \
 			srcs/stacks_instructions.c srcs/sort.c srcs/checker_utils.c \
-			srcs/instructions_parse.c
+			srcs/instructions_parse.c srcs/sort_utils.c
 
 SRCS_BONUS	= srcs/check_input.c srcs/double_list.c \
 			srcs/stacks_instructions.c srcs/instructions_parse.c srcs/checker.c

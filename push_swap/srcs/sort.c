@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/05 19:50:21 by faysal            #+#    #+#             */
-/*   Updated: 2021/08/18 17:39:29 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/19 13:32:25 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,13 @@ char	*sort(t_stacks *stacks, char *inst_list)
 {
 	int		stack_l;
 
-	// while (!(is_ok(stacks)))
-	// {
-	// 	inst = chose_inst(stacks);
-	// 	add_inst(inst, inst_list);
-	// }
 	stack_l = stack_length(stacks ->a);
 	if (stack_l == 0 || stack_l == 1)
 		return (inst_list);
 	if (stack_l == 2)
 		return (sort_2(stacks, inst_list));
+	// if (stack_l == 3)
+	// 	return (sort_3(stacks, inst_list));
 	inst_list = refactor(inst_list);
 	return (inst_list);
 }
@@ -54,3 +51,8 @@ char	*sort_2(t_stacks *stacks, char *inst_list)
 		inst_list = add_inst("sa\n", inst_list);
 	return (inst_list);
 }
+
+// char	*sort_3(t_stacks *stacks, char *inst_list)
+// {
+	
+// }
