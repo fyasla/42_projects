@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 18:44:35 by faysal            #+#    #+#             */
-/*   Updated: 2021/08/28 23:40:13 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/29 01:09:08 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,11 @@ void	tab_to_stack(t_list2 **bottom, int *tab, int size)
 	t_list2	*top;
 	t_list2	**e;
 
-	if (!(top = ft_lst2top(bottom)))
+	top = ft_lst2top(bottom);
+	if (!top)
 		return ;
-	if (!(e = malloc(sizeof(t_list2))))
+	e = malloc(sizeof(t_list2 *));
+	if (!e)
 		return ;
 	*e = top;
 	(*e)->content = get_index_tab((*e)->content, tab, size) + 1;

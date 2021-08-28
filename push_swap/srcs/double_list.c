@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 23:04:17 by faysal            #+#    #+#             */
-/*   Updated: 2021/08/29 00:21:01 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/29 00:50:03 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ t_list2	*ft_lst2new(int content)
 {
 	t_list2	*new;
 
-	if (!(new = (t_list2*)malloc(sizeof(t_list2))))
+	new = (t_list2 *)malloc(sizeof(t_list2));
+	if (!new)
 		return (NULL);
 	new->prev = NULL;
 	new->content = content;
@@ -24,25 +25,26 @@ t_list2	*ft_lst2new(int content)
 	return (new);
 }
 
-void	ft_lst2addtop(t_list2 **bottom, t_list2 *new)
+void	ft_lst2addtop(t_list2 **bottom, int content)
 {
 	t_list2	*top;
-	t_list2	*cpy;
+	t_list2	*new;
 
-	if (!(cpy = malloc(sizeof(t_list2 *))))
+	new = ft_lst2new(content);
+	if (!new)
 		return ;
-	cpy->content = new->content;
 	if (!(*bottom))
-		*bottom = cpy;
+		*bottom = new;
 	else
 	{
-		if (!(top = ft_lst2top(bottom)))
+		top = ft_lst2top(bottom);
+		if (!top)
 			return ;
-		top->next = cpy;
-		cpy->prev = top;
+		top->next = new;
+		new->prev = top;
 	}
-	cpy->next = *bottom;
-	(*bottom)->prev = cpy;
+	new->next = *bottom;
+	(*bottom)->prev = new;
 }
 
 void	ft_lst2deltop(t_list2 **bottom)
@@ -51,7 +53,8 @@ void	ft_lst2deltop(t_list2 **bottom)
 
 	if (!(*bottom))
 		return ;
-	if (!(top = ft_lst2top(bottom)))
+	top = ft_lst2top(bottom);
+	if (!top)
 		return ;
 	(top->prev)->next = top->next;
 	(top->next)->prev = top->prev;

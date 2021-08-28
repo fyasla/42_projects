@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 15:51:38 by fbougama          #+#    #+#             */
-/*   Updated: 2021/08/29 00:19:58 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/29 00:36:39 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,8 @@ int	check_arguments(int	arg_nb, char **arg_list)
 	int	ret;
 
 	i = 0;
-	if (!(int_list = malloc (arg_nb * sizeof(int))))
+	int_list = malloc (arg_nb * sizeof(int));
+	if (!int_list)
 		return (0);
 	while (i < arg_nb && is_integer(arg_list[i]))
 	{
@@ -101,15 +102,17 @@ t_stacks	*initiate_stacks(int arg_nb, char **arg_list)
 	t_list2		**a_bottom;
 	t_list2		**b_bottom;
 	t_stacks	*stacks;
-	t_list2		*new;
 	int			i;
 
 	i = arg_nb - 1;
-	if (!(a_bottom = malloc(sizeof (t_list2 *))))
+	a_bottom = malloc(sizeof (t_list2 *));
+	if (!a_bottom)
 		return (NULL);
-	if (!(b_bottom = malloc(sizeof (t_list2 *))))
+	b_bottom = malloc(sizeof (t_list2 *));
+	if (!b_bottom)
 		return (NULL);
-	if (!(stacks = malloc (sizeof(t_stacks ))))
+	stacks = malloc (sizeof(t_stacks));
+	if (!stacks)
 		return (NULL);
 	stacks->a = a_bottom;
 	stacks->b = b_bottom;
@@ -117,10 +120,7 @@ t_stacks	*initiate_stacks(int arg_nb, char **arg_list)
 	*b_bottom = NULL;
 	while (i >= 0)
 	{
-		if (!(new = ft_lst2new(ft_atoi(arg_list[i]))))
-			return (NULL);
-		ft_lst2addtop(stacks->a, new);
-		free(new);
+		ft_lst2addtop(stacks->a, ft_atoi(arg_list[i]));
 		i--;
 	}
 	return (stacks);

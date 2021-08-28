@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 15:51:54 by fbougama          #+#    #+#             */
-/*   Updated: 2021/08/28 23:51:29 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/29 01:07:46 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct s_stacks
 
 //double_list.c
 t_list2		*ft_lst2new(int content);
-void		ft_lst2addtop(t_list2 **bottom, t_list2 *new);
+void		ft_lst2addtop(t_list2 **bottom, int content);
 t_list2		*ft_lst2top(t_list2 **bottom);
 void		ft_lst2deltop(t_list2 **bottom);
 int			is_integer(char *str);
@@ -62,6 +62,7 @@ int			ps_error(void);
 int			end_of_input(char *buf);
 int			instructions_parse(t_stacks *stacks);
 int			instructions_parse2(t_stacks *stacks, char *buf);
+int			instructions_parse3(t_stacks *stacks, char *buf);
 
 //sort.c
 char		*sort(t_stacks *stacks, char *inst_list);
@@ -78,8 +79,8 @@ void		tab_to_stack(t_list2 **bottom, int *tab, int size);
 void		stack_transfo(t_list2 **bottom);
 
 //sort_utils.c
-char		*push_min_ab(t_list2 **a_bottom, t_list2 **b_bottom, char *inst_list);
-char		*push_max_ab(t_list2 **a_bottom, t_list2 **b_bottom, char *inst_list);
+char		*push_min_ab(t_list2 **a_bottom, t_list2 **b_bottom, char *inst_l);
+char		*push_max_ab(t_list2 **a_bottom, t_list2 **b_bottom, char *inst_l);
 int			get_index(t_list2 **bottom, int n);
 char		*add_inst(char *inst, char *inst_list);
 

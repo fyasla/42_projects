@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 19:52:02 by faysal            #+#    #+#             */
-/*   Updated: 2021/08/29 00:07:13 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/29 00:52:20 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int	get_index(t_list2 **bottom, int n)
 	top = ft_lst2top(bottom);
 	if (!top)
 		return (0);
-	if (!(e = malloc(sizeof(t_list2))))
+	e = malloc(sizeof(t_list2));
+	if (!e)
 		return (-1);
 	*e = top;
 	index = 1;
@@ -48,7 +49,8 @@ int	stack_min(t_list2 **bottom)
 	top = ft_lst2top(bottom);
 	if (!top)
 		return (0);
-	if (!(e = malloc(sizeof(t_list2))))
+	e = malloc(sizeof(t_list2));
+	if (!e)
 		return (-1);
 	*e = top;
 	min = (*e)->content;
@@ -72,7 +74,8 @@ int	stack_max(t_list2 **bottom)
 	top = ft_lst2top(bottom);
 	if (!top)
 		return (0);
-	if (!(e = malloc(sizeof(t_list2))))
+	e = malloc(sizeof(t_list2));
+	if (!e)
 		return (-1);
 	*e = top;
 	max = (*e)->content;
@@ -87,15 +90,16 @@ int	stack_max(t_list2 **bottom)
 	return (max);
 }
 
-char	*add_inst(char *inst, char *inst_list)
+char	*add_inst(char *inst, char *inst_l)
 {
 	char	*new_list;
 
-	if (!(new_list = malloc((ft_strlen(inst_list) + ft_strlen(inst) + 1) * sizeof(char))))
+	new_list = malloc((ft_strlen(inst_l) + ft_strlen(inst) + 1) * sizeof(char));
+	if (!new_list)
 		return (NULL);
-	ft_bzero(new_list, ft_strlen(inst_list) + ft_strlen(inst) + 1);
-	ft_strlcpy(new_list, inst_list, ft_strlen(inst_list) + 1);
+	ft_bzero(new_list, ft_strlen(inst_l) + ft_strlen(inst) + 1);
+	ft_strlcpy(new_list, inst_l, ft_strlen(inst_l) + 1);
 	ft_strlcat(new_list, inst, ft_strlen(new_list) + ft_strlen(inst) + 1);
-	free (inst_list);
+	free (inst_l);
 	return (new_list);
 }

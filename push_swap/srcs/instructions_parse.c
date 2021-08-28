@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 15:41:12 by faysal            #+#    #+#             */
-/*   Updated: 2021/08/18 17:22:16 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/29 01:07:14 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,21 +38,14 @@ int	instructions_parse(t_stacks *stacks)
 	ssize_t		ret;
 	char		*buf;
 
-	if (!(buf = malloc(BUFFER_SIZE * sizeof(char))))
+	buf = malloc(BUFFER_SIZE * sizeof(char));
+	if (!buf)
 		return (-1);
 	ret = get_next_line(0, &buf);
 	while (ret >= 0)
 	{
 		if (ret == 0)
 			return (end_of_input(buf));
-		else if (ft_strncmp("sa", buf, 4) == 0)
-			swap(stacks->a);
-		else if (ft_strncmp("sb", buf, 4) == 0)
-			swap(stacks->b);
-		else if (ft_strncmp("ra", buf, 4) == 0)
-			rotate(stacks->a);
-		else if (ft_strncmp("rb", buf, 4) == 0)
-			rotate(stacks->b);
 		else if (ft_strncmp("rra", buf, 4) == 0)
 			reverse_rotate(stacks->a);
 		else if (ft_strncmp("rrb", buf, 4) == 0)
@@ -87,6 +80,22 @@ int	instructions_parse2(t_stacks *stacks, char *buf)
 		push_ab(stacks->b, stacks->a);
 	else if (ft_strncmp("pb", buf, 4) == 0)
 		push_ab(stacks->a, stacks->b);
+	else
+		if (instructions_parse3(stacks, buf) == -1)
+			return (-1);
+	return (1);
+}
+
+int	instructions_parse3(t_stacks *stacks, char *buf)
+{
+	if (ft_strncmp("sa", buf, 4) == 0)
+		swap(stacks->a);
+	else if (ft_strncmp("sb", buf, 4) == 0)
+		swap(stacks->b);
+	else if (ft_strncmp("ra", buf, 4) == 0)
+		rotate(stacks->a);
+	else if (ft_strncmp("rb", buf, 4) == 0)
+		rotate(stacks->b);
 	else
 	{
 		free(buf);

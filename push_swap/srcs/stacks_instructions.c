@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 00:00:18 by faysal            #+#    #+#             */
-/*   Updated: 2021/08/28 23:37:07 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/29 00:40:21 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@ void	swap(t_list2 **bottom)
 	int		temp;
 	t_list2	*top;
 
-	if (!(top = malloc(sizeof(t_list2))))
+	top = malloc(sizeof(t_list2));
+	if (!top)
 		return ;
-	if (!(top = ft_lst2top(bottom)))
+	top = ft_lst2top(bottom);
+	if (!top)
 		return ;
 	temp = top->content;
 	top->content = (top->prev)->content;
@@ -42,29 +44,11 @@ void	push_ab(t_list2 **a_bottom, t_list2 **b_bottom)
 {
 	t_list2	*a_top;
 
-	if (!(a_top = ft_lst2top(a_bottom)))
+	a_top = ft_lst2top(a_bottom);
+	if (!a_top)
 		return ;
-	ft_lst2addtop(b_bottom, a_top);
+	ft_lst2addtop(b_bottom, a_top->content);
 	ft_lst2deltop(a_bottom);
-}
-
-void	print_stack(t_list2 **bottom)
-{
-	t_list2	*top;
-	t_list2	*e;
-
-	if (!(top = ft_lst2top(bottom)))
-		return ;
-	if (!(e = malloc(sizeof(t_list2))))
-		return ;
-	e = top;
-	printf("%d\n", e->content);
-	e = e->prev;
-	while (e != top)
-	{
-		printf("%d\n", e->content);
-		e = e->prev;
-	}
 }
 
 int	stack_length(t_list2 **bottom)
@@ -76,7 +60,8 @@ int	stack_length(t_list2 **bottom)
 	top = ft_lst2top(bottom);
 	if (!top)
 		return (0);
-	if (!(e = malloc(sizeof(t_list2 *))))
+	e = malloc(sizeof(t_list2 *));
+	if (!e)
 		return (-1);
 	length = 1;
 	*e = top;
@@ -88,4 +73,25 @@ int	stack_length(t_list2 **bottom)
 	}
 	free(e);
 	return (length);
+}
+
+void	print_stack(t_list2 **bottom)
+{
+	t_list2	*top;
+	t_list2	*e;
+
+	top = ft_lst2top(bottom);
+	if (!top)
+		return ;
+	e = malloc(sizeof(t_list2));
+	if (!e)
+		return ;
+	e = top;
+	printf("%d\n", e->content);
+	e = e->prev;
+	while (e != top)
+	{
+		printf("%d\n", e->content);
+		e = e->prev;
+	}
 }

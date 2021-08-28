@@ -6,78 +6,63 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 19:52:15 by faysal            #+#    #+#             */
-/*   Updated: 2021/08/29 00:16:15 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/29 01:00:56 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-
-char	*push_min_ab(t_list2 **a_bottom, t_list2 **b_bottom, char *inst_list)
+char	*push_min_ab(t_list2 **a_btm, t_list2 **b_btm, char *inst_list)
 {
-	int	index_min;
-
-	index_min = get_index(a_bottom, stack_min(a_bottom));
-	if (index_min <= stack_length(a_bottom) / 2)
+	if (get_index(a_btm, stack_min(a_btm)) <= stack_length(a_btm) / 2)
 	{
-		while (index_min != 1)
+		while (get_index(a_btm, stack_min(a_btm)) != 1)
 		{	
 			inst_list = add_inst("ra\n", inst_list);
-			rotate(a_bottom);
-			index_min = get_index(a_bottom, stack_min(a_bottom));
-			if (index_min == 0)
+			rotate(a_btm);
+			if (get_index(a_btm, stack_min(a_btm)) == 0)
 				return (NULL);
 		}
-		inst_list = add_inst("pb\n", inst_list);
-		push_ab(a_bottom, b_bottom);
 	}
 	else
 	{
-		while (index_min != 1)
+		while (get_index(a_btm, stack_min(a_btm)) != 1)
 		{	
 			inst_list = add_inst("rra\n", inst_list);
-			reverse_rotate(a_bottom);
-			index_min = get_index(a_bottom, stack_min(a_bottom));
-			if (index_min == 0)
+			reverse_rotate(a_btm);
+			if (get_index(a_btm, stack_min(a_btm)) == 0)
 				return (NULL);
 		}
-		inst_list = add_inst("pb\n", inst_list);
-		push_ab(a_bottom, b_bottom);
 	}
+	inst_list = add_inst("pb\n", inst_list);
+	push_ab(a_btm, b_btm);
 	return (inst_list);
 }
 
-char	*push_max_ab(t_list2 **a_bottom, t_list2 **b_bottom, char *inst_list)
+char	*push_max_ab(t_list2 **a_btm, t_list2 **b_btm, char *inst_list)
 {
-	int	index_max;
-
-	index_max = get_index(a_bottom, stack_max(a_bottom));
-	if (index_max <= stack_length(a_bottom) / 2)
+	if (get_index(a_btm, stack_max(a_btm)) <= stack_length(a_btm) / 2)
 	{
-		while (index_max != 1)
+		while (get_index(a_btm, stack_max(a_btm)) != 1)
 		{	
 			inst_list = add_inst("rb\n", inst_list);
-			rotate(a_bottom);
-			index_max = get_index(a_bottom, stack_max(a_bottom));
-			if (index_max == 0)
+			rotate(a_btm);
+			if (get_index(a_btm, stack_max(a_btm)) == 0)
 				return (NULL);
 		}
-		inst_list = add_inst("pa\n", inst_list);
-		push_ab(a_bottom, b_bottom);
 	}
 	else
 	{
-		while (index_max != 1)
+		while (get_index(a_btm, stack_max(a_btm)) != 1)
 		{	
 			inst_list = add_inst("rrb\n", inst_list);
-			reverse_rotate(a_bottom);
-			index_max = get_index(a_bottom, stack_max(a_bottom));
-			if (index_max == 0)
+			reverse_rotate(a_btm);
+			if (get_index(a_btm, stack_max(a_btm)) == 0)
 				return (NULL);
 		}
-		inst_list = add_inst("pa\n", inst_list);
-		push_ab(a_bottom, b_bottom);
 	}
+	inst_list = add_inst("pa\n", inst_list);
+	push_ab(a_btm, b_btm);
 	return (inst_list);
 }
 
