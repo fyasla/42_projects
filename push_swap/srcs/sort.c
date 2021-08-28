@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/05 19:50:21 by faysal            #+#    #+#             */
-/*   Updated: 2021/08/28 15:37:23 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/28 18:18:09 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ char	*sort(t_stacks *stacks, char *inst_list)
 		return (sort_3_asc(stacks->a, inst_list));
 	else if (stack_l > 3 && stack_l <= 10)
 		return (sort_10(stacks, inst_list));
+	else
+		return (sort_100(stacks, inst_list));
 	inst_list = refactor(inst_list);
 	return (inst_list);
 }
@@ -80,5 +82,33 @@ char	*sort_3_asc(t_list2 **a_bottom, char *inst_list)
 	else if (bottom != stack_min(a_bottom)
 		&& bottom != stack_max(a_bottom) && middle == stack_min(a_bottom))
 		inst_list = add_inst("ra\n", inst_list);
+	return (inst_list);
+}
+
+char	*divide(t_stacks *stacks, int n, char *inst_list)
+{
+	int	c;
+	int	lim;
+
+	c = 1;
+	while (c < n)
+	{
+		lim = (stack_length(stacks->a) + stack_length(stacks->b)) / n;
+		lim = c * lim;
+		while (stack_length(stacks->b) < lim)
+		{
+			if (ft_lst2top(stacks->a)->content <= lim)
+			{
+				push_ab(stacks->a, stacks->b);
+				inst_list = add_inst("pb\n", inst_list);
+			}
+			else
+			{
+				rotate(stacks->a);
+				inst_list = add_inst("ra\n", inst_list);
+			}
+		}
+		c++;
+	}
 	return (inst_list);
 }

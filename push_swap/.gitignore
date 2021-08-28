@@ -1,0 +1,4 @@
+*.o
+push_swap_tester
+.vscode
+genstack.pl

@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 15:51:54 by fbougama          #+#    #+#             */
-/*   Updated: 2021/08/28 15:33:22 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/28 18:11:05 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,7 @@ int			stack_min(t_list2 **bottom);
 int			stack_max(t_list2 **bottom);
 int			get_index(t_list2 **bottom, int n);
 
+char		*push_max_ab(t_list2 **a_bottom, t_list2 **b_bottom, char *inst_list);
+char		*divide(t_stacks *stacks, int n, char *inst_list);
+char		*sort_100(t_stacks *stacks, char *inst_list);
 #endif

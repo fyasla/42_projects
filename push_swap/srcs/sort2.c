@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/22 21:48:49 by faysal            #+#    #+#             */
-/*   Updated: 2021/08/28 15:33:09 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/28 18:42:59 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,40 @@ char	*push_min_ab(t_list2 **a_bottom, t_list2 **b_bottom, char *inst_list)
 				return (NULL);
 		}
 		inst_list = add_inst("pb\n", inst_list);
+		push_ab(a_bottom, b_bottom);
+	}
+	return (inst_list);
+}
+
+char	*push_max_ab(t_list2 **a_bottom, t_list2 **b_bottom, char *inst_list)
+{
+	int	index_max;
+
+	index_max = get_index(a_bottom, stack_max(a_bottom));
+	if (index_max <= stack_length(a_bottom) / 2)
+	{
+		while (index_max != 1)
+		{	
+			inst_list = add_inst("rb\n", inst_list);
+			rotate(a_bottom);
+			index_max = get_index(a_bottom, stack_max(a_bottom));
+			if (index_max == 0)
+				return (NULL);
+		}
+		inst_list = add_inst("pa\n", inst_list);
+		push_ab(a_bottom, b_bottom);
+	}
+	else
+	{
+		while (index_max != 1)
+		{	
+			inst_list = add_inst("rrb\n", inst_list);
+			reverse_rotate(a_bottom);
+			index_max = get_index(a_bottom, stack_max(a_bottom));
+			if (index_max == 0)
+				return (NULL);
+		}
+		inst_list = add_inst("pa\n", inst_list);
 		push_ab(a_bottom, b_bottom);
 	}
 	return (inst_list);
@@ -126,4 +160,15 @@ int	stack_max(t_list2 **bottom)
 		e = e->prev;
 	}
 	return (max);
+}
+
+char	*sort_100(t_stacks *stacks, char *inst_list)
+{
+	inst_list = divide(stacks, 10, inst_list);
+	while (stack_length(stacks->a) > 3)
+		inst_list = push_min_ab(stacks->a, stacks->b, inst_list);
+	inst_list = sort_3_asc(stacks->a, inst_list);
+	while (stack_length(stacks->b) > 0)
+		inst_list = push_max_ab(stacks->b, stacks->a, inst_list);
+	return (inst_list);
 }
