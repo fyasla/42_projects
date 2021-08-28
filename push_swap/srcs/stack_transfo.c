@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 18:44:35 by faysal            #+#    #+#             */
-/*   Updated: 2021/08/28 19:23:47 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/28 23:40:13 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,27 @@ int	*cpy_stack_to_tab(t_list2 **bottom)
 	int		size;
 	int		*tab;
 	int		i;
-	t_list2	*e;
+	t_list2	**e;
 
 	size = stack_length(bottom);
 	i = size - 1;
 	tab = malloc(sizeof(int) * size);
-	e = malloc(sizeof(t_list2));
+	e = malloc(sizeof(t_list2 *));
 	if (!e)
 		return (NULL);
 	if (!tab)
+	{
+		free(e);
 		return (NULL);
-	e = *bottom;
+	}
+	*e = *bottom;
 	while (i >= 0)
 	{
-		tab[i] = e->content;
-		e = e->next;
+		tab[i] = (*e)->content;
+		*e = (*e)->next;
 		i--;
 	}
+	free(e);
 	return (tab);
 }
 
@@ -77,20 +81,21 @@ int	get_index_tab(int n, int *tab, int size)
 void	tab_to_stack(t_list2 **bottom, int *tab, int size)
 {
 	t_list2	*top;
-	t_list2	*e;
+	t_list2	**e;
 
 	if (!(top = ft_lst2top(bottom)))
 		return ;
 	if (!(e = malloc(sizeof(t_list2))))
 		return ;
-	e = top;
-	e->content = get_index_tab(e->content, tab, size) + 1;
-	e = e->prev;
-	while (e != top)
+	*e = top;
+	(*e)->content = get_index_tab((*e)->content, tab, size) + 1;
+	*e = (*e)->prev;
+	while (*e != top)
 	{
-		e->content = get_index_tab(e->content, tab, size) + 1;
-		e = e->prev;
+		(*e)->content = get_index_tab((*e)->content, tab, size) + 1;
+		*e = (*e)->prev;
 	}
+	free(e);
 }
 
 void	stack_transfo(t_list2 **bottom)
@@ -100,4 +105,5 @@ void	stack_transfo(t_list2 **bottom)
 	tab = cpy_stack_to_tab(bottom);
 	tab = bubble_sort(tab, stack_length(bottom));
 	tab_to_stack(bottom, tab, stack_length(bottom));
+	free(tab);
 }

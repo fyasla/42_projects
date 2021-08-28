@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 15:51:38 by fbougama          #+#    #+#             */
-/*   Updated: 2021/08/13 16:16:00 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/29 00:19:58 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,29 +30,35 @@ int	check_int_range(char *str)
 {
 	char	*max_int;
 	char	*min_int;
+	int		ret;
 
 	max_int = ft_strdup("2147483647");
 	min_int = ft_strdup("-2147483648");
 	if (ft_strlen(str) > ft_strlen(min_int))
-		return (0);
+		ret = 0;
 	if (ft_strlen(str) == ft_strlen(min_int) && ft_isdigit(str[0]))
-		return (0);
+		ret = 0;
 	if (ft_strlen(str) == ft_strlen(min_int) && str[0] == '+' && \
 	!str_is_inf(str + sizeof(char), max_int))
-		return (0);
+		ret = 0;
 	if (ft_strlen(str) == ft_strlen(min_int) && str[0] == '-' && \
 	!str_is_inf(str + sizeof(char), min_int + sizeof(char)))
-		return (0);
+		ret = 0;
 	if (ft_strlen(str) == ft_strlen(max_int) && ft_isdigit(str[0]) && \
 	!str_is_inf(str, max_int))
-		return (0);
-	return (1);
+		ret = 0;
+	else
+		ret = 1;
+	free(max_int);
+	free(min_int);
+	return (ret);
 }
 
 int	check_arguments(int	arg_nb, char **arg_list)
 {
 	int	i;
 	int	*int_list;
+	int	ret;
 
 	i = 0;
 	if (!(int_list = malloc (arg_nb * sizeof(int))))
@@ -63,9 +69,11 @@ int	check_arguments(int	arg_nb, char **arg_list)
 		i++;
 	}
 	if (i < arg_nb || !check_duplicates(int_list, arg_nb))
-		return (0);
+		ret = 0;
 	else
-		return (1);
+		ret = 1;
+	free(int_list);
+	return (ret);
 }
 
 int	check_duplicates(int *int_list, int int_nb)
@@ -112,6 +120,7 @@ t_stacks	*initiate_stacks(int arg_nb, char **arg_list)
 		if (!(new = ft_lst2new(ft_atoi(arg_list[i]))))
 			return (NULL);
 		ft_lst2addtop(stacks->a, new);
+		free(new);
 		i--;
 	}
 	return (stacks);

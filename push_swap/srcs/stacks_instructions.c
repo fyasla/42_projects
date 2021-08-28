@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 00:00:18 by faysal            #+#    #+#             */
-/*   Updated: 2021/08/18 17:38:43 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/28 23:37:07 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,21 +70,22 @@ void	print_stack(t_list2 **bottom)
 int	stack_length(t_list2 **bottom)
 {
 	t_list2	*top;
-	t_list2	*e;
+	t_list2	**e;
 	int		length;
 
 	top = ft_lst2top(bottom);
 	if (!top)
 		return (0);
-	if (!(e = malloc(sizeof(t_list2))))
+	if (!(e = malloc(sizeof(t_list2 *))))
 		return (-1);
 	length = 1;
-	e = top;
-	e = e->prev;
-	while (e != top)
+	*e = top;
+	*e = (*e)->prev;
+	while (*e != top)
 	{
 		length += 1;
-		e = e->prev;
+		*e = (*e)->prev;
 	}
+	free(e);
 	return (length);
 }

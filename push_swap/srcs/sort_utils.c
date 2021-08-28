@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 19:52:02 by faysal            #+#    #+#             */
-/*   Updated: 2021/08/28 19:53:19 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/29 00:07:13 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	get_index(t_list2 **bottom, int n)
 {
 	t_list2	*top;
-	t_list2	*e;
+	t_list2	**e;
 	int		index;
 
 	top = ft_lst2top(bottom);
@@ -23,22 +23,26 @@ int	get_index(t_list2 **bottom, int n)
 		return (0);
 	if (!(e = malloc(sizeof(t_list2))))
 		return (-1);
-	e = top;
+	*e = top;
 	index = 1;
-	while (e->prev != top && e->content != n)
+	while ((*e)->prev != top && (*e)->content != n)
 	{
 		index ++;
-		e = e->prev;
+		*e = (*e)->prev;
 	}
 	if (index > stack_length(bottom))
+	{
+		free(e);
 		return (0);
+	}
+	free(e);
 	return (index);
 }
 
 int	stack_min(t_list2 **bottom)
 {
 	t_list2	*top;
-	t_list2	*e;
+	t_list2	**e;
 	int		min;
 
 	top = ft_lst2top(bottom);
@@ -46,22 +50,23 @@ int	stack_min(t_list2 **bottom)
 		return (0);
 	if (!(e = malloc(sizeof(t_list2))))
 		return (-1);
-	e = top;
-	min = e->content;
-	e = e->prev;
-	while (e != top)
+	*e = top;
+	min = (*e)->content;
+	*e = (*e)->prev;
+	while (*e != top)
 	{
-		if (e->content < min)
-			min = e->content;
-		e = e->prev;
+		if ((*e)->content < min)
+			min = (*e)->content;
+		*e = (*e)->prev;
 	}
+	free(e);
 	return (min);
 }
 
 int	stack_max(t_list2 **bottom)
 {
 	t_list2	*top;
-	t_list2	*e;
+	t_list2	**e;
 	int		max;
 
 	top = ft_lst2top(bottom);
@@ -69,15 +74,16 @@ int	stack_max(t_list2 **bottom)
 		return (0);
 	if (!(e = malloc(sizeof(t_list2))))
 		return (-1);
-	e = top;
-	max = e->content;
-	e = e->prev;
-	while (e != top)
+	*e = top;
+	max = (*e)->content;
+	*e = (*e)->prev;
+	while (*e != top)
 	{
-		if (e->content > max)
-			max = e->content;
-		e = e->prev;
+		if ((*e)->content > max)
+			max = (*e)->content;
+		*e = (*e)->prev;
 	}
+	free(e);
 	return (max);
 }
 

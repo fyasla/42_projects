@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 15:51:54 by fbougama          #+#    #+#             */
-/*   Updated: 2021/08/28 22:19:11 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/28 23:51:29 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,5 @@ int			stack_min(t_list2 **bottom);
 int			stack_max(t_list2 **bottom);
 char		*divide(t_stacks *stacks, int n, char *inst_list);
 int			nb_of_sets(int size);
+void		ft_lst2clear(t_list2 **bottom);
 #endif

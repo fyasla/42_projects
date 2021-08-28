@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 19:52:15 by faysal            #+#    #+#             */
-/*   Updated: 2021/08/28 22:22:51 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/29 00:16:15 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,4 +112,13 @@ char	*divide(t_stacks *stacks, int n, char *inst_list)
 int	nb_of_sets(int size)
 {
 	return ((int)(0.015 * size + 3.5));
+}
+
+void	ft_lst2clear(t_list2 **bottom)
+{
+	while (stack_length(bottom) > 0)
+	{
+		ft_lst2deltop(bottom);
+	}
+	free(bottom);
 }
