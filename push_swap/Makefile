@@ -6,7 +6,7 @@
 #    By: faysal <faysal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/21 12:50:16 by fbougama          #+#    #+#              #
-#    Updated: 2021/08/27 15:29:17 by faysal           ###   ########.fr        #
+#    Updated: 2021/08/28 19:58:44 by faysal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,12 +14,13 @@ NAME	=	push_swap
 
 NAME_BONUS	=	checker
 
-SRCS	=	srcs/check_input.c srcs/double_list.c srcs/main.c \
+SRCS_COM	=	srcs/check_input.c srcs/double_list.c \
 			srcs/stacks_instructions.c srcs/sort.c srcs/checker_utils.c \
-			srcs/instructions_parse.c srcs/sort_utils.c srcs/sort2.c
+			srcs/instructions_parse.c srcs/stack_transfo.c srcs/sort_utils.c srcs/sort_utils2.c \
 
-SRCS_BONUS	= srcs/check_input.c srcs/double_list.c \
-			srcs/stacks_instructions.c srcs/instructions_parse.c srcs/checker.c
+SRCS		= $(SRCS_COM) srcs/main.c
+
+SRCS_BONUS	= $(SRCS_COM) srcs/checker.c
 
 OBJS	=	$(SRCS:%.c=%.o)
 
