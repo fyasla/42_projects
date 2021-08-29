@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 12:27:27 by fbougama          #+#    #+#             */
-/*   Updated: 2021/08/29 00:22:45 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/29 02:00:39 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ int	main(int ac, char **av)
 	inst_list = sort(stacks, inst_list);
 	write(1, inst_list, ft_strlen(inst_list));
 	free(inst_list);
-	ft_lst2clear(stacks->a);
-	ft_lst2clear(stacks->b);
-	free(stacks);
+	free_stacks(stacks);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 15:51:54 by fbougama          #+#    #+#             */
-/*   Updated: 2021/08/29 01:07:46 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/29 02:01:16 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PUSH_SWAP_H
 
 # include <stdlib.h>
-# include <stdio.h>//
 # include "../libft/libft.h"
 
 typedef struct s_list2
@@ -83,6 +82,7 @@ char		*push_min_ab(t_list2 **a_bottom, t_list2 **b_bottom, char *inst_l);
 char		*push_max_ab(t_list2 **a_bottom, t_list2 **b_bottom, char *inst_l);
 int			get_index(t_list2 **bottom, int n);
 char		*add_inst(char *inst, char *inst_list);
+void		free_stacks(t_stacks *stacks);
 
 //sort_utils2.c
 int			stack_min(t_list2 **bottom);

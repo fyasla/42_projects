@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 00:00:18 by faysal            #+#    #+#             */
-/*   Updated: 2021/08/29 00:40:21 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/29 01:34:42 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@ void	swap(t_list2 **bottom)
 	int		temp;
 	t_list2	*top;
 
-	top = malloc(sizeof(t_list2));
-	if (!top)
-		return ;
 	top = ft_lst2top(bottom);
 	if (!top)
 		return ;
@@ -73,25 +70,4 @@ int	stack_length(t_list2 **bottom)
 	}
 	free(e);
 	return (length);
-}
-
-void	print_stack(t_list2 **bottom)
-{
-	t_list2	*top;
-	t_list2	*e;
-
-	top = ft_lst2top(bottom);
-	if (!top)
-		return ;
-	e = malloc(sizeof(t_list2));
-	if (!e)
-		return ;
-	e = top;
-	printf("%d\n", e->content);
-	e = e->prev;
-	while (e != top)
-	{
-		printf("%d\n", e->content);
-		e = e->prev;
-	}
 }

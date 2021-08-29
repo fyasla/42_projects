@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 19:52:02 by faysal            #+#    #+#             */
-/*   Updated: 2021/08/29 00:52:20 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/29 02:00:23 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,4 +102,11 @@ char	*add_inst(char *inst, char *inst_l)
 	ft_strlcat(new_list, inst, ft_strlen(new_list) + ft_strlen(inst) + 1);
 	free (inst_l);
 	return (new_list);
+}
+
+void	free_stacks(t_stacks *stacks)
+{
+	ft_lst2clear(stacks->a);
+	ft_lst2clear(stacks->b);
+	free(stacks);
 }
