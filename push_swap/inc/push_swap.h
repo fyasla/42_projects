@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 15:51:54 by fbougama          #+#    #+#             */
-/*   Updated: 2021/08/29 02:01:16 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/29 20:33:57 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ t_stacks	*initiate_stacks(int arg_nb, char **arg_list);
 int			is_sorted(t_list2 **bottom);
 int			is_empty(t_list2 **bottom);
 int			is_ok(t_stacks *stacks);
+int			check_args_error(char *inst_list, int ac, char **args, int mode);
+void		set_args(char ***args, int *n, char **av, int ac);
 
 //instructions_parse.c
 int			ps_error(void);
@@ -90,4 +92,8 @@ int			stack_max(t_list2 **bottom);
 char		*divide(t_stacks *stacks, int n, char *inst_list);
 int			nb_of_sets(int size);
 void		ft_lst2clear(t_list2 **bottom);
+
+//free_args.c
+void		free_args(char **args, int ac);
+
 #endif

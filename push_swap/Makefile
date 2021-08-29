@@ -6,7 +6,7 @@
 #    By: faysal <faysal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/21 12:50:16 by fbougama          #+#    #+#              #
-#    Updated: 2021/08/28 19:58:44 by faysal           ###   ########.fr        #
+#    Updated: 2021/08/29 20:21:07 by faysal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ NAME_BONUS	=	checker
 SRCS_COM	=	srcs/check_input.c srcs/double_list.c \
 			srcs/stacks_instructions.c srcs/sort.c srcs/checker_utils.c \
 			srcs/instructions_parse.c srcs/stack_transfo.c srcs/sort_utils.c srcs/sort_utils2.c \
-
+			srcs/free_args.c
+			
 SRCS		= $(SRCS_COM) srcs/main.c
 
 SRCS_BONUS	= $(SRCS_COM) srcs/checker.c
@@ -28,7 +29,7 @@ OBJS_BONUS	=	$(SRCS_BONUS:%.c=%.o)
 
 CC		=	gcc
 
-CFLAGS	=	-Wall -Werror -Wextra -g
+CFLAGS	=	-Wall -Werror -Wextra
 
 RM		=	rm -f
 

@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 22:28:22 by faysal            #+#    #+#             */
-/*   Updated: 2021/08/29 02:00:59 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/29 20:33:41 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,21 @@
 int	main(int ac, char **av)
 {
 	t_stacks	*stacks;
+	int			n;
+	char		**args;
 
 	if (ac == 1)
 		return (0);
-	if (!check_arguments(ac - 1, &av[1]))
-	{
-		write(2, "Error\n", 6);
-		return (1);
-	}
-	stacks = initiate_stacks(ac - 1, &av[1]);
+	set_args(&args, &n, av, ac);
+	if (!check_arguments(n, args))
+		return (check_args_error("", ac, args, 2));
+	stacks = initiate_stacks(n, args);
 	if (!stacks)
 		return (-1);
 	if (instructions_parse(stacks) == -1)
 	{
-		ft_lst2clear(stacks->a);
-		ft_lst2clear(stacks->b);
-		free(stacks);
+		free_args(args, ac);
+		free_stacks(stacks);
 		return (-1);
 	}
 	if (is_ok(stacks))
@@ -38,5 +37,6 @@ int	main(int ac, char **av)
 	else
 		write(2, "KO\n", 3);
 	free_stacks(stacks);
+	free_args(args, ac);
 	return (0);
 }

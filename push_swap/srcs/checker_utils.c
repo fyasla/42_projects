@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 17:24:16 by faysal            #+#    #+#             */
-/*   Updated: 2021/08/29 00:23:26 by faysal           ###   ########.fr       */
+/*   Updated: 2021/08/29 20:32:28 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,26 @@ int	is_ok(t_stacks *stacks)
 		return (1);
 	else
 		return (0);
+}
+
+int	check_args_error(char *inst_list, int ac, char **args, int mode)
+{
+	if (mode == 1)
+		free(inst_list);
+	write(2, "Error\n", 6);
+	free_args(args, ac);
+	return (1);
+}
+
+void	set_args(char ***args, int *n, char **av, int ac)
+{
+	*n = ac - 1;
+	*args = &av[1];
+	if (ac == 2)
+	{
+		*n = 0;
+		*args = ft_split(av[1], ' ');
+		while ((*args)[*n] != NULL)
+			(*n)++;
+	}
 }
