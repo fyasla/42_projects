@@ -1,1 +1,0 @@
-Sort a list of integers with two stacks and a list of given instructions. The goal is to sort with the minimum amount of instructions possible.
