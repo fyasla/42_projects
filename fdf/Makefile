@@ -6,7 +6,7 @@
 #    By: faysal <faysal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/21 12:50:16 by fbougama          #+#    #+#              #
-#    Updated: 2021/08/30 20:41:45 by faysal           ###   ########.fr        #
+#    Updated: 2021/09/02 11:57:35 by faysal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME	=	fdf
 
 NAME_BONUS	=	
 			
-SRCS		= src/plot_line.c src/main.c
+SRCS		= src/parsing.c src/plot_line.c src/conv_to_iso.c \
+				src/resize.c src/main.c
 
 SRCS_BONUS	=
 
@@ -25,7 +26,7 @@ OBJS	=	$(SRCS:%.c=%.o)
 
 OBJS_BONUS	=	$(SRCS_BONUS:%.c=%.o)
 
-CC		=	gcc
+CC		=	gcc -g
 
 CFLAGS	=	-Wall -Werror -Wextra
 

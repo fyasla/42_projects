@@ -6,13 +6,13 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 20:13:46 by faysal            #+#    #+#             */
-/*   Updated: 2021/08/30 20:51:17 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/02 11:24:13 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fdf.h"
 
-void	plot_line_low(t_point p0, t_point p1, t_window window)
+void	plot_line_low(t_point p0, t_point p1, t_window *window)
 {
 	int	dx;
 	int	dy;
@@ -34,7 +34,8 @@ void	plot_line_low(t_point p0, t_point p1, t_window window)
 	x = p0.x;
 	while (x <= p1.x)
 	{
-		mlx_pixel_put(window.mlx_ptr, window.win_ptr, x, y, 255);
+		//mlx_pixel_put(window.mlx_ptr, window.win_ptr, x, y, 255);
+		window->img[x * (RESX - 2 * MARGIN) * sizeof(unsigned int) + y * sizeof(unsigned int)] = 255;
 		if (d > 0)
 		{
 			y = y + yi;
@@ -46,7 +47,7 @@ void	plot_line_low(t_point p0, t_point p1, t_window window)
 	}
 }
 
-void	plot_line_high(t_point p0, t_point p1, t_window window)
+void	plot_line_high(t_point p0, t_point p1, t_window *window)
 {
 	int	dx;
 	int	dy;
@@ -68,7 +69,8 @@ void	plot_line_high(t_point p0, t_point p1, t_window window)
 	x = p0.x;
 	while (y <= p1.y)
 	{
-		mlx_pixel_put(window.mlx_ptr, window.win_ptr, x, y, 255);
+		//mlx_pixel_put(window.mlx_ptr, window.win_ptr, x, y, 255);
+		window->img[x * (RESX - 2 * MARGIN) * sizeof(unsigned int) + sizeof(unsigned int) * y] = 255;
 		if (d > 0)
 		{
 			x = x + xi;
@@ -80,7 +82,7 @@ void	plot_line_high(t_point p0, t_point p1, t_window window)
 	}
 }
 
-void	plot_line(t_point p0, t_point p1, t_window window)
+void	plot_line(t_point p0, t_point p1, t_window *window)
 {
 	if (abs(p1.y - p0.y) < abs(p1.x - p0.x))
 	{
