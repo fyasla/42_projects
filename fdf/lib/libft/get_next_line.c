@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 11:26:55 by fbougama          #+#    #+#             */
-/*   Updated: 2019/12/10 15:59:28 by fbougama         ###   ########.fr       */
+/*   Updated: 2021/09/02 18:18:57 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ int	ft_eol(char **line, char **save)
 {
 	char	*tmp;
 
-	if (!(*line = ft_substr2(*save, 0, ft_p(*save))))
+	*line = ft_substr2(*save, 0, ft_p(*save));
+	if (!(*line))
 		return (ft_free(line, NULL));
 	tmp = *save;
 	*save = ft_substr2(*save, ft_p(*save) + 1, ft_sl(*save) - ft_p(*save) - 1);
@@ -60,7 +61,8 @@ int	ft_eof_gnl(char **line, char **save, char **buff, int rd)
 
 	if (rd == 0)
 	{
-		if (!(*line = ft_strjoin2(*save, *buff)))
+		*line = ft_strjoin2(*save, *buff);
+		if (!(*line))
 			return (ft_free(line, buff));
 		free(*save);
 		*save = NULL;
@@ -68,7 +70,8 @@ int	ft_eof_gnl(char **line, char **save, char **buff, int rd)
 	else
 	{
 		tmp = *save;
-		if (!(*save = ft_strjoin2(*save, *buff)))
+		*save = ft_strjoin2(*save, *buff);
+		if (!(*save))
 			return (ft_free(line, buff));
 		free(tmp);
 	}
@@ -89,10 +92,11 @@ int	get_next_line(int fd, char **line)
 		return (ft_eol(line, &save));
 	else
 	{
-		if (!(buff = malloc(BUFFER_SIZE + 1)))
+		buff = malloc(BUFFER_SIZE + 1);
+		if (!buff)
 			return (ft_free(line, &buff));
-		buff = ft_bzero2(buff, BUFFER_SIZE + 1);
-		if ((rd = read(fd, buff, BUFFER_SIZE)) == -1)
+		rd_buff(&buff, &rd, fd);
+		if (rd == -1)
 			return (ft_free(line, &buff));
 		else if (rd == 0)
 			return (ft_eof_gnl(line, &save, &buff, rd));

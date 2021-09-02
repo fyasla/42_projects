@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 18:58:09 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/22 17:29:03 by fbougama         ###   ########.fr       */
+/*   Updated: 2021/09/02 17:43:37 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t		ft_strclen(const char *str, char c)
+static size_t	ft_strclen(const char *str, char c)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] && str[i] != c)
@@ -22,15 +22,17 @@ static size_t		ft_strclen(const char *str, char c)
 	return (i);
 }
 
-static void			*ft_strcdup(const char *s1, char c)
+static void	*ft_strcdup(const char *s1, char c)
 {
 	size_t	len;
 	char	*cpy;
 
 	len = ft_strclen(s1, c);
-	if (!(cpy = malloc((len + 1) * sizeof(char))))
+	cpy = malloc((len + 1) * sizeof(char));
+	if (!cpy)
 		return (NULL);
-	if (!(cpy = ft_memcpy(cpy, s1, len)))
+	cpy = ft_memcpy(cpy, s1, len);
+	if (!cpy)
 		return (NULL);
 	cpy[len] = '\0';
 	return (cpy);
@@ -55,9 +57,9 @@ static unsigned int	ft_cpt_words(char const *s, char c)
 	return (n);
 }
 
-static	void		*freebuffs(char **buff)
+static	void	*freebuffs(char **buff)
 {
-	char **tmp;
+	char	**tmp;
 
 	tmp = buff;
 	while (*tmp)
@@ -66,7 +68,7 @@ static	void		*freebuffs(char **buff)
 	return (0);
 }
 
-char				**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char			**tab;
 	unsigned int	n;
@@ -75,8 +77,8 @@ char				**ft_split(char const *s, char c)
 
 	j = 0;
 	i = 0;
-	n = ft_cpt_words(s, c);
-	if (s == NULL || !(tab = malloc((n + 1) * sizeof(char*))))
+	tab = malloc((ft_cpt_words(s, c) + 1) * sizeof(char *));
+	if (s == NULL || !tab)
 		return (NULL);
 	while (s[i])
 	{
@@ -85,7 +87,8 @@ char				**ft_split(char const *s, char c)
 		if (s[i] && s[i] != c)
 		{
 			n = ft_strclen(s + i, c);
-			if (!(tab[j++] = (char*)ft_strcdup(s + i, c)))
+			tab[j++] = (char *)ft_strcdup(s + i, c);
+			if (!tab[j++])
 				return (freebuffs(tab));
 			i += n;
 		}
