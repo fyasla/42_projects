@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 14:47:08 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/23 12:44:13 by fbougama         ###   ########.fr       */
+/*   Updated: 2021/09/02 17:46:17 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		return (NULL);
 	s = src;
 	d = dst;
-	end_s = (char*)s + (len - 1);
+	end_s = (char *)s + (len - 1);
 	end_d = d + (len - 1);
 	if (d < s)
 	{

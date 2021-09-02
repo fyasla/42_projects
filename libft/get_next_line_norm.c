@@ -1,36 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   get_next_line_norm.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 14:56:10 by fbougama          #+#    #+#             */
-/*   Updated: 2021/09/02 17:05:18 by faysal           ###   ########.fr       */
+/*   Created: 2021/09/02 18:11:58 by faysal            #+#    #+#             */
+/*   Updated: 2021/09/02 18:14:27 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *str)
-{
-	int	i;
-	int	sg;
-	int	res;
+#include "get_next_line.h"
 
-	sg = 1;
-	res = 0;
-	i = 0;
-	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\r'
-		||str[i] == '\v' || str[i] == '\f' || str[i] == ' ')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		sg = (44 - str[i]);
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		res = 10 * res + (str[i] - '0');
-		i++;
-	}
-	return (sg * res);
+void	rd_buff(char **buff, int *rd, int fd)
+{
+	*buff = ft_bzero2(buff, BUFFER_SIZE + 1);
+	*rd = read(fd, buff, BUFFER_SIZE);
 }

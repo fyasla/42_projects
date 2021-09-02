@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 10:56:11 by fbougama          #+#    #+#             */
-/*   Updated: 2019/10/21 19:40:06 by fbougama         ###   ########.fr       */
+/*   Updated: 2021/09/02 17:32:57 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_strlcat(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
 	size_t	len;
 	char	*dst2;
 	char	*src2;
 
-	src2 = (char*)src;
+	src2 = (char *)src;
 	dst2 = dst;
 	i = 0;
 	while (i++ < dstsize && *dst2 != '\0')
