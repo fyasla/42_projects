@@ -14,6 +14,6 @@
 
 void	rd_buff(char **buff, int *rd, int fd)
 {
-	*buff = ft_bzero2(buff, BUFFER_SIZE + 1);
-	*rd = read(fd, buff, BUFFER_SIZE);
+	*buff = ft_bzero2(*buff, BUFFER_SIZE + 1);
+	*rd = read(fd, *buff, BUFFER_SIZE);
 }
