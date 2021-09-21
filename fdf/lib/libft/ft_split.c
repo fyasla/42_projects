@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 18:58:09 by fbougama          #+#    #+#             */
-/*   Updated: 2021/09/02 17:43:37 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/22 01:38:44 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,11 @@ static	void	*freebuffs(char **buff)
 
 	tmp = buff;
 	while (*tmp)
-		free(tmp++);
+	{
+		free(*tmp);
+		tmp = tmp + sizeof(char *);
+	}
+	free(*tmp);
 	free(buff);
 	return (0);
 }
@@ -87,7 +91,7 @@ char	**ft_split(char const *s, char c)
 		if (s[i] && s[i] != c)
 		{
 			n = ft_strclen(s + i, c);
-			tab[j++] = (char *)ft_strcdup(s + i, c);
+			tab[j] = (char *)ft_strcdup(s + i, c);
 			if (!tab[j++])
 				return (freebuffs(tab));
 			i += n;

@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 16:08:26 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/21 23:34:59 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/22 01:09:13 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,6 @@
 // 	return (0);
 // }
 
-#include <stdio.h>
-
 int	main(int ac, char **av)
 {
 	int			nb;
@@ -53,7 +51,6 @@ int	main(int ac, char **av)
 	if (ac == 1 || ac > 2)
 		return (0);
 	nb = row_nb(av[1]);
-	printf("%d\n", nb);
 	map = parse_map(av[1]);
 	map_to_iso(map, nb, col_nb(av[1]));
 	resize_map(map, nb, col_nb(av[1]));

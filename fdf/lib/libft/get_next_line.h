@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 11:28:48 by fbougama          #+#    #+#             */
-/*   Updated: 2021/09/02 18:17:09 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/22 01:43:16 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 
 # ifndef BUFFER_SIZE
-#define BUFFER_SIZE 42
+#  define BUFFER_SIZE 42
 # endif
 
 size_t	ft_sl(char const *str);

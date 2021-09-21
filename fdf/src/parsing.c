@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 12:06:31 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/21 23:39:57 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/22 01:14:14 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,9 @@ int	row_nb(char *filename)
 		ret = get_next_line(fd, &line);
 		n++;
 	}
+	printf("2\n");
 	free(line);
+	printf("2\n");
 	if (close(fd) < 0)
 		perror ("close error");
 	return (n);
@@ -63,14 +65,18 @@ int	col_nb(char *filename)
 	n = word_nb(split);
 	while (ret > 0)
 	{
+		printf("31\n");
 		free(line);
+		printf("35\n");
 		line = 0;
 		ret = get_next_line(fd, &line);
 		split = ft_split(line, ' ');
 		if (n != word_nb(split))
 			perror("The map is not an error");
 	}
+	printf("1\n");
 	free(line);
+	printf("1\n");
 	if (close(fd) < 0)
 		perror ("close error");
 	return (n);
@@ -98,11 +104,15 @@ t_point	***parse_map(char *filename)
 			map[i][j] = p_coord(i, j, ft_atoi(ft_split(line, ' ')[j]));
 			j++;
 		}
+		printf("3\n");
 		free(line);
+		printf("4\n");
 		line = 0;
 		i++;
 	}
+	printf("03\n");
 	free(line);
+	printf("03\n");
 	return (map);
 }
 

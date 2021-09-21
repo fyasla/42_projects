@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 16:08:40 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/21 23:27:23 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/22 01:09:35 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,3 +65,5 @@ t_point		resize_p(t_point ***map, int row_nb, int col_nb, t_point p);
 //transform real world coordinates to window coordinates
 
 #endif
+
+#include <stdio.h>
