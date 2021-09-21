@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 11:22:05 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/08 09:37:44 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/21 23:29:22 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,16 +67,23 @@ void	resize_map(t_point ***map, int row_nb, int col_nb)
 	while (i < row_nb)
 	{
 		j = 0;
-		while (j < row_nb)
+		while (j < col_nb)
 		{
-			*map[i][j] = resize_p(*map[i][j]);
+			*map[i][j] = resize_p(map, row_nb, col_nb, *map[i][j]);
 			j++;
 		}
 	}
 }
 
-t_point	resize_p(t_point p)
+t_point	resize_p(t_point ***map, int row_nb, int col_nb, t_point p)
 {
 	t_point	new;
+	t_point	min;
+	t_point	max;
 
+	min = p_min(map, row_nb, col_nb);
+	max = p_max(map, row_nb, col_nb);
+	new.x = RESX * (p.x + min.x) / (max.x - min.x);
+	new.y = RESY * (p.y + min.y) / (max.y - min.y);
+	return (new);
 }

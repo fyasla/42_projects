@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fbougama <fbougama@student.42.fr>          +#+  +:+       +#+         #
+#    By: faysal <faysal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/12 15:32:20 by fbougama          #+#    #+#              #
-#    Updated: 2019/10/21 15:01:36 by fbougama         ###   ########.fr        #
+#    Updated: 2021/09/19 14:19:07 by faysal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ ft_atoi.c ft_calloc.c ft_strdup.c \
 ft_substr.c ft_strjoin.c ft_strtrim.c \
 ft_split.c ft_itoa.c ft_strmapi.c \
 ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c \
-ft_putnbr_fd.c get_next_line_utils.c get_next_line.c
+ft_putnbr_fd.c get_next_line_utils.c get_next_line.c \
+get_next_line_norm.c
 
 SRCS_BONUS = ft_lstnew.c ft_lstadd_front.c \
 ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \

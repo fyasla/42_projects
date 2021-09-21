@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 16:08:40 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/02 11:59:50 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/21 23:27:23 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ typedef struct s_window
 }				t_window;
 
 //parsing.c
-
 int			word_nb(char **split);
 int			col_nb(char *filename);
 int			row_nb(char *filename);
@@ -61,6 +60,8 @@ void		map_to_iso(t_point ***map, int row_nb, int col_nb);
 //resize.c
 t_point		p_min(t_point ***map, int row_nb, int col_nb);
 t_point		p_max(t_point ***map, int row_nb, int col_nb);
+void		resize_map(t_point ***map, int row_nb, int col_nb);
+t_point		resize_p(t_point ***map, int row_nb, int col_nb, t_point p);
 //transform real world coordinates to window coordinates
 
 #endif
