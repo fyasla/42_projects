@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 12:06:31 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/22 01:14:14 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/22 14:03:11 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	row_nb(char *filename)
 	int		ret;
 	char	*line;
 
-	n = 0;
+	n = 1;
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 		perror("open error");
@@ -41,9 +41,7 @@ int	row_nb(char *filename)
 		ret = get_next_line(fd, &line);
 		n++;
 	}
-	printf("2\n");
 	free(line);
-	printf("2\n");
 	if (close(fd) < 0)
 		perror ("close error");
 	return (n);
@@ -63,20 +61,17 @@ int	col_nb(char *filename)
 	ret = get_next_line(fd, &line);
 	split = ft_split(line, ' ');
 	n = word_nb(split);
-	while (ret > 0)
+	while (ret > 0 && word_nb(split) != 0)
 	{
-		printf("31\n");
 		free(line);
-		printf("35\n");
 		line = 0;
 		ret = get_next_line(fd, &line);
 		split = ft_split(line, ' ');
-		if (n != word_nb(split))
-			perror("The map is not an error");
+		if (n != word_nb(split) && word_nb(split) != 0){
+			perror("The map is not a rectangle");
+			return(-1);}
 	}
-	printf("1\n");
 	free(line);
-	printf("1\n");
 	if (close(fd) < 0)
 		perror ("close error");
 	return (n);
@@ -89,30 +84,31 @@ t_point	***parse_map(char *filename)
 	int			j;
 	char		*line;
 	int			fd;
+	int			r_nb;
+	int			c_nb;
 
+	r_nb = row_nb(filename);
+	c_nb = col_nb(filename);
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 		perror("open error");
-	map = malloc(row_nb(filename) * sizeof(t_point **));
+	map = (t_point ***)malloc(r_nb * sizeof(t_point **));
 	i = 0;
-	while (get_next_line(fd, &line) >= 0)
+	while (get_next_line(fd, &line) > 0 || i < r_nb)
 	{
 		j = 0;
-		map[i] = malloc(col_nb(filename) * sizeof(t_point *));
+		map[i] = (t_point **)malloc(c_nb * sizeof(t_point *));
 		while (ft_split(line, ' ')[j] != NULL)
-		{
-			map[i][j] = p_coord(i, j, ft_atoi(ft_split(line, ' ')[j]));
+		{	
+			map[i][j] = (t_point *)malloc(sizeof(t_point));
+			*(map[i][j]) = *p_coord(i, j, ft_atoi(ft_split(line, ' ')[j]));
 			j++;
 		}
-		printf("3\n");
 		free(line);
-		printf("4\n");
 		line = 0;
 		i++;
 	}
-	printf("03\n");
 	free(line);
-	printf("03\n");
 	return (map);
 }
 

@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 18:14:32 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/02 11:23:33 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/22 16:25:41 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 t_point	p_to_iso(t_point p)
 {
 	t_point	new;
+	double	z_coef;
 
-	new.x = p.y - p.x;
-	new.y = p.z - p.x - p.y;
+	z_coef = 1;
+	new.y = (p.y - p.x) * sqrt(2) / 2;
+	new.x = -(sqrt(0.66) * p.z * z_coef - (1 / sqrt(6)) * (p.x + p.y));
 	return (new);
 }
 
