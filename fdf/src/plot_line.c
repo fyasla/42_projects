@@ -6,72 +6,73 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 20:13:46 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/23 14:19:07 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/23 14:29:30 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fdf.h"
 
+void	update_coordinates(t_point *p, int x, int y, int z)
+{
+	p->x = x;
+	p->y = y;
+	p->z = z;
+}
+
 void	plot_line_low(t_point p0, t_point p1, t_window *window)
 {
-	int	dx;
-	int	dy;
-	int	yi;
+	t_point	d;
 	t_point	p;
+	int		yi;
 
-	dx = p1.x - p0.x;
-	dy = p1.y - p0.y;
+	d.x = p1.x - p0.x;
+	d.y = p1.y - p0.y;
 	yi = 1;
-	if (dy < 0)
+	if (d.y < 0)
 	{
 		yi = -1;
-		dy = -dy;
+		d.y = -d.y;
 	}
-	p.z = (2 * dy) - dx;
-	p.y = p0.y;
-	p.x = p0.x;
+	update_coordinates(&p, p0.x, p0.y, (2 * d.y) - d.x);
 	while (p.x <= p1.x)
 	{
 		color_rgb(window, p.x, p.y, 0xFFFFFF);
 		if (p.z > 0)
 		{
 			p.y = p.y + yi;
-			p.z = p.z + (2 * (dy - dx));
+			p.z = p.z + (2 * (d.y - d.x));
 		}
 		else
-			p.z = p.z + 2 * dy;
+			p.z = p.z + 2 * d.y;
 		p.x++;
 	}
 }
 
 void	plot_line_high(t_point p0, t_point p1, t_window *window)
 {
-	int		dx;
-	int		dy;
-	int		xi;
+	t_point	d;
 	t_point	p;
+	int		xi;
 
-	dx = p1.x - p0.x;
-	dy = p1.y - p0.y;
+	d.x = p1.x - p0.x;
+	d.y = p1.y - p0.y;
 	xi = 1;
-	if (dx < 0)
+	if (d.x < 0)
 	{
 		xi = -1;
-		dx = -dx;
+		d.x = -d.x;
 	}
-	p.z = (2 * dx) - dy;
-	p.y = p0.y;
-	p.x = p0.x;
+	update_coordinates(&p, p0.x, p0.y, (2 * d.x) - d.y);
 	while (p.y <= p1.y)
 	{
 		color_rgb(window, p.x, p.y, 0xFFFFFF);
 		if (p.z > 0)
 		{
 			p.x = p.x + xi;
-			p.z = p.z + (2 * (dx - dy));
+			p.z = p.z + (2 * (d.x - d.y));
 		}
 		else
-			p.z = p.z + 2 * dx;
+			p.z = p.z + 2 * d.x;
 		p.y++;
 	}
 }

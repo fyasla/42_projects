@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 16:08:40 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/23 14:11:38 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/23 14:32:29 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ typedef struct s_point
 
 typedef struct s_window
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	void	*img_ptr;
+	void	*mlx_p;
+	void	*w_p;
+	void	*img_p;
 	char	*img;
 }				t_window;
 
@@ -77,6 +77,7 @@ void		color_rgb(t_window *win, int x, int y, int rgb);
 
 
 //plot_line.c
+void		update_coordinates(t_point *p, int x, int y, int z);
 void		plot_line_low(t_point p0, t_point p1, t_window *window);
 void		plot_line_high(t_point p0, t_point p1, t_window *window);
 void		plot_line(t_point p0, t_point p1, t_window *window);
