@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 23:35:59 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/23 02:19:15 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/23 03:39:09 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,20 @@ char	*find_path(char *cmd, char *path)
 		try_path = ft_strjoin(tmp, cmd_no_arg);
 		free(tmp);
 		if (access(try_path, F_OK) == 0)
+		{
+			free(all_paths);
+			free(cmd_no_arg);
 			return (try_path);
+		}
 		i++;
 	}
+	free(all_paths);
+	free(cmd_no_arg);
 	return (NULL);
 }
 
-void	error(void)
+void	handle_error(void)
 {
-	perror("\033[31mError");
+	perror("Error:");
 	exit(EXIT_FAILURE);
 }
