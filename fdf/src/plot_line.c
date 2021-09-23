@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 20:13:46 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/02 11:24:13 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/23 14:19:07 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ void	plot_line_low(t_point p0, t_point p1, t_window *window)
 	int	dx;
 	int	dy;
 	int	yi;
-	int	d;
-	int	y;
-	int	x;
+	t_point	p;
 
 	dx = p1.x - p0.x;
 	dy = p1.y - p0.y;
@@ -29,32 +27,29 @@ void	plot_line_low(t_point p0, t_point p1, t_window *window)
 		yi = -1;
 		dy = -dy;
 	}
-	d = (2 * dy) - dx;
-	y = p0.y;
-	x = p0.x;
-	while (x <= p1.x)
+	p.z = (2 * dy) - dx;
+	p.y = p0.y;
+	p.x = p0.x;
+	while (p.x <= p1.x)
 	{
-		//mlx_pixel_put(window.mlx_ptr, window.win_ptr, x, y, 255);
-		window->img[x * (RESX - 2 * MARGIN) * sizeof(unsigned int) + y * sizeof(unsigned int)] = 255;
-		if (d > 0)
+		color_rgb(window, p.x, p.y, 0xFFFFFF);
+		if (p.z > 0)
 		{
-			y = y + yi;
-			d = d + (2 * (dy - dx));
+			p.y = p.y + yi;
+			p.z = p.z + (2 * (dy - dx));
 		}
 		else
-			d = d + 2 * dy;
-		x++;
+			p.z = p.z + 2 * dy;
+		p.x++;
 	}
 }
 
 void	plot_line_high(t_point p0, t_point p1, t_window *window)
 {
-	int	dx;
-	int	dy;
-	int	xi;
-	int	d;
-	int	y;
-	int	x;
+	int		dx;
+	int		dy;
+	int		xi;
+	t_point	p;
 
 	dx = p1.x - p0.x;
 	dy = p1.y - p0.y;
@@ -64,21 +59,20 @@ void	plot_line_high(t_point p0, t_point p1, t_window *window)
 		xi = -1;
 		dx = -dx;
 	}
-	d = (2 * dx) - dy;
-	y = p0.y;
-	x = p0.x;
-	while (y <= p1.y)
+	p.z = (2 * dx) - dy;
+	p.y = p0.y;
+	p.x = p0.x;
+	while (p.y <= p1.y)
 	{
-		//mlx_pixel_put(window.mlx_ptr, window.win_ptr, x, y, 255);
-		window->img[x * (RESX - 2 * MARGIN) * sizeof(unsigned int) + sizeof(unsigned int) * y] = 255;
-		if (d > 0)
+		color_rgb(window, p.x, p.y, 0xFFFFFF);
+		if (p.z > 0)
 		{
-			x = x + xi;
-			d = d + (2 * (dx - dy));
+			p.x = p.x + xi;
+			p.z = p.z + (2 * (dx - dy));
 		}
 		else
-			d = d + 2 * dx;
-		y++;
+			p.z = p.z + 2 * dx;
+		p.y++;
 	}
 }
 

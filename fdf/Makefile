@@ -6,7 +6,7 @@
 #    By: faysal <faysal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/21 12:50:16 by fbougama          #+#    #+#              #
-#    Updated: 2021/09/22 14:34:17 by faysal           ###   ########.fr        #
+#    Updated: 2021/09/23 14:09:09 by faysal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@ NAME	=	fdf
 
 NAME_BONUS	=	
 			
-SRCS		= src/parsing.c src/plot_line.c src/conv_to_iso.c \
-				src/resize.c src/plot_map.c src/main.c
+SRCS		= src/main.c src/plot_line.c src/colors.c src/parse_map.c#src/parsing.c src/plot_line.c src/conv_to_iso.c \
+				src/resize.c src/plot_map.c 
 
 SRCS_BONUS	=
 
@@ -63,3 +63,8 @@ fclean	:	clean
 re		:	fclean all
 
 .PHONY	:	all clean fclean re bonus
+
+
+
+
+
