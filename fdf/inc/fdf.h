@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 16:08:40 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/27 01:05:54 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/27 12:38:20 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ t_point		p_to_iso(t_point p);
 void		map_to_iso(t_point **map, char *filename, int r_nb);
 
 //resize.c
-t_point		p_min(t_point **map, int row_nb, char *filenama);
-t_point		p_max(t_point **map, int row_nb, char *filenama);
+t_point		p_min(t_point **map, int row_nb, char *filename);
+t_point		p_max(t_point **map, int row_nb, char *filename);
 void		resize_map(t_point **map, int row_nb, char *filename);
 t_point		*resize_p(t_point p, t_point min, t_point max);
 // //transform real world coordinates to window coordinates
@@ -70,7 +70,7 @@ void		plot_low(t_point **map, int i, int j, t_window *win);
 void		plot_map(t_point **map, char *filename, int r_nb, t_window *win);
 
 //colors.c
-int			color_z(int z);
+int			set_color_p(t_point p, t_point **map, char *filename);
 void		color_rgb(t_window *win, int x, int y, int rgb);
 
 //plot_line.c
