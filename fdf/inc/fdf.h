@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 16:08:40 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/27 12:38:20 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/27 18:51:46 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_point
 	double	y;
 	double	z;
 	int		color;
+	int		set;
 }				t_point;
 
 typedef struct s_window
@@ -70,7 +71,7 @@ void		plot_low(t_point **map, int i, int j, t_window *win);
 void		plot_map(t_point **map, char *filename, int r_nb, t_window *win);
 
 //colors.c
-int			set_color_p(t_point p, t_point **map, char *filename);
+int			set_color_p(t_point p, t_point **map, char *filename, int r_nb);
 void		color_rgb(t_window *win, int x, int y, int rgb);
 
 //plot_line.c
@@ -88,6 +89,7 @@ t_point		coord(int x, int y, int z);
 
 //parse_map2.c
 void		fill_map(t_point **map, char *filename);
+void		set_color_map(t_point **map, char *filename);
 void		free_tab(char **tab);
 
 //main.c

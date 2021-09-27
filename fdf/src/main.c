@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 16:08:26 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/27 02:01:24 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/27 18:59:14 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	draw(t_window *win, char *filename)
 	r_nb = row_nb(filename);
 	map = map_alloc(filename);
 	fill_map(map, filename);
+	set_color_map(map, filename);
 	map_to_iso(map, filename, r_nb);
 	resize_map(map, r_nb, filename);
 	plot_map(map, filename, r_nb, win);

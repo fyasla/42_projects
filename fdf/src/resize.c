@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 11:22:05 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/27 02:42:22 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/27 18:35:48 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,14 @@ t_point	p_min(t_point **map, int row_nb, char *filename)
 	int		i;
 	int		j;
 	t_point	p_min;
-	int		l_l;
+	(void)filename;
 
 	i = 0;
 	p_min = map[0][0];
 	while (i < row_nb)
 	{
 		j = 0;
-		l_l = line_length(i, filename);
-		while (j < l_l)
+		while (map[i][j].set == 1)
 		{
 			if (map[i][j].x < p_min.x)
 				p_min.x = map[i][j].x;
@@ -45,15 +44,14 @@ t_point	p_max(t_point **map, int row_nb, char *filename)
 	int		i;
 	int		j;
 	t_point	p_max;
-	int		l_l;
-
+	(void)filename;
+	
 	i = 0;
 	p_max = map[0][0];
 	while (i < row_nb)
 	{
 		j = 0;
-		l_l = line_length(i, filename);
-		while (j < l_l)
+		while (map[i][j].set == 1)
 		{
 			if (map[i][j].x > p_max.x)
 				p_max.x = map[i][j].x;
@@ -103,5 +101,8 @@ t_point	*resize_p(t_point p, t_point min, t_point max)
 	new->y = ((RESX - 100) * (p.y - min.y)) / (max.y - min.y) + 50;
 	new->z = p.z;
 	new->color = p.color;
+	new->set = p.set;
+	ft_putnbr_fd(new->z, 1);
+	ft_putstr_fd(" ", 1);
 	return (new);
 }

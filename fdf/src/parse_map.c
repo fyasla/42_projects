@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 14:08:39 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/27 02:18:41 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/27 13:28:49 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ t_point	**map_alloc(char *filename)
 		return (NULL);
 	while (i <= r_nb)
 	{
-		map[i] = malloc(sizeof(t_point) * line_length(i, filename));
+		map[i] = malloc(sizeof(t_point) * (line_length(i, filename) + 1));
 		if (!map[i])
 			return (NULL);
 		i++;
@@ -101,5 +101,6 @@ t_point	coord(int x, int y, int z)
 	p.x = (double)x;
 	p.y = (double)y;
 	p.z = (double)z;
+	p.set = 1;
 	return (p);
 }
