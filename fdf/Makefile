@@ -6,7 +6,7 @@
 #    By: faysal <faysal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/21 12:50:16 by fbougama          #+#    #+#              #
-#    Updated: 2021/09/23 14:09:09 by faysal           ###   ########.fr        #
+#    Updated: 2021/09/27 01:03:48 by faysal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,10 @@ NAME	=	fdf
 
 NAME_BONUS	=	
 			
-SRCS		= src/main.c src/plot_line.c src/colors.c src/parse_map.c#src/parsing.c src/plot_line.c src/conv_to_iso.c \
+SRCS		=	src/main.c src/plot_line.c src/colors.c src/parse_map.c \
+				src/parse_map2.c src/plot_map.c src/conv_to_iso.c \
+				src/resize.c \
+				#src/parsing.c src/plot_line.c src/conv_to_iso.c \
 				src/resize.c src/plot_map.c 
 
 SRCS_BONUS	=

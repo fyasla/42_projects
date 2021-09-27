@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 13:43:30 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/23 14:17:36 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/27 00:59:29 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ void	color_rgb(t_window *win, int x, int y, int rgb)
 
 int	color_z(int z)
 {
-	return (z);
+	(void)z;
+	return (0xffffff);
 }
