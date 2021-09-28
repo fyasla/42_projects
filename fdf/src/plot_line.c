@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 20:13:46 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/27 13:00:49 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/28 20:14:02 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	plot_line_low(t_point p0, t_point p1, t_window *window)
 	update_coordinates(&p, p0.x, p0.y, (2 * d.y) - d.x);
 	while (p.x <= p1.x)
 	{
-		color_rgb(window, p.x, p.y, p0.color);
+		rgb(window, p.x, p.y, c_g(p0.color, p1.color, (p.x - p0.x) / d.x));
 		if (p.z > 0)
 		{
 			p.y = p.y + yi;
@@ -65,7 +65,7 @@ void	plot_line_high(t_point p0, t_point p1, t_window *window)
 	update_coordinates(&p, p0.x, p0.y, (2 * d.x) - d.y);
 	while (p.y <= p1.y)
 	{
-		color_rgb(window, p.x, p.y, p0.color);
+		rgb(window, p.x, p.y, c_g(p0.color, p1.color, (p.y - p0.y) / d.y));
 		if (p.z > 0)
 		{
 			p.x = p.x + xi;

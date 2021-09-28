@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 18:14:32 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/27 18:34:51 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/28 20:15:32 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_point	p_to_iso(t_point p)
 	new.x = -(sqrt(0.66) * p.z * z_coef - (1 / sqrt(6)) * (p.x + p.y));
 	new.z = p.z;
 	new.color = p.color;
-	new.set = p.set;	
+	new.set = p.set;
 	return (new);
 }
 

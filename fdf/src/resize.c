@@ -6,18 +6,17 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 11:22:05 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/27 18:35:48 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/28 21:00:14 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fdf.h"
 
-t_point	p_min(t_point **map, int row_nb, char *filename)
+t_point	p_min(t_point **map, int row_nb)
 {
 	int		i;
 	int		j;
 	t_point	p_min;
-	(void)filename;
 
 	i = 0;
 	p_min = map[0][0];
@@ -39,13 +38,12 @@ t_point	p_min(t_point **map, int row_nb, char *filename)
 	return (p_min);
 }
 
-t_point	p_max(t_point **map, int row_nb, char *filename)
+t_point	p_max(t_point **map, int row_nb)
 {
 	int		i;
 	int		j;
 	t_point	p_max;
-	(void)filename;
-	
+
 	i = 0;
 	p_max = map[0][0];
 	while (i < row_nb)
@@ -75,8 +73,8 @@ void	resize_map(t_point **map, int row_nb, char *filename)
 	int		l_l;
 
 	i = 0;
-	min = p_min(map, row_nb, filename);
-	max = p_max(map, row_nb, filename);
+	min = p_min(map, row_nb);
+	max = p_max(map, row_nb);
 	while (i < row_nb)
 	{
 		j = 0;
@@ -102,7 +100,5 @@ t_point	*resize_p(t_point p, t_point min, t_point max)
 	new->z = p.z;
 	new->color = p.color;
 	new->set = p.set;
-	ft_putnbr_fd(new->z, 1);
-	ft_putstr_fd(" ", 1);
 	return (new);
 }

@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 12:06:31 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/22 14:03:11 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/28 21:02:21 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,11 @@ int	col_nb(char *filename)
 		line = 0;
 		ret = get_next_line(fd, &line);
 		split = ft_split(line, ' ');
-		if (n != word_nb(split) && word_nb(split) != 0){
+		if (n != word_nb(split) && word_nb(split) != 0)
+		{
 			perror("The map is not a rectangle");
-			return(-1);}
+			return (-1);
+		}
 	}
 	free(line);
 	if (close(fd) < 0)

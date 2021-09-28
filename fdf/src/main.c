@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 16:08:26 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/27 18:59:14 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/28 20:12:47 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,7 @@ void	draw(t_window *win, char *filename)
 {
 	t_point	**map;
 	int		r_nb;
-	// t_point	p0;
-	// t_point	p1;
-	// t_point	p2;
 
-	// p0.x = 20;
-	// p0.y = 300;
-	// p1.x = 500;
-	// p1.y = 50;
-	// p2.x = 0;
-	// p2.y = 0;
-	// plot_line(p0, p1, win);
-	// plot_line(p2, p1, win);
 	r_nb = row_nb(filename);
 	map = map_alloc(filename);
 	fill_map(map, filename);
@@ -45,7 +34,7 @@ void	win_init(t_window *w, char *filename)
 
 	bits_per_pixel = sizeof(unsigned int);
 	size_line = (RESX - 2 * MARGIN) * bits_per_pixel;
-	endian = 1;
+	endian = 0;
 	w->mlx_p = mlx_init();
 	w->w_p = mlx_new_window(w->mlx_p, RESX, RESY, "Mon titre");
 	w->img_p = mlx_new_image(w->mlx_p, RESX - 2 * MARGIN, RESY - 2 * MARGIN);

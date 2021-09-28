@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 14:46:19 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/27 18:59:47 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/28 20:45:53 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,12 @@
 
 void	fill_map(t_point **map, char *filename)
 {
-	int	i;
-	int	j;
-	char *line;
-	int	fd;
+	int		i;
+	int		j;
+	char	*line;
+	int		fd;
 	char	**split;
-	int ret;
-	(void)map;
+	int		ret;
 
 	fd = open(filename, O_RDONLY);
 	i = 0;
@@ -32,7 +31,6 @@ void	fill_map(t_point **map, char *filename)
 		while (split[j] != NULL)
 		{	
 			map[i][j] = coord(i, j, ft_atoi(split[j]));
-			//map[i][j].color = set_color_p(map[i][j], map, filename, r_nb);
 			j++;
 		}
 		map[i][j].set = 0;
@@ -40,14 +38,13 @@ void	fill_map(t_point **map, char *filename)
 		ret = get_next_line(fd, &line);
 		i++;
 	}
-		j = 0;
-		split = ft_split(line, ' ');
-		while (split[j] != NULL)
-		{	
-			map[i][j] = coord(i, j, ft_atoi(split[j]));
-		//	map[i][j].color = set_color_p(map[i][j], map, filename, r_nb);
-			j++;
-		}
+	j = 0;
+	split = ft_split(line, ' ');
+	while (split[j] != NULL)
+	{	
+		map[i][j] = coord(i, j, ft_atoi(split[j]));
+		j++;
+	}
 	i++;
 	map[i] = NULL;
 	free(line);
@@ -65,7 +62,7 @@ void	set_color_map(t_point **map, char *filename)
 	while (map[i] != NULL)
 	{
 		j = 0;
-		while (map[i][j].set ==1)
+		while (map[i][j].set == 1)
 		{
 			map[i][j].color = set_color_p(map[i][j], map, filename, r_nb);
 			j++;

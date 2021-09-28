@@ -6,34 +6,46 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 13:43:30 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/27 18:57:39 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/28 20:59:34 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fdf.h"
 
-void	color_rgb(t_window *win, int x, int y, int rgb)
+void	rgb(t_window *win, int x, int y, int rgb)
 {
-	win->img[x * (RESX - 2 * MARGIN) * 4 + y * 4] = (rgb >> 0);
+	win->img[x * (RESX - 2 * MARGIN) * 4 + y * 4] = rgb >> 0;
 	win->img[x * (RESX - 2 * MARGIN) * 4 + y * 4 + 1] = rgb >> 8;
-	win->img[x * (RESX - 2 * MARGIN) * 4 + y * 4 + 2] = (rgb >> 16);
+	win->img[x * (RESX - 2 * MARGIN) * 4 + y * 4 + 2] = rgb >> 16;
 }
 
 int	set_color_p(t_point p, t_point **map, char *filename, int r_nb)
 {
 	t_point	min;
 	t_point	max;
-	int 	color;
+	int		color;
+	double	pos;
 
-	min = p_min(map, r_nb, filename);
-	max = p_max(map, r_nb, filename);
-	color = 1000 + 1000 * (p.z - min.z) / (max.z - min.z);
-	ft_putnbr_fd(1, p.z);
-	ft_putstr_fd(" ", 1);
-	(void)map;
-	(void)filename;
-	(void)p;
-	//(void)r_nb;
-	//color = 0xffffff;
+	min = p_min(map, r_nb);
+	max = p_max(map, r_nb);
+	pos = 0;
+	if (max.z > min.z)
+		pos = (p.z - min.z) / (max.z - min.z);
+	color = c_g(COL1, COL2, pos);
 	return (color);
+}
+
+int	c_g(int c1, int c2, double p)
+{
+	int	c;
+	int	red;
+	int	g;
+	int	blue;
+
+	red = c1 / 0x010000 + (c2 / 0x010000 - c1 / 0x010000) * p;
+	g = (c1 % 0x010000) / 0x000100;
+	g = g + ((c2 % 0x010000) / 0x000100 - (c1 % 0x010000) / 0x000100) * p;
+	blue = c1 % 0x000100 + (c2 % 0x000100 - c1 % 0x000100 ) * p;
+	c = red * 0x010000 + g * 0x000100 + blue;
+	return (c);
 }
