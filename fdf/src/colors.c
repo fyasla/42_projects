@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 13:43:30 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/28 20:59:34 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/28 21:04:15 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	rgb(t_window *win, int x, int y, int rgb)
 	win->img[x * (RESX - 2 * MARGIN) * 4 + y * 4 + 2] = rgb >> 16;
 }
 
-int	set_color_p(t_point p, t_point **map, char *filename, int r_nb)
+int	set_color_p(t_point p, t_point **map, int r_nb)
 {
 	t_point	min;
 	t_point	max;

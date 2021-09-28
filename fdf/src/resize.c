@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 11:22:05 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/28 21:00:14 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/28 21:07:09 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,24 +81,21 @@ void	resize_map(t_point **map, int row_nb, char *filename)
 		l_l = line_length(i, filename);
 		while (j < l_l)
 		{
-			map[i][j] = *resize_p(map[i][j], min, max);
+			map[i][j] = resize_p(map[i][j], min, max);
 			j++;
 		}
 		i++;
 	}
 }
 
-t_point	*resize_p(t_point p, t_point min, t_point max)
+t_point	resize_p(t_point p, t_point min, t_point max)
 {
-	t_point	*new;
+	t_point	new;
 
-	new = malloc(sizeof(t_point));
-	if (!new)
-		return (NULL);
-	new->x = ((RESY - 100) * (p.x - min.x)) / (max.x - min.x) + 50;
-	new->y = ((RESX - 100) * (p.y - min.y)) / (max.y - min.y) + 50;
-	new->z = p.z;
-	new->color = p.color;
-	new->set = p.set;
+	new.x = ((RESY - 100) * (p.x - min.x)) / (max.x - min.x) + 50;
+	new.y = ((RESX - 100) * (p.y - min.y)) / (max.y - min.y) + 50;
+	new.z = p.z;
+	new.color = p.color;
+	new.set = p.set;
 	return (new);
 }

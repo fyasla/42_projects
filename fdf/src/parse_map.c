@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 14:08:39 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/27 13:28:49 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/29 00:35:42 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	line_length(int i, char *filename)
 	n = count_words(split);
 	close(fd);
 	free(line);
-	free_tab(split);
+	free_tab((void **)split);
 	return (n);
 }
 
@@ -84,7 +84,7 @@ t_point	**map_alloc(char *filename)
 	map = malloc(sizeof(t_point *) * (r_nb + 1));
 	if (!map)
 		return (NULL);
-	while (i <= r_nb)
+	while (i < r_nb)
 	{
 		map[i] = malloc(sizeof(t_point) * (line_length(i, filename) + 1));
 		if (!map[i])

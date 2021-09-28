@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 16:08:40 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/28 20:59:19 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/29 00:34:49 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void		map_to_iso(t_point **map, char *filename, int r_nb);
 t_point		p_min(t_point **map, int row_nb);
 t_point		p_max(t_point **map, int row_nb);
 void		resize_map(t_point **map, int row_nb, char *filename);
-t_point		*resize_p(t_point p, t_point min, t_point max);
+t_point		resize_p(t_point p, t_point min, t_point max);
 
 //plot_map.c
 void		plot_right(t_point **map, int i, int j, t_window *win);
@@ -61,7 +61,7 @@ void		plot_low(t_point **map, int i, int j, t_window *win);
 void		plot_map(t_point **map, char *filename, int r_nb, t_window *win);
 
 //colors.c
-int			set_color_p(t_point p, t_point **map, char *filename, int r_nb);
+int			set_color_p(t_point p, t_point **map, int r_nb);
 void		rgb(t_window *win, int x, int y, int rgb);
 int			c_g(int color1, int color2, double pos);
 
@@ -81,11 +81,19 @@ t_point		coord(int x, int y, int z);
 //parse_map2.c
 void		fill_map(t_point **map, char *filename);
 void		set_color_map(t_point **map, char *filename);
-void		free_tab(char **tab);
+void		free_tab(void **tab);
+void		free_map(t_point **map);
 
 //main.c
-void		draw(t_window *win, char *filename);
-void		win_init(t_window *win, char *filename);
+t_point		**draw(t_window *win, char *filename);
+t_point		**win_init(t_window *win, char *filename);
 int			main(int ac, char **av);
 
+//events.c
+void		handle_events(t_window *win, t_point **map);
+int			close2(t_point **map);
+int			key_press(int key, void *param);
+
 #endif
+
+#include <stdio.h>
