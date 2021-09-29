@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 18:14:32 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/28 20:15:32 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/29 13:45:47 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,10 @@ void	map_to_iso(t_point **map, char *filename, int r_nb)
 		}
 		i++;
 	}
+}
+
+void	tab_line_free(char *line, char **split)
+{
+	free(line);
+	free_tab((void **)split);
 }

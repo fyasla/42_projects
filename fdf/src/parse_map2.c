@@ -6,60 +6,45 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 14:46:19 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/29 00:34:32 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/29 21:10:20 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fdf.h"
 
-void	fill_map(t_point **map, char *filename)
+void	fill_map(t_point **map, char *filename, int r_nb)
 {
-	int		i;
-	int		j;
+	t_inc	p;
 	char	*line;
 	int		fd;
 	char	**split;
-	int		ret;
 
 	fd = open(filename, O_RDONLY);
-	i = 0;
-	ret = get_next_line(fd, &line);
-	while (ret > 0)
+	if (fd < 0)
+		open_error();
+	p.i = 0;
+	while (p.i < r_nb)
 	{
-		j = 0;
-		split = ft_split(line, ' ');
-		while (split[j] != NULL)
-		{	
-			map[i][j] = coord(i, j, ft_atoi(split[j]));
-			j++;
+		get_next_line(fd, &line);
+		while (ft_strlen(line) == 0)
+		{
+			free(line);
+			get_next_line(fd, &line);
 		}
-		map[i][j].set = 0;
-		free(line);
-		ret = get_next_line(fd, &line);
-		free_tab((void **)split);
-		i++;
+		split = ft_split(line, ' ');
+		split_loop(&(p.i), &(p.j), &split, map);
+		tab_line_free(line, split);
+		p.i++;
 	}
-	j = 0;
-	split = ft_split(line, ' ');
-	while (split[j] != NULL)
-	{	
-		map[i][j] = coord(i, j, ft_atoi(split[j]));
-		j++;
-	}
-	i++;
-	map[i] = NULL;
-	free(line);
-	free_tab((void **)split);
+	map[p.i][0].set = -1;
 	close(fd);
 }
 
-void	set_color_map(t_point **map, char *filename)
+void	set_color_map(t_point **map, int r_nb)
 {
 	int	i;
 	int	j;
-	int	r_nb;
-
-	r_nb = row_nb(filename);
+	
 	i = 0;
 	while (map[i] != NULL)
 	{
@@ -84,7 +69,8 @@ void	free_tab(void **tab)
 		i++;
 	}
 	free(tab[i]);
-	free(tab);
+	if (tab)
+		free(tab);
 }
 
 void	free_map(t_point **map)
@@ -92,11 +78,28 @@ void	free_map(t_point **map)
 	int	i;
 
 	i = 0;
-	while (map[i])
+	while (map[i][0].set > 0)
 	{
 		free(map[i]);
 		i++;
 	}
 	free(map[i]);
-	free(map);
+	if (map)
+		free(map);
+}
+
+void	split_loop(int *i, int *j, char ***split, t_point **map)
+{
+	if (!(*split))
+	{
+		free_tab((void **)split);
+		close2(map);
+	}
+	*j = 0;
+	while ((*split)[*j] != NULL)
+	{
+		map[*i][*j] = coord(*i, *j, ft_atoi((*split)[*j]));
+		(*j)++;
+	}
+	map[*i][*j].set = 0;
 }

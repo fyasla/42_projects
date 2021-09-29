@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 16:08:40 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/29 00:34:49 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/29 19:39:01 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <math.h>
+# include <stdio.h>
 
 typedef struct s_point
 {
@@ -36,6 +37,12 @@ typedef struct s_point
 	int		color;
 	int		set;
 }				t_point;
+
+typedef struct s_inc
+{
+	int	i;
+	int	j;
+}				t_inc;
 
 typedef struct s_window
 {
@@ -48,6 +55,7 @@ typedef struct s_window
 //conv_to_iso.c
 t_point		p_to_iso(t_point p);
 void		map_to_iso(t_point **map, char *filename, int r_nb);
+void		tab_line_free(char *line, char **split);
 
 //resize.c
 t_point		p_min(t_point **map, int row_nb);
@@ -75,14 +83,15 @@ void		plot_line(t_point p0, t_point p1, t_window *window);
 int			row_nb(char *filename);
 int			count_words(char **tab);
 int			line_length(int i, char *filename);
-t_point		**map_alloc(char *filename);
+t_point		**map_alloc(char *filename, int r_nb);
 t_point		coord(int x, int y, int z);
 
 //parse_map2.c
-void		fill_map(t_point **map, char *filename);
-void		set_color_map(t_point **map, char *filename);
+void		fill_map(t_point **map, char *filename, int r_nb);
+void		set_color_map(t_point **map, int r_nb);
 void		free_tab(void **tab);
 void		free_map(t_point **map);
+void		split_loop(int *i,int *j, char ***split, t_point **map);
 
 //main.c
 t_point		**draw(t_window *win, char *filename);
@@ -92,8 +101,8 @@ int			main(int ac, char **av);
 //events.c
 void		handle_events(t_window *win, t_point **map);
 int			close2(t_point **map);
+int			close3(char **split);
 int			key_press(int key, void *param);
+void		open_error(void);
 
 #endif
-
-#include <stdio.h>
