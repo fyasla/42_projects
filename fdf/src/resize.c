@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 11:22:05 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/29 21:38:44 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/30 01:20:27 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ t_point	p_max(t_point **map, int row_nb)
 	return (p_max);
 }
 
-void	resize_map(t_point **map, int row_nb, char *filename)
+void	resize_map(t_point **map, int row_nb, int *lls)
 {
 	int		i;
 	int		j;
@@ -78,7 +78,7 @@ void	resize_map(t_point **map, int row_nb, char *filename)
 	while (i < row_nb)
 	{
 		j = 0;
-		l_l = line_length(i, filename, row_nb);
+		l_l = lls[i];
 		while (j < l_l)
 		{
 			map[i][j] = resize_p(map[i][j], min, max);

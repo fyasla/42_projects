@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 14:08:39 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/29 21:32:11 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/30 01:45:46 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,35 +49,36 @@ int	count_words(char **tab)
 	return (i);
 }
 
-int	line_length(int i, char *filename, int r_nb)
+int	*line_lengths(char *filename, int r_nb)
 {
+	int		*tab;
 	int		fd;
 	char	*line;
 	char	**split;
-	int		n;
+	int		i;
 
-	n = 0;
+	tab = malloc(r_nb * sizeof(int));
+	i = 0;
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 		open_error();
 	get_next_line_protect(&fd, &line);
-	while (n < r_nb && n < i)
+	while (i < r_nb)
 	{
-		free(line);
-		line = 0;
+		split = ft_split(line, ' ');
+		if (!split)
+			close3(split);
+		tab[i] = count_words(split);
+		tab_line_free(line, split);
 		get_next_line_protect(&fd, &line);
-		n++;
+		i++;
 	}
-	split = ft_split(line, ' ');
-	if (!split)
-		close3(split);
-	n = count_words(split);
+	free(line);
 	close(fd);
-	tab_line_free(line, split);
-	return (n);
+	return (tab);
 }
 
-t_point	**map_alloc(char *filename, int r_nb)
+t_point	**map_alloc(int r_nb, int *lls)
 {
 	t_point	**map;
 	int		i;
@@ -89,7 +90,7 @@ t_point	**map_alloc(char *filename, int r_nb)
 		return (NULL);
 	while (i < r_nb)
 	{
-		l_l = line_length(i, filename, r_nb);
+		l_l = lls[i];
 		map[i] = malloc(sizeof(t_point) * (l_l + 1));
 		if (!map[i])
 			return (NULL);
