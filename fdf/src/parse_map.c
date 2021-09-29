@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 14:08:39 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/29 21:25:29 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/29 21:32:11 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int	row_nb(char *filename)
 		n++;
 	free(line);
 	close(fd);
-	printf("%d\n", n);
 	return (n);
 }
 
@@ -61,22 +60,12 @@ int	line_length(int i, char *filename, int r_nb)
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 		open_error();
-	get_next_line(fd, &line);
-	while (ft_strlen(line) == 0)
-	{
-		free(line);
-		get_next_line(fd, &line);
-	}
+	get_next_line_protect(&fd, &line);
 	while (n < r_nb && n < i)
 	{
 		free(line);
 		line = 0;
-		get_next_line(fd, &line);
-		while (ft_strlen(line) == 0)
-		{
-			get_next_line(fd, &line);
-			free(line);
-		}
+		get_next_line_protect(&fd, &line);
 		n++;
 	}
 	split = ft_split(line, ' ');

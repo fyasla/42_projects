@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 18:14:32 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/29 21:21:33 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/29 21:30:52 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,12 @@ void	tab_line_free(char *line, char **split)
 	free_tab((void **)split);
 }
 
-void	get_next_line_protect(int *fd, char **line, int *ret)
+void	get_next_line_protect(int *fd, char **line)
 {
-	*ret = get_next_line(*fd, line);
-	while (*ret >= 0 && ft_strlen(*line) == 0)
+	get_next_line(*fd, line);
+	while (ft_strlen(*line) == 0)
 	{
 		free(*line);
-		*ret = get_next_line(*fd, line);
+		get_next_line(*fd, line);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 16:08:40 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/29 21:21:52 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/29 21:30:23 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ typedef struct s_window
 t_point		p_to_iso(t_point p);
 void		map_to_iso(t_point **map, char *filename, int r_nb);
 void		tab_line_free(char *line, char **split);
-void		get_next_line_protect(int *fd, char **line, int *ret);
+void		get_next_line_protect(int *fd, char **line);
 
 //resize.c
 t_point		p_min(t_point **map, int row_nb);
