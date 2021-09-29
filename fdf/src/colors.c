@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 13:43:30 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/28 21:04:15 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/29 21:41:02 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	rgb(t_window *win, int x, int y, int rgb)
 {
-	win->img[x * (RESX - 2 * MARGIN) * 4 + y * 4] = rgb >> 0;
-	win->img[x * (RESX - 2 * MARGIN) * 4 + y * 4 + 1] = rgb >> 8;
-	win->img[x * (RESX - 2 * MARGIN) * 4 + y * 4 + 2] = rgb >> 16;
+	win->img[x * (1300) * 4 + y * 4] = rgb >> 0;
+	win->img[x * (1300) * 4 + y * 4 + 1] = rgb >> 8;
+	win->img[x * (1300) * 4 + y * 4 + 2] = rgb >> 16;
 }
 
 int	set_color_p(t_point p, t_point **map, int r_nb)
@@ -31,7 +31,7 @@ int	set_color_p(t_point p, t_point **map, int r_nb)
 	pos = 0;
 	if (max.z > min.z)
 		pos = (p.z - min.z) / (max.z - min.z);
-	color = c_g(COL1, COL2, pos);
+	color = c_g(0x001337, 0xbeeef3, pos);
 	return (color);
 }
 

@@ -6,18 +6,12 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 16:08:40 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/29 21:30:23 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/29 21:40:53 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
-
-# define RESX 	1300
-# define RESY 	700
-# define COL1	0x001337
-# define COL2	0xbeeef3
-# define MARGIN	0
 
 # include "mlx.h"
 # include "../lib/libft/libft.h"

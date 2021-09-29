@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 16:08:26 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/29 19:38:43 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/29 21:37:19 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ t_point	**win_init(t_window *w, char *filename)
 	t_point	**map;
 
 	bits_per_pixel = sizeof(unsigned int);
-	size_line = (RESX - 2 * MARGIN) * bits_per_pixel;
+	size_line = 1300 * bits_per_pixel;
 	endian = 0;
 	w->mlx_p = mlx_init();
-	w->w_p = mlx_new_window(w->mlx_p, RESX, RESY, "Mon titre");
-	w->img_p = mlx_new_image(w->mlx_p, RESX - 2 * MARGIN, RESY - 2 * MARGIN);
+	w->w_p = mlx_new_window(w->mlx_p, 1300, 700, "Mon titre");
+	w->img_p = mlx_new_image(w->mlx_p, 1300, 700);
 	w->img = mlx_get_data_addr(w->img_p, &bits_per_pixel, &size_line, &endian);
 	map = draw(w, filename);
-	mlx_put_image_to_window (w->mlx_p, w->w_p, w->img_p, MARGIN, MARGIN);
+	mlx_put_image_to_window (w->mlx_p, w->w_p, w->img_p, 0, 0);
 	return (map);
 }
 

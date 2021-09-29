@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 11:22:05 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/29 21:23:33 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/29 21:38:44 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,8 @@ t_point	resize_p(t_point p, t_point min, t_point max)
 {
 	t_point	new;
 
-	new.x = ((RESY - 100) * (p.x - min.x)) / (max.x - min.x) + 50;
-	new.y = ((RESX - 100) * (p.y - min.y)) / (max.y - min.y) + 50;
+	new.x = ((700 - 100) * (p.x - min.x)) / (max.x - min.x) + 50;
+	new.y = ((1300 - 100) * (p.y - min.y)) / (max.y - min.y) + 50;
 	new.z = p.z;
 	new.color = p.color;
 	new.set = p.set;
