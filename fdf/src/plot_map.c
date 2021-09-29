@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:20:30 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/28 20:15:49 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/29 21:23:09 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@ void	plot_map(t_point **map, char *filename, int r_nb, t_window *win)
 	int	l_l1;
 
 	i = 0;
-	l_l1 = line_length(0, filename);
+	l_l1 = line_length(0, filename, r_nb);
 	while (i < r_nb)
 	{
 		j = 0;
 		l_l = l_l1;
 		if (i < r_nb - 1)
-			l_l1 = line_length(i + 1, filename);
+			l_l1 = line_length(i + 1, filename, r_nb);
 		while (j < l_l)
 		{
 			if (j < l_l - 1)

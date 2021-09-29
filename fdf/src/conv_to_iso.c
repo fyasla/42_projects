@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 18:14:32 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/29 13:45:47 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/29 21:21:33 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	map_to_iso(t_point **map, char *filename, int r_nb)
 	while (i < r_nb)
 	{
 		j = 0;
-		l_l = line_length(i, filename);
+		l_l = line_length(i, filename, r_nb);
 		while (j < l_l)
 		{
 			map[i][j] = p_to_iso(map[i][j]);
@@ -50,4 +50,14 @@ void	tab_line_free(char *line, char **split)
 {
 	free(line);
 	free_tab((void **)split);
+}
+
+void	get_next_line_protect(int *fd, char **line, int *ret)
+{
+	*ret = get_next_line(*fd, line);
+	while (*ret >= 0 && ft_strlen(*line) == 0)
+	{
+		free(*line);
+		*ret = get_next_line(*fd, line);
+	}
 }

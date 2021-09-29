@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 14:08:39 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/29 21:06:13 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/29 21:25:29 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int	row_nb(char *filename)
 		n++;
 	free(line);
 	close(fd);
+	printf("%d\n", n);
 	return (n);
 }
 
@@ -49,10 +50,9 @@ int	count_words(char **tab)
 	return (i);
 }
 
-int	line_length(int i, char *filename)
+int	line_length(int i, char *filename, int r_nb)
 {
 	int		fd;
-	int		ret;
 	char	*line;
 	char	**split;
 	int		n;
@@ -61,20 +61,20 @@ int	line_length(int i, char *filename)
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 		open_error();
-	ret = get_next_line(fd, &line);
+	get_next_line(fd, &line);
 	while (ft_strlen(line) == 0)
 	{
 		free(line);
-		ret = get_next_line(fd, &line);
+		get_next_line(fd, &line);
 	}
-	while (ret > 0 && n < i)
+	while (n < r_nb && n < i)
 	{
 		free(line);
 		line = 0;
-		ret = get_next_line(fd, &line);
+		get_next_line(fd, &line);
 		while (ft_strlen(line) == 0)
 		{
-			ret = get_next_line(fd, &line);
+			get_next_line(fd, &line);
 			free(line);
 		}
 		n++;
@@ -100,7 +100,7 @@ t_point	**map_alloc(char *filename, int r_nb)
 		return (NULL);
 	while (i < r_nb)
 	{
-		l_l = line_length(i, filename);
+		l_l = line_length(i, filename, r_nb);
 		map[i] = malloc(sizeof(t_point) * (l_l + 1));
 		if (!map[i])
 			return (NULL);
@@ -108,7 +108,7 @@ t_point	**map_alloc(char *filename, int r_nb)
 	}
 	map[i] = malloc(sizeof(t_point));
 	if (!map[i])
-			return (NULL);
+		return (NULL);
 	return (map);
 }
 

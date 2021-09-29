@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 14:46:19 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/29 21:10:20 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/29 21:26:30 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ void	set_color_map(t_point **map, int r_nb)
 {
 	int	i;
 	int	j;
-	
+
 	i = 0;
-	while (map[i] != NULL)
+	while (map[i][0].set > 0)
 	{
 		j = 0;
 		while (map[i][j].set == 1)

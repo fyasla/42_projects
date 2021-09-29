@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 16:08:40 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/29 19:39:01 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/29 21:21:52 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct s_window
 t_point		p_to_iso(t_point p);
 void		map_to_iso(t_point **map, char *filename, int r_nb);
 void		tab_line_free(char *line, char **split);
+void		get_next_line_protect(int *fd, char **line, int *ret);
 
 //resize.c
 t_point		p_min(t_point **map, int row_nb);
@@ -82,7 +83,7 @@ void		plot_line(t_point p0, t_point p1, t_window *window);
 //parse_map.c
 int			row_nb(char *filename);
 int			count_words(char **tab);
-int			line_length(int i, char *filename);
+int			line_length(int i, char *filename, int r_nb);
 t_point		**map_alloc(char *filename, int r_nb);
 t_point		coord(int x, int y, int z);
 
@@ -91,7 +92,7 @@ void		fill_map(t_point **map, char *filename, int r_nb);
 void		set_color_map(t_point **map, int r_nb);
 void		free_tab(void **tab);
 void		free_map(t_point **map);
-void		split_loop(int *i,int *j, char ***split, t_point **map);
+void		split_loop(int *i, int *j, char ***split, t_point **map);
 
 //main.c
 t_point		**draw(t_window *win, char *filename);
