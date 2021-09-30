@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 14:08:39 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/30 14:57:51 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/30 20:27:05 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	row_nb(char *filename)
 	int		n;
 
 	fd = open(filename, O_RDONLY);
-	if (fd < 0)
+	if (fd < 0 || read(fd, line, 0) < 0)
 		open_error();
 	n = 0;
 	ret = get_next_line(fd, &line);
@@ -60,7 +60,7 @@ int	*line_lengths(char *filename, int r_nb)
 	tab = malloc(r_nb * sizeof(int));
 	i = 0;
 	fd = open(filename, O_RDONLY);
-	if (fd < 0)
+	if (fd < 0 || read(fd, line, 0) < 0)
 		open_error();
 	get_next_line_protect(&fd, &line);
 	while (i < r_nb)

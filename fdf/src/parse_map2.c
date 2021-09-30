@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 14:46:19 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/30 14:57:39 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/30 20:27:13 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	fill_map(t_point **map, char *filename, int r_nb)
 	char	**split;
 
 	fd = open(filename, O_RDONLY);
-	if (fd < 0)
+	if (fd < 0 || read(fd, line, 0) < 0)
 		open_error();
 	p.i = 0;
 	while (p.i < r_nb)
