@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 16:08:26 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/30 01:25:14 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/30 10:50:18 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,10 @@ int	main(int ac, char **av)
 
 	(void)av;
 	if (ac != 2)
+	{
+		write(1, "The program takes exactly one argument.\n", 40);
 		return (0);
+	}
 	map = win_init(&win, av[1]);
 	handle_events(&win, map);
 	mlx_loop(win.mlx_p);

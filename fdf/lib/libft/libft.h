@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 12:15:14 by fbougama          #+#    #+#             */
-/*   Updated: 2021/09/02 17:07:33 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/30 15:30:21 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }				t_list;
+
+typedef struct s_inc_couple
+{
+	int	i;
+	int	j;
+}				t_inc_couple;
 
 void			*ft_memset(void *b, int c, size_t len);
 void			ft_bzero(void *s, size_t n);

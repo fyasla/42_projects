@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 11:28:48 by fbougama          #+#    #+#             */
-/*   Updated: 2021/09/22 01:43:16 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/30 14:54:48 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
+#  define BUFFER_SIZE 2
 # endif
 
 size_t	ft_sl(char const *str);
@@ -28,6 +28,6 @@ char	*ft_strjoin2(char const *s1, char const *s2);
 int		ft_p(char *str);
 int		ft_free(char **line, char **buffer);
 int		get_next_line(int fd, char **line);
-void	rd_buff(char **buff, int *rd, int fd);
+void	rd_buff(char **buff, int *rd, int *fd);
 
 #endif

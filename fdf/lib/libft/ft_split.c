@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 18:58:09 by fbougama          #+#    #+#             */
-/*   Updated: 2021/09/22 01:52:51 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/30 15:30:32 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,28 +76,27 @@ char	**ft_split(char const *s, char c)
 {
 	char			**tab;
 	unsigned int	n;
-	int				i;
-	int				j;
+	t_inc_couple	p;
 
-	j = 0;
-	i = 0;
+	p.j = 0;
+	p.i = 0;
 	tab = malloc((ft_cpt_words(s, c) + 1) * sizeof(char *));
 	if (s == NULL || !tab)
 		return (NULL);
-	while (s[i])
+	while (s[p.i])
 	{
-		while (s[i] == c)
-			i++;
-		if (s[i] && s[i] != c)
+		while (s[p.i] == c)
+			p.i++;
+		if (s[p.i] && s[p.i] != c)
 		{
-			n = ft_strclen(s + i, c);
-			tab[j] = (char *)ft_strcdup(s + i, c);
-			if (!tab[j])
+			n = ft_strclen(s + p.i, c);
+			tab[p.j] = (char *)ft_strcdup(s + p.i, c);
+			if (!tab[p.j])
 				return (freebuffs(tab));
-			i += n;
-			j++;
+			p.i += n;
+			p.j++;
 		}
 	}
-	tab[j] = NULL;
+	tab[p.j] = NULL;
 	return (tab);
 }

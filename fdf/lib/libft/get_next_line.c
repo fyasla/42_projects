@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 11:26:55 by fbougama          #+#    #+#             */
-/*   Updated: 2021/09/02 18:18:57 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/30 14:55:52 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int	get_next_line(int fd, char **line)
 		buff = malloc(BUFFER_SIZE + 1);
 		if (!buff)
 			return (ft_free(line, &buff));
-		rd_buff(&buff, &rd, fd);
+		rd_buff(&buff, &rd, &fd);
 		if (rd == -1)
 			return (ft_free(line, &buff));
 		else if (rd == 0)

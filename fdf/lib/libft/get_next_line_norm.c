@@ -6,14 +6,14 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 18:11:58 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/22 01:01:07 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/30 12:20:36 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void	rd_buff(char **buff, int *rd, int fd)
+void	rd_buff(char **buff, int *rd, int *fd)
 {
 	*buff = ft_bzero2(*buff, BUFFER_SIZE + 1);
-	*rd = read(fd, *buff, BUFFER_SIZE);
+	*rd = read(*fd, *buff, BUFFER_SIZE);
 }

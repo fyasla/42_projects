@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 22:20:48 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/30 01:41:15 by faysal           ###   ########.fr       */
+/*   Updated: 2021/09/30 10:50:43 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,6 @@ int	key_press(int key, void *param)
 
 void	open_error(void)
 {
-	perror("Open: ");
+	perror("Open");
 	exit(0);
 }
