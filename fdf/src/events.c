@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 22:20:48 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/30 10:50:43 by faysal           ###   ########.fr       */
+/*   Updated: 2021/10/03 20:16:50 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,14 @@ void	handle_events(t_window *win, t_point **map)
 
 int	close2(t_point **map)
 {
+	t_window	w;
+
+	w = map[0][0].win;
 	free_map(map);
+	mlx_destroy_image(w.mlx_p, w.img_p);
+	mlx_destroy_window(w.mlx_p, w.w_p);
+	mlx_destroy_display(w.mlx_p);
+	free(w.mlx_p);
 	exit(0);
 }
 

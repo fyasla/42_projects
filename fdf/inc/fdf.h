@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 16:08:40 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/30 01:43:54 by faysal           ###   ########.fr       */
+/*   Updated: 2021/10/03 20:10:20 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,6 @@
 # include <math.h>
 # include <stdio.h>
 
-typedef struct s_point
-{
-	double	x;
-	double	y;
-	double	z;
-	int		color;
-	int		set;
-}				t_point;
-
 typedef struct s_inc
 {
 	int	i;
@@ -45,6 +36,16 @@ typedef struct s_window
 	void	*img_p;
 	char	*img;
 }				t_window;
+
+typedef struct s_point
+{
+	double		x;
+	double		y;
+	double		z;
+	int			color;
+	int			set;
+	t_window	win;
+}				t_point;
 
 //conv_to_iso.c
 t_point		p_to_iso(t_point p);
