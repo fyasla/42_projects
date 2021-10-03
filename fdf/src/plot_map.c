@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:20:30 by faysal            #+#    #+#             */
-/*   Updated: 2021/10/03 20:09:35 by faysal           ###   ########.fr       */
+/*   Updated: 2021/10/03 20:28:37 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,10 @@ void	plot_map(t_point **map, int r_nb, t_window *win, int *lls)
 		i++;
 	}
 	free(lls);
+}
+
+void	free_close(int fd, char *line)
+{
+	free(line);
+	close(fd);
 }

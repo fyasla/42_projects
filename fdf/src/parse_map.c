@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 14:08:39 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/30 20:27:05 by faysal           ###   ########.fr       */
+/*   Updated: 2021/10/03 20:29:19 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,11 @@ int	*line_lengths(char *filename, int r_nb)
 			close3(split);
 		tab[i] = count_words(split);
 		tab_line_free(line, split);
+		free(line);
 		get_next_line_protect(&fd, &line);
 		i++;
 	}
-	free(line);
-	close(fd);
+	free_close(fd, line);
 	return (tab);
 }
 

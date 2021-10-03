@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 14:46:19 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/30 20:27:13 by faysal           ###   ########.fr       */
+/*   Updated: 2021/10/03 20:23:05 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	fill_map(t_point **map, char *filename, int r_nb)
 		split = ft_split(line, ' ');
 		split_loop(&(p.i), &(p.j), &split, map);
 		tab_line_free(line, split);
+		free(line);
 		p.i++;
 	}
 	map[p.i][0].set = -1;

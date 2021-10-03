@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 16:08:40 by faysal            #+#    #+#             */
-/*   Updated: 2021/10/03 20:10:20 by faysal           ###   ########.fr       */
+/*   Updated: 2021/10/03 20:29:05 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ t_point		resize_p(t_point p, t_point min, t_point max);
 void		plot_right(t_point **map, int i, int j, t_window *win);
 void		plot_low(t_point **map, int i, int j, t_window *win);
 void		plot_map(t_point **map, int r_nb, t_window *win, int *lls);
+void		free_close(int fd, char *line);
 
 //colors.c
 int			set_color_p(t_point p, t_point **map, int r_nb);
