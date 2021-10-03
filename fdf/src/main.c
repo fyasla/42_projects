@@ -6,7 +6,7 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 16:08:26 by faysal            #+#    #+#             */
-/*   Updated: 2021/09/30 10:50:18 by faysal           ###   ########.fr       */
+/*   Updated: 2021/10/03 20:44:53 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,14 @@ int	main(int ac, char **av)
 {
 	t_window	win;
 	t_point		**map;
+	int			ret;
 
 	(void)av;
 	if (ac != 2)
 	{
-		write(1, "The program takes exactly one argument.\n", 40);
+		ret = write(1, "The program takes exactly one argument.\n", 40);
+		if (ret < 0)
+			return (0);
 		return (0);
 	}
 	map = win_init(&win, av[1]);
