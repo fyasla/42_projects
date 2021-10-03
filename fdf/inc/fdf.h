@@ -6,14 +6,14 @@
 /*   By: faysal <faysal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 16:08:40 by faysal            #+#    #+#             */
-/*   Updated: 2021/10/03 20:29:05 by faysal           ###   ########.fr       */
+/*   Updated: 2021/10/03 20:41:43 by faysal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-# include "mlx.h"
+# include "../minilibx/mlx.h"
 # include "../lib/libft/libft.h"
 # include <sys/types.h>
 # include <sys/stat.h>
